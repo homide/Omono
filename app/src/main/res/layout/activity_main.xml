@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8ff"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/searchText1"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:autofillHints=""
+        android:background="@drawable/custom_search_bar"
+        android:drawableStart="@drawable/ic_action_search"
+        android:drawableLeft="@drawable/ic_action_search"
+        android:ems="10"
+        android:hint="Search here....."
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <Button
+        android:id="@+id/btnSearch1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.366" />
+
+    <ImageButton
+        android:id="@+id/am_btn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:onClick="shopcluesButton"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/snap_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/flip_btn"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch1"
+        app:layout_constraintVertical_bias="0.887"
+        app:srcCompat="@drawable/shpcls_logo" />
+
+    <ImageButton
+        android:id="@+id/flip_btn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:onClick="flipkartButton"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/am_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch1"
+        app:layout_constraintVertical_bias="0.887"
+        app:srcCompat="@drawable/flipkart_logo" />
+
+    <ImageButton
+        android:id="@+id/snap_btn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:onClick="snapdealButton"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pytm_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/am_btn"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch1"
+        app:layout_constraintVertical_bias="0.887"
+        app:srcCompat="@drawable/snapdeal_logo" />
+
+    <ImageButton
+        android:id="@+id/pytm_btn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:onClick="paytmButton"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/snap_btn"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch1"
+        app:layout_constraintVertical_bias="0.896"
+        app:srcCompat="@drawable/pytmll_logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Currently Searching On....."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch1"
+        app:layout_constraintVertical_bias="0.609" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="313dp"
+        android:layout_height="258dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toTopOf="@+id/searchText1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@drawable/traceimage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
