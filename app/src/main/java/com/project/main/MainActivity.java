@@ -515,6 +515,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //just a test commit
+
     private class Snapdeal extends AsyncTask<String, Void, ArrayList<String>> {
         ArrayList<String> temptitlestore = new ArrayList<>();
         ArrayList<String> tempurlstore = new ArrayList<>();
