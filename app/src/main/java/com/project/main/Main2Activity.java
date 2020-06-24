@@ -166,7 +166,7 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },1000);
+                    },4000);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -183,7 +183,7 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },1500);
+                    },4000);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -200,7 +200,7 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },2000);
+                    },4000);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -217,7 +217,7 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },2500);
+                    },4000);
                     listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

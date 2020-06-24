@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },1000);
+                    },4000);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },1500);
+                    },4000);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },2000);
+                    },4000);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },2500);
+                    },4000);
 
 
                     new Handler().postDelayed(new Runnable() {
