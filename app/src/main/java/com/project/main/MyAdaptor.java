@@ -50,22 +50,6 @@ public class MyAdaptor extends ArrayAdapter<String> {
         }
         aboutproductdisplay.setText(aboutproduct.get(position));
         producttitleshow.setText(producttitle.get(position));
-        if(position == 0){
-            producttitleshow.setTextSize(30);
-            producttitleshow.setGravity(20);
-        }
-        if(position == 7){
-            producttitleshow.setTextSize(30);
-            producttitleshow.setGravity(20);
-        }
-        if(position == 14){
-            producttitleshow.setTextSize(30);
-            producttitleshow.setGravity(20);
-        }
-        if(position == 21){
-            producttitleshow.setTextSize(30);
-            producttitleshow.setGravity(20);
-        }
 
         return row;
     }

@@ -58,7 +58,7 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<String>> {
                     "lfloat product-price","lfloat product-desc-price strike ","product-image ","product-discount");
             temptitlestore = calling.temptitlestore;
             tempimageurl = calling.tempimageurl;
-            tempurlstore = calling.tempurlstore;
+             tempurlstore = calling.tempurlstore;
             ArrayList<String> mainlist= calling.mainlist;
             return mainlist;
         }catch (Exception e){
