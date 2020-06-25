@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                             intent.putExtra(EXTRA_TEXT, searchtext);
                             startActivity(intent);
                         }
-                    }, 6000);
+                    }, 5000);
 
                 }
             }
