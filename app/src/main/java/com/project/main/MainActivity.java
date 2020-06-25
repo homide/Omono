@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
                             shopclues.execute("https://www.shopclues.com/search?q="+searchtext +"&sc_z=2222&z=0&count=10");
                         }
                     };
-                    t1.start();
+               //     t1.start();
                     t2.start();
-                    t3.start();
-                    t4.start();
+              //      t3.start();
+               //     t4.start();
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
