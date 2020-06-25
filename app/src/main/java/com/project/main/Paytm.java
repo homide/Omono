@@ -23,11 +23,11 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> {
     protected void onPostExecute(ArrayList<String> s) {
         String product, urlstore,title,imagelink;
         super.onPostExecute(s);
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < 5; j++) {
             product = s.get(j);
             title = temptitlestore.get(j);
             titleallproducts.add(title);
-            urlstore = tempurlstore.get(j);
+            urlstore ="https://www.paytmmall.com" +tempurlstore.get(j);
             allproducts.add(product);
             producturl.add(urlstore);
             imagelink = tempimageurl.get(j);
@@ -55,12 +55,23 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> {
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         try{
+            Document doc = Jsoup.connect(strings[0]).get();
+            Elements links = doc.getElementsByClass("_3WhJ");
+            String temp6 = null;
+            for (int i =0; i <5 ; i++) {
+                Element link = links.get(i);
+                Elements elproductimage = link.getElementsByTag("img");
+                for(Element elimage : elproductimage){
+                    temp6 = elimage.attr("src");
+                }
+                tempimageurl.add(temp6);
+            }
+
             Calling calling = new Calling();
             link = strings[0];
             calling.call(strings[0],"_3WhJ","a","UGUy","_1kMS","dQm2",
                     "presentation","c-ax");
             temptitlestore = calling.temptitlestore;
-            tempimageurl = calling.tempimageurl;
             tempurlstore = calling.tempurlstore;
             ArrayList<String> mainlist= calling.mainlist;
             return mainlist;
