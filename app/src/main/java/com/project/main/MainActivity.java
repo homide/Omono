@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
                             shopclues.execute("https://www.shopclues.com/search?q="+searchtext +"&sc_z=2222&z=0&count=10");
                         }
                     };
-                    t1.start();
-                    t2.start();
+//                    t1.start();
+//                    t2.start();
                     t3.start();
-                    t4.start();
+                    //t4.start();
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },1000);
 
 
                     new Handler().postDelayed(new Runnable() {
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                             intent.putExtra(EXTRA_TEXT, searchtext);
                             startActivity(intent);
                         }
-                    }, 6000);
+                    }, 2000);
 
                 }
             }

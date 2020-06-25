@@ -14,7 +14,7 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> {
     ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
     ArrayList<String> titleallproducts = new ArrayList<String>();
-    ArrayList<String> allproducts = new ArrayList<String>(); // all products combine
+    ArrayList<String> allproducts = new ArrayList<String>();
     ArrayList<String> producturl = new ArrayList<String>();
     ArrayList<String> imageurls = new ArrayList<String>();
     String link;
