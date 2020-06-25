@@ -54,99 +54,19 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> {
 
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
-        try {
-            Document doc = Jsoup.connect(strings[0]).get();
-            Elements links = doc.getElementsByClass("_3WhJ");
-            ArrayList<String> mainlist = new ArrayList<String>();
+        try{
+            Calling calling = new Calling();
             link = strings[0];
-            String title = "PAYTM MALL PRODUCTS";
-            String url = "https://www.paytmmall.com";
-            String imageurl = "https://img.etimg.com/thumb/width-640,height-480,imgsize-19837,resizemode-1,msid-60726247/.jpg";
-            temptitlestore.add(title);
-            tempurlstore.add(url);
-            tempimageurl.add(imageurl);
-            mainlist.add("");
-
-            for (Element link : links) {
-                String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null,temp6 = null;
-                String permanent1 = null;
-
-                Elements elLink = link.getElementsByTag("a");
-
-                Elements eltitle = link.getElementsByClass("UGUy"); //for product title
-
-                Elements elpricebefore = link.getElementsByClass("dQm2");
-
-                Elements elpriceafter = link.getElementsByClass("_1kMS");
-
-                Elements elproductimage = link.getElementsByTag("img");
-
-                Elements discount = link.getElementsByClass("c-ax");
-
-
-                //product title loop
-                for (Element titleOfProduct : eltitle) {
-                    temp1 = titleOfProduct.text();
-                }
-
-                //product original price loop
-                for (Element priceOfProductBefore : elpricebefore) {
-                    String s1 = priceOfProductBefore.text();
-                    char[] a1 = s1.toCharArray();
-                    String new1 = "₹ ";
-                    int diff = (a1.length)-3;
-
-                    for (int x = 0; x<diff-1; x++){
-                        new1 = new1 + a1[x];
-                    }
-                    temp2 = "Price before: " + new1;
-                }
-
-                //product discounted price loop
-                for (Element priceOfProductAfter : elpriceafter) {
-                    temp3 = "Discounted price: " + priceOfProductAfter.text();
-                }
-
-                //discount in number loop
-                for (Element productdiscount : discount) {
-                    temp4 = "Discount: " + productdiscount.text();
-                }
-
-                ArrayList<String> linkArray = new ArrayList<String>();
-                for (Element elementLink : elLink) {
-                    String MainLink = elementLink.attr("href");
-                    linkArray.add(MainLink);
-                }
-                for (int i = 0; i < linkArray.size(); i++) {
-                    temp5 = "https://www.paytmmall.com" + linkArray.get(0);
-                }
-
-                for(Element elimage : elproductimage){
-                    temp6 = elimage.attr("src");
-                }
-
-                if (elpricebefore.text()==null)
-                {
-                    permanent1 = "Price :" + elpriceafter.text() + "\n" + temp4 + "\n";
-                }
-
-                else
-                {
-                    permanent1 = temp2 + "\n" + temp3 + "\n" + temp4 + "\n";
-
-                }
-                temptitlestore.add(temp1);
-                mainlist.add(permanent1);
-                tempurlstore.add(temp5);
-                tempimageurl.add(temp6);
-
-            }
+            calling.call(strings[0],"_3WhJ","a","UGUy","_1kMS","dQm2",
+                    "presentation","c-ax");
+            temptitlestore = calling.temptitlestore;
+            tempimageurl = calling.tempimageurl;
+            tempurlstore = calling.tempurlstore;
+            ArrayList<String> mainlist= calling.mainlist;
             return mainlist;
-        } catch (Exception e) {
-            ArrayList<String> exception = new ArrayList<String>();
-            String ex = e.toString();
-            exception.add(ex);
-            return exception;
+        }catch (Exception e){
+            System.out.println("Paytm not working" + e);
+            return null;
         }
     }
 }
