@@ -64,13 +64,14 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> {
             Elements maskssans = doc.getElementsByClass("_3liAhj");
             ArrayList<String> mainlist = new ArrayList<String>();
             link = strings[0];
-//            String title = "FLIPKART PRODUCTS";
-//            String url = "https://www.flipkart.com";
-//            String imageurl = "https://images.news18.com/ibnlive/uploads/2019/08/flipkart.jpg";
-//            temptitlestore.add(title);
-//            tempurlstore.add(url);
-//            tempimageurl.add(imageurl);
-//            mainlist.add("");
+            String title = "FLIPKART PRODUCTS";
+            String url = "https://www.flipkart.com";
+            String imageurl = "https://images.news18.com/ibnlive/uploads/2019/08/flipkart.jpg";
+            temptitlestore.add(title);
+            tempurlstore.add(url);
+            tempimageurl.add(imageurl);
+            mainlist.add("");
+
 
             for (Element testlink1 : links) {
                 String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null,temp6 = null;
