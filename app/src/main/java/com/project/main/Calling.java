@@ -15,26 +15,38 @@ public class Calling {
     ArrayList<String> mainlist = new ArrayList<String>();
     String link;
 
-    public void call(String websiteUrl,String productClass, String tagForLink, String titleClass, String discountedPriceClass, String originalPriceClass, String productImageClass,String productDiscount) throws IOException {
+    public void call(int sNo,String websiteUrl,String productClass, String tagForLink, String titleClass, String discountedPriceClass, String originalPriceClass, String productImageClass,String productDiscount) throws IOException {
 
         Document doc = Jsoup.connect(websiteUrl).get();
         Elements links = doc.getElementsByClass(productClass);
         link = websiteUrl;
 
-
+        // 1- Flipkart
+        // 2- Shopclues
+        // 3- Snapdeal
+        // 4- Paytm
         for (Element link : links) {
             String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null;
             String permanent1 = null;
+            Elements eltitle, elproductimage;
 
             Elements elLink = link.getElementsByTag(tagForLink);
 
-            Elements eltitle = link.getElementsByClass(titleClass);
+            if(sNo == 2){
+                eltitle = link.getElementsByTag(titleClass);
+            }else{
+                eltitle = link.getElementsByClass(titleClass);
+            }
 
             Elements elpricebefore = link.getElementsByClass(originalPriceClass);
 
             Elements elpriceafter = link.getElementsByClass(discountedPriceClass);
 
-            Elements elproductimage = link.getElementsByClass(productImageClass);
+            if(sNo == 2 || sNo == 4){
+                elproductimage = link.getElementsByTag(productImageClass);
+            }else {
+                elproductimage = link.getElementsByClass(productImageClass);
+            }
 
             Elements discount = link.getElementsByClass(productDiscount);
 
