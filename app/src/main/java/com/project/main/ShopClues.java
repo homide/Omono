@@ -23,7 +23,7 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> {
             product = s.get(j);
             title = temptitlestore.get(j);
             titleallproducts.add(title);
-            urlstore = tempurlstore.get(j);
+            urlstore = "https:" + tempurlstore.get(j);
             allproducts.add(product);
             producturl.add(urlstore);
             imagelink = tempimageurl.get(j);
@@ -52,13 +52,14 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> {
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         try{
-            CallingType2 callingType2 = new CallingType2();
+            Calling calling = new Calling();
             link = strings[0];
-            callingType2.call(strings[0],"column col3 search_blocks", "a", "h2", "p_price", "old_prices", "img", "prd_discount");
-            temptitlestore = callingType2.temptitlestore;
-            tempimageurl = callingType2.tempimageurl;
-            tempurlstore = callingType2.tempurlstore;
-            ArrayList<String> mainlist= callingType2.mainlist;
+            calling.call(2,strings[0],"column col3 search_blocks", "a", "h2", "p_price", "old_prices",
+                    "img", "prd_discount");
+            temptitlestore = calling.temptitlestore;
+            tempimageurl = calling.tempimageurl;
+            tempurlstore = calling.tempurlstore;
+            ArrayList<String> mainlist= calling.mainlist;
             return mainlist;
         }catch (Exception e){
             System.out.println("ShopClues not working" + e);

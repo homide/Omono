@@ -55,9 +55,9 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> {
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         try{
-            CallingType2 calling = new CallingType2();
+            Calling calling = new Calling();
             link = strings[0];
-            calling.call(strings[0],"_3WhJ","a","UGUy","_1kMS","dQm2",
+            calling.call(4,strings[0],"_3WhJ","a","UGUy","_1kMS","dQm2",
                     "img","c-ax");
             temptitlestore = calling.temptitlestore;
             tempurlstore = calling.tempurlstore;
