@@ -55,24 +55,13 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> {
     @Override
     protected ArrayList<String> doInBackground(String... strings) {
         try{
-            Document doc = Jsoup.connect(strings[0]).get();
-            Elements links = doc.getElementsByClass("_3WhJ");
-            String temp6 = null;
-            for (int i =0; i <5 ; i++) {
-                Element link = links.get(i);
-                Elements elproductimage = link.getElementsByTag("img");
-                for(Element elimage : elproductimage){
-                    temp6 = elimage.attr("src");
-                }
-                tempimageurl.add(temp6);
-            }
-
-            Calling calling = new Calling();
+            CallingType2 calling = new CallingType2();
             link = strings[0];
             calling.call(strings[0],"_3WhJ","a","UGUy","_1kMS","dQm2",
-                    "presentation","c-ax");
+                    "img","c-ax");
             temptitlestore = calling.temptitlestore;
             tempurlstore = calling.tempurlstore;
+            tempimageurl = calling.tempimageurl;
             ArrayList<String> mainlist= calling.mainlist;
             return mainlist;
         }catch (Exception e){
