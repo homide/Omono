@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,13 +26,6 @@ public class MainActivity extends AppCompatActivity {
     public Button searchButton;
     public static final String EXTRA_TEXT = "com.kush.naya.EXTRA_TEXT";
     String searchtext;
-
-    //ArrayLists for corresponding objects
-
-    ArrayList<String> titleallproducts = new ArrayList<String>(); //for product title
-    ArrayList<String> allproducts = new ArrayList<String>(); // all products combine
-    ArrayList<String> producturl = new ArrayList<String>(); //product link
-    ArrayList<String> imageurls = new ArrayList<String>(); //product image
 
 
     @Override
@@ -62,138 +56,20 @@ public class MainActivity extends AppCompatActivity {
                     //Temparray3 contains - all product urls
                     //Temparray3 contains - all product image urls
 /////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    CallingMain callingMain = new CallingMain();
+                    callingMain.callingmain(searchtext);
                     //Class Initiations
-                    final Flipkart flip = new Flipkart();
-                    final Paytm pyt = new Paytm();
-                    final Snapdeal snap = new Snapdeal();
-                    final ShopClues shopclues = new ShopClues();
-
-                    //Thread Functions and Methods
-
-                    Thread t1 = new Thread() {
-                        public void run() {
-                            flip.execute("https://www.flipkart.com/search?q=" + searchtext + "&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off");
-                        }
-                    };
-
-                    Thread t2 = new Thread() {
-                        public void run() {
-                            pyt.execute("https://www.paytmmall.com/shop/search?q=" + searchtext + "&from=organic&child_site_id=6");
-                        }
-                    };
-
-                    Thread t3 = new Thread() {
-                        public void run() {
-                            snap.execute("https://www.snapdeal.com/search?keyword=" + searchtext + "&santizedKeyword=&catId=" +
-                                    "&categoryId=0&suggested=true&vertical=&noOfResults=20&searchState=&clickSrc=suggested&lastKeyword=&prodCatId=&change" +
-                                    "BackToAll=false&foundInAll=false&categoryIdSearched=&cityPageUrl=&categoryUrl=&url=&utmContent=&dealDetail=&sort=rlvncy");
-
-                        }
-                    };
-
-
-                    Thread t4 = new Thread() {
-                        public void run(){
-                            shopclues.execute("https://www.shopclues.com/search?q="+searchtext +"&sc_z=2222&z=0&count=10");
-                        }
-                    };
-
-                    //Thread function calls using start()
-                    t1.start();
-                    t2.start();
-                    t3.start();
-                    t4.start();
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            //Created temporary arrayslists to store objects temporarily from SnapDeal
-                            ArrayList<ArrayList> allArrays = snap.arrayReturn();
-                            ArrayList<String> temparr1 = allArrays.get(0);
-                            ArrayList<String> temparr2 = allArrays.get(1);
-                            ArrayList<String> temparr3 = allArrays.get(2);
-                            ArrayList<String> temparr4 = allArrays.get(3);
-
-                            titleallproducts.addAll(temparr1);
-                            allproducts.addAll(temparr2);
-                            producturl.addAll(temparr3);
-                            imageurls.addAll(temparr4);
-
-                        }
-                    },4000); //delay function
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Created temporary arrayslists to store objects temporarily from Flipkart
-                            ArrayList<ArrayList> allArrays = flip.arrayReturn();
-                            ArrayList<String> temparr1 = allArrays.get(0);
-                            ArrayList<String> temparr2 = allArrays.get(1);
-                            ArrayList<String> temparr3 = allArrays.get(2);
-                            ArrayList<String> temparr4 = allArrays.get(3);
-
-                            titleallproducts.addAll(temparr1);
-                            allproducts.addAll(temparr2);
-                            producturl.addAll(temparr3);
-                            imageurls.addAll(temparr4);
-
-                        }
-                    },4000); //delay function
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Created temporary arrayslists to store objects temporarily from PayTM Mall
-                            ArrayList<ArrayList> allArrays = pyt.arrayReturn();
-                            ArrayList<String> temparr1 = allArrays.get(0);
-                            ArrayList<String> temparr2 = allArrays.get(1);
-                            ArrayList<String> temparr3 = allArrays.get(2);
-                            ArrayList<String> temparr4 = allArrays.get(3);
-
-                            titleallproducts.addAll(temparr1);
-                            allproducts.addAll(temparr2);
-                            producturl.addAll(temparr3);
-                            imageurls.addAll(temparr4);
-
-                        }
-                    },4000);//delay function
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //Created temporary arrayslists to store objects temporarily from ShopClues
-                            ArrayList<ArrayList> allArrays = shopclues.arrayReturn();
-                            ArrayList<String> temparr1 = allArrays.get(0);
-                            ArrayList<String> temparr2 = allArrays.get(1);
-                            ArrayList<String> temparr3 = allArrays.get(2);
-                            ArrayList<String> temparr4 = allArrays.get(3);
-
-                            titleallproducts.addAll(temparr1);
-                            allproducts.addAll(temparr2);
-                            producturl.addAll(temparr3);
-                            imageurls.addAll(temparr4);
-
-                        }
-                    },4000);//delay function
-
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Main2Activity m2a = new Main2Activity();
-                            m2a.listview = null;
                             pd.dismiss();
                             Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                            Bundle args = new Bundle();
-                            args.putSerializable("ARRAYLIST", (Serializable) allproducts);
-                            args.putSerializable("URLLINKS", (Serializable) producturl);
-                            args.putSerializable("IMAGEURL", (Serializable) imageurls);
-                            args.putSerializable("PRODUCTTITLE", (Serializable)titleallproducts);
-                            intent.putExtra("BUNDLE", args);
                             intent.putExtra(EXTRA_TEXT, searchtext);
                             startActivity(intent);
                         }
-                    }, 5000);
+                    }, 2500);
 
                 }
             }

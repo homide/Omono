@@ -10,49 +10,20 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 
-public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> {
+public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> implements arraySave {
     ArrayList<String> temptitlestore = new ArrayList<>();
     ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
-    ArrayList<String> titleallproducts = new ArrayList<String>();
-    ArrayList<String> allproducts = new ArrayList<String>();
-    ArrayList<String> producturl = new ArrayList<String>();
-    ArrayList<String> imageurls = new ArrayList<String>();
     String link;
 
     @Override
     protected void onPostExecute(ArrayList<String> s) {
-        String product, urlstore,title,imagelink;
         super.onPostExecute(s);
+        arraySave.allproducts.addAll(s);
+        arraySave.titleallproducts.addAll(temptitlestore);
+        arraySave.producturl.addAll(tempurlstore);
+        arraySave.imageurls.addAll(tempimageurl);
 
-        for (int j = 0; j < 6; j++) {
-            product = s.get(j);
-            title = temptitlestore.get(j);
-            titleallproducts.add(title);
-            urlstore = tempurlstore.get(j);
-            allproducts.add(product);
-            producturl.add(urlstore);
-            imagelink = tempimageurl.get(j);
-            imageurls.add(imagelink);
-        }
-        String seemore = "SHOW MORE PRODUCTS ON FLIPKART......";
-        String seemoreimage = "https://previews.123rf.com/images/brisker/brisker1605/brisker160500027/58489983-16-icons-of-different-products-categories-for-online-shops.jpg";
-        allproducts.add("");
-        titleallproducts.add(seemore);
-        producturl.add(link);
-        imageurls.add(seemoreimage);
-
-
-    }
-
-    public ArrayList<ArrayList> arrayReturn(){
-
-        ArrayList<ArrayList> containsAllArray = new ArrayList<>();
-        containsAllArray.add(titleallproducts);
-        containsAllArray.add(allproducts);
-        containsAllArray.add(producturl);
-        containsAllArray.add(imageurls);
-        return containsAllArray;
     }
 
     @Override
