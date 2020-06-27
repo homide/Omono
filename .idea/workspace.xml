@@ -9,6 +9,7 @@
     <list default="true" id="90dec331-5859-4267-b80f-2d9be3de383e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/main/Calling.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/main/Calling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/project/main/Paytm.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/project/main/Paytm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593246255929</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Commenting of Calling.java">
+      <created>1593251060316</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593251060316</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -235,7 +243,8 @@
     <MESSAGE value="ShopClues updated" />
     <MESSAGE value="Commenting of MainActivity" />
     <MESSAGE value="Commenting of Main2Activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commenting of Main2Activity" />
+    <MESSAGE value="Commenting of Calling.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenting of Calling.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1977" y="235" key="#PSD" timestamp="1593100995187">
@@ -251,12 +260,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="349" y="167" key="AndroidCreateResourceFileDialog/0.0.1536.824/1920.94.1600.860@0.0.1536.824" timestamp="1592912679883" />
-    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1593246254430">
+    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1593251058612">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824/1920.94.1600.860@0.0.1536.824" timestamp="1593089317027" />
     <state x="2362" y="101" key="CommitChangelistDialog2/0.0.1536.824/1920.94.1600.860@1920.94.1600.860" timestamp="1593105970768" />
-    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1593246254430" />
+    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1593251058612" />
     <state x="2765" y="290" key="FileChooserDialogImpl" timestamp="1593100993717">
       <screen x="1920" y="94" width="1600" height="860" />
     </state>
@@ -310,12 +319,12 @@
       <screen x="1920" y="94" width="1600" height="860" />
     </state>
     <state x="2221" y="166" key="SettingsEditor/0.0.1536.824/1920.94.1600.860@1920.94.1600.860" timestamp="1593020491085" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1593246273534">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1593251077905">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.94.1600.860@0.0.1536.824" timestamp="1593089342952" />
     <state x="2296" y="245" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.94.1600.860@1920.94.1600.860" timestamp="1593105983614" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593246273534" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593251077905" />
     <state x="767" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593162630939">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

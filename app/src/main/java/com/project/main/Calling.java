@@ -1,3 +1,5 @@
+//Refer to MainActivity and Main2Activity for commenting references
+
 package com.project.main;
 
 import org.jsoup.Jsoup; //JSoup Library to Parse HTML
