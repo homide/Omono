@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     //Temparray3 contains - all product urls
                     //Temparray3 contains - all product image urls
 /////////////////////////////////////////////////////////////////////////////////////////////////
-
+                    //Class Initiations
                     final Flipkart flip = new Flipkart();
                     final Paytm pyt = new Paytm();
                     final Snapdeal snap = new Snapdeal();
