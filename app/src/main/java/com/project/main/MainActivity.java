@@ -1,4 +1,4 @@
-package com.project.main;
+package com.project.main;  //project-custom-package
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,10 +25,13 @@ public class MainActivity extends AppCompatActivity {
     public Button searchButton;
     public static final String EXTRA_TEXT = "com.kush.naya.EXTRA_TEXT";
     String searchtext;
-    ArrayList<String> titleallproducts = new ArrayList<String>();
+
+    //ArrayLists for corresponding objects
+
+    ArrayList<String> titleallproducts = new ArrayList<String>(); //for product title
     ArrayList<String> allproducts = new ArrayList<String>(); // all products combine
-    ArrayList<String> producturl = new ArrayList<String>();
-    ArrayList<String> imageurls = new ArrayList<String>();
+    ArrayList<String> producturl = new ArrayList<String>(); //product link
+    ArrayList<String> imageurls = new ArrayList<String>(); //product image
 
 
     @Override
@@ -59,11 +62,13 @@ public class MainActivity extends AppCompatActivity {
                     //Temparray3 contains - all product urls
                     //Temparray3 contains - all product image urls
 /////////////////////////////////////////////////////////////////////////////////////////////////
-
+                    //Class Initiations
                     final Flipkart flip = new Flipkart();
                     final Paytm pyt = new Paytm();
                     final Snapdeal snap = new Snapdeal();
                     final ShopClues shopclues = new ShopClues();
+
+                    //Thread Functions and Methods
 
                     Thread t1 = new Thread() {
                         public void run() {
@@ -92,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                             shopclues.execute("https://www.shopclues.com/search?q="+searchtext +"&sc_z=2222&z=0&count=10");
                         }
                     };
+
+                    //Thread function calls using start()
                     t1.start();
                     t2.start();
                     t3.start();
@@ -100,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from SnapDeal
                             ArrayList<ArrayList> allArrays = snap.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -112,11 +120,12 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000); //delay function
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from Flipkart
                             ArrayList<ArrayList> allArrays = flip.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -129,11 +138,12 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000); //delay function
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from PayTM Mall
                             ArrayList<ArrayList> allArrays = pyt.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -146,11 +156,12 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000);//delay function
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from ShopClues
                             ArrayList<ArrayList> allArrays = shopclues.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -163,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000);//delay function
 
 
                     new Handler().postDelayed(new Runnable() {

@@ -1,3 +1,5 @@
+//Refer to MainActivity for Commenting
+
 package com.project.main;
 
 import android.annotation.SuppressLint;
@@ -33,10 +35,14 @@ public class Main2Activity extends AppCompatActivity {
     public Button button2;
     public EditText usersearch;
     public String search;
+
+    //ArrayLists for Corresponding Objects
     ArrayList<String> titleallproducts = new ArrayList<String>();
     ArrayList<String> allproducts = new ArrayList<String>(); // all products combine
     ArrayList<String> producturl = new ArrayList<String>();
     ArrayList<String> imageurls = new ArrayList<String>();
+
+    //Temp ArrayLists to store objs temporarily
     ArrayList<String> temparraylist;
     ArrayList<String> tempurllist;
     ArrayList<String> tempimageurl;
@@ -80,7 +86,7 @@ public class Main2Activity extends AppCompatActivity {
         usersearch = (EditText) findViewById(R.id.searchText2);
 
 
-
+        //OnClick Listener
         button2.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -114,10 +120,14 @@ public class Main2Activity extends AppCompatActivity {
                         }
                     }, 6000);
 
+                    //Class Initiations
+
                     final Flipkart flip = new Flipkart();
                     final Paytm pyt = new Paytm();
                     final Snapdeal snap = new Snapdeal();
                     final ShopClues shopclues = new ShopClues();
+
+                    //Thread Functions and Methods
 
                     Thread t1 = new Thread() {
                         public void run() {
@@ -146,6 +156,8 @@ public class Main2Activity extends AppCompatActivity {
                             shopclues.execute("https://www.shopclues.com/search?q="+ usersearch.getText() +"&sc_z=2222&z=0&count=10");
                         }
                     };
+
+                    //Thread Calling using Start
                     t1.start();
                     t2.start();
                     t3.start();
@@ -154,6 +166,7 @@ public class Main2Activity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from SnapDeal
                             ArrayList<ArrayList> allArrays = snap.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -166,11 +179,12 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000); //Delay Function
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from Flipkart
                             ArrayList<ArrayList> allArrays = flip.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -183,11 +197,12 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000); //Delay Function
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from PayTM Mall
                             ArrayList<ArrayList> allArrays = pyt.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -200,11 +215,12 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000); //Delay Function
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            //Created temporary arrayslists to store objects temporarily from ShopClues
                             ArrayList<ArrayList> allArrays = shopclues.arrayReturn();
                             ArrayList<String> temparr1 = allArrays.get(0);
                             ArrayList<String> temparr2 = allArrays.get(1);
@@ -217,7 +233,7 @@ public class Main2Activity extends AppCompatActivity {
                             imageurls.addAll(temparr4);
 
                         }
-                    },4000);
+                    },4000); //Delay Function
                     listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
