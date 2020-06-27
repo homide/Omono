@@ -1,4 +1,4 @@
-//Refer to MainActivity and Main2Activity for commenting references
+//Refer to MainActivity, Main2Activity and Calling for commenting references
 
 package com.project.main;
 
@@ -39,6 +39,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> {
             imagelink = tempimageurl.get(j);
             imageurls.add(imagelink);
         }
+        //Extra adding to variable arraylists
         String seemore = "SHOW MORE PRODUCTS ON PAYTM MALL......";
         String seemoreimage = "https://previews.123rf.com/images/brisker/brisker1605/brisker160500027/58489983-16-icons-of-different-products-categories-for-online-shops.jpg";
         allproducts.add("");
