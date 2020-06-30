@@ -9,8 +9,8 @@ public class CallingMain {
         ThreadCall pay = new ThreadCall("https://www.paytmmall.com/shop/search?q=" +searchtext+ "&from=organic&child_site_id=6","Paytm");
         ThreadCall flip = new ThreadCall("https://www.flipkart.com/search?q=" + searchtext+ "&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off", "Flipkart");
         snap.start();
-        shop.start();
-        pay.start();
+//        shop.start();
+//        pay.start();
 //        flip.start();
     }
 }

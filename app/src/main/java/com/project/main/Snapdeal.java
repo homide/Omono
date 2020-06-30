@@ -34,7 +34,7 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<String>> impleme
             Calling calling = new Calling();
             link = strings[0];
             calling.call(3,strings[0],"col-xs-6  favDp product-tuple-listing js-tuple ","a","product-title",
-                    "lfloat product-price","lfloat product-desc-price strike ","img","product-discount");
+                    "lfloat product-price","lfloat product-desc-price strike ","source","product-discount");
             //initialising and referencing Calling method variables
             temptitlestore = calling.temptitlestore;
             tempimageurl = calling.tempimageurl;

@@ -33,6 +33,7 @@ public class Calling {
         // 4- Paytm
 
         //Loop To Initialize Variables for storing required HTML Data
+        int i = 0;
         for (Element link : links) {
             String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null;
             String permanent1 = null;
@@ -50,9 +51,10 @@ public class Calling {
 
             Elements elpriceafter = link.getElementsByClass(discountedPriceClass); //JSoup Element to get Discounted Price Date from corresponding HTML Class
 
-            if(sNo == 2 || sNo == 3|| sNo == 4){                                         //When ShopClues and Paytm mall is being parsed,
+            if(sNo == 2 || sNo== 3 || sNo == 4){                                         //When ShopClues and Paytm mall is being parsed,
                 elproductimage = link.getElementsByTag(productImageClass);    //We are getting URL of Product Image by HTML Tag because there is no proper class identifying the image url
-            }else {                                                           //When any other website is being Parsed,
+            }
+            else {                                                           //When any other website is being Parsed,
                 elproductimage = link.getElementsByClass(productImageClass);  //We are getting URL of Product image by HTML Class because there is a proper class identifying the image url
             }
 
@@ -80,8 +82,15 @@ public class Calling {
             }
 
             //image loop
-            for(Element elimage : elproductimage){
-                temp6 = elimage.attr("src");
+            if(sNo == 3){
+                for(Element elimage : elproductimage){
+                    temp6 = elimage.attr("srcset");
+                }
+            }
+            else{
+                for(Element elimage : elproductimage){
+                    temp6 = elimage.attr("src");
+                }
             }
 
             //produuct URL loop
@@ -111,6 +120,7 @@ public class Calling {
             mainlist.add(permanent1);
             tempurlstore.add(temp5);
             tempimageurl.add(temp6);
+            i++;
 
         }
     }
