@@ -37,16 +37,7 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> implem
                     "img", "prd_discount");
             //initialising and referencing Calling method variables
             temptitlestore = calling.temptitlestore;
-            ArrayList<String> imageurl = calling.tempimageurl;
-            for(int i = 0; i < imageurl.size();i++){
-                String s = imageurl.get(i);
-                if(i <4){
-                    tempimageurl.add(s);
-                }else {
-                    String a = "https:" + s;
-                    tempimageurl.add(a);
-                }
-            }
+            tempimageurl= calling.tempimageurl;
             ArrayList<String> urlstore = calling.tempurlstore;
             for(String s: urlstore){
                 String a = "https:" + s;
