@@ -44,6 +44,11 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
+        getSupportActionBar().setTitle("Main2Activity");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         listview = (ListView) findViewById(R.id.listView);
         Intent intent = getIntent();
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
@@ -173,5 +178,25 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         super.onBackPressed();
     }
 
-}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(getApplicationContext(),"Back button clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                arraySave.producturl.clear();
+                arraySave.imageurls.clear();
+                arraySave.titleallproducts.clear();
+                arraySave.allproducts.clear();
+                break;
+        }
+        return true;
+    }
+
+
+    }
+
+
 

@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
                     //Temparray3 contains - all product image urls
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(searchtext);
                     //Class Initiations
@@ -79,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Main menu buttons
+
+
 
     public void flipkartButton(View view){
         Intent intent = new Intent((Intent.ACTION_VIEW));
