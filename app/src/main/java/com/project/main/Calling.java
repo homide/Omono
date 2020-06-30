@@ -87,6 +87,11 @@ public class Calling {
                     temp6 = elimage.attr("srcset");
                 }
             }
+            if(sNo == 2){
+                for(Element elimage : elproductimage){
+                    temp6 = elimage.attr("data-img");
+                }
+            }
             else{
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
