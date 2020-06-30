@@ -42,7 +42,11 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
                     "img","c-ax");
             //initialising and referencing Calling method variables
             temptitlestore = calling.temptitlestore;
-            tempurlstore = calling.tempurlstore;
+            ArrayList<String> urlstore = calling.tempurlstore;
+            for(String s : urlstore){
+                String a = "https://paytmmall.com" + s;
+                tempurlstore.add(a);
+            }
             tempimageurl = calling.tempimageurl;
             ArrayList<String> mainlist= calling.mainlist;
             return mainlist;
