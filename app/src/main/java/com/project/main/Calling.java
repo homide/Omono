@@ -19,6 +19,7 @@ public class Calling {
     ArrayList<String> mainlist = new ArrayList<String>();
     String link;
 
+
     public void call(int sNo,String websiteUrl,String productClass, String tagForLink, String titleClass, String discountedPriceClass, String originalPriceClass, String productImageClass,String productDiscount) throws IOException {
 
         Document doc = Jsoup.connect(websiteUrl).get(); //JSoup Element to get HTML Data from the corresponding website

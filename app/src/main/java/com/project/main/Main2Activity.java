@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Main2Activity extends AppCompatActivity implements arraySave {
+    //test
 
     public ListView listview;
     public Button button2;
