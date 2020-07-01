@@ -19,8 +19,6 @@ public class Calling {
     ArrayList<String> mainlist = new ArrayList<String>();
     String link;
 
-
-    //Call Function to "Even After Talking To You, I still have no Idea wtf is this. Please do the needful Kanishk. Thank You"
     public void call(int sNo,String websiteUrl,String productClass, String tagForLink, String titleClass, String discountedPriceClass, String originalPriceClass, String productImageClass,String productDiscount) throws IOException {
 
         Document doc = Jsoup.connect(websiteUrl).get(); //JSoup Element to get HTML Data from the corresponding website
@@ -39,7 +37,7 @@ public class Calling {
             String permanent1 = null;
             Elements eltitle, elproductimage;
 
-            Elements elLink = link.getElementsByTag(tagForLink); //JSoup ELement to get URL of the product
+            Elements elLink = link.getElementsByTag(tagForLink); //JSoup Element to get URL of the product
 
             if(sNo == 2){                                        //When ShopClues is being parsed,
                 eltitle = link.getElementsByTag(titleClass);     //We are getting Title of Product using HTML Tag because there is no proper class identifying the title

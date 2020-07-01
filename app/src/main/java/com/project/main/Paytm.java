@@ -3,12 +3,6 @@
 package com.project.main;
 
 import android.os.AsyncTask;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 import java.util.ArrayList;
 
 public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements arraySave {
@@ -21,7 +15,6 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
 
     @Override
     protected void onPostExecute(ArrayList<String> s) {
-        String product, urlstore,title,imagelink;
         super.onPostExecute(s);
         arraySave.allproducts.addAll(s);
         arraySave.titleallproducts.addAll(temptitlestore);
