@@ -20,7 +20,6 @@ public class Calling {
     String link;
 
 
-    //Call Function to "Even After Talking To You, I still have no Idea wtf is this. Please do the needful Kanishk. Thank You"
     public void call(int sNo,String websiteUrl,String productClass, String tagForLink, String titleClass, String discountedPriceClass, String originalPriceClass, String productImageClass,String productDiscount) throws IOException {
 
         Document doc = Jsoup.connect(websiteUrl).get(); //JSoup Element to get HTML Data from the corresponding website
