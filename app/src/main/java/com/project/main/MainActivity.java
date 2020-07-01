@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.telecom.Call;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 
 
     public ListView listview;
@@ -50,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
                     pd.setMessage("Searching websites...");
                     pd.show();
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////
                     // Temparray1 contains - title of all products
                     // Temparray2 contains - all product details
                     //Temparray3 contains - all product urls
                     //Temparray3 contains - all product image urls
-/////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////
 
 
 

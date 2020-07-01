@@ -38,7 +38,7 @@ public class Calling {
             String permanent1 = null;
             Elements eltitle, elproductimage;
 
-            Elements elLink = link.getElementsByTag(tagForLink); //JSoup ELement to get URL of the product
+            Elements elLink = link.getElementsByTag(tagForLink); //JSoup Element to get URL of the product
 
             if(sNo == 2){                                        //When ShopClues is being parsed,
                 eltitle = link.getElementsByTag(titleClass);     //We are getting Title of Product using HTML Tag because there is no proper class identifying the title
