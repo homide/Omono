@@ -32,7 +32,6 @@ MainActivity extends AppCompatActivity {
 
         searchbar = (EditText) findViewById(R.id.searchText1);
         searchButton = (Button) findViewById(R.id.btnSearch1);
-        listview = (ListView) findViewById(R.id.listView);
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {

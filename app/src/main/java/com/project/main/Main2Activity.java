@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -27,8 +28,9 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
 
     public ListView listview;
     public Button button2;
-    public RecyclerView Adapter;
+    public RecyclerView recyclerView;
     public EditText usersearch;
+    public MyAdaptor adaptor;
 
     TextView resultText;
 
@@ -43,25 +45,26 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        listview = (ListView) findViewById(R.id.listView);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Intent intent = getIntent();
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
         resultText= (TextView) findViewById(R.id.resultText);
         resultText.setText("Showing Results for: "+input1);
-        final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
-
+    //    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
         if (arraySave.producturl.size() > 0){
-            listview.setAdapter(adaptor);
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String link = arraySave.producturl.get(position);
-                    Intent intent = new Intent((Intent.ACTION_VIEW));
-                    intent.setData(Uri.parse(link));
-                    startActivity(intent);
-                }
-            });
-        }
+            recyclerView.setAdapter(adaptor);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                    String link = arraySave.producturl.get(position);
+//                    Intent intent = new Intent((Intent.ACTION_VIEW));
+//                    intent.setData(Uri.parse(link));
+//                    startActivity(intent);
+//                }
+//            });
+//        }
         runOnUiThread(new Runnable() {
             public void run() {
                 adaptor.notifyDataSetChanged();
@@ -92,13 +95,14 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                     pd.show();
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(usersearch.getText().toString());
-                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+//                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+                    adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
                             resultText.setText("Showing Results for: "+usersearch.getText());
                             pd.dismiss();
-                            listview.setAdapter(adaptor);
+                            recyclerView.setAdapter(adaptor);
                         }
                     }, 2500);
 
@@ -108,15 +112,15 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                         }
                     });
 
-                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            String link = arraySave.producturl.get(position);
-                            Intent intent = new Intent((Intent.ACTION_VIEW));
-                            intent.setData(Uri.parse(link));
-                            startActivity(intent);
-                        }
-                    });
+//                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                            String link = arraySave.producturl.get(position);
+//                            Intent intent = new Intent((Intent.ACTION_VIEW));
+//                            intent.setData(Uri.parse(link));
+//                            startActivity(intent);
+//                        }
+//                    });
                 }
             }
         });
@@ -125,75 +129,75 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
 
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//    }
+//
+//
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//    }
+//
+//    @Override
+//    protected void onSaveInstanceState(@NonNull Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//    }
+//
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//    }
+//
+//
+//    @Override
+//    public void onBackPressed(){
+//        arraySave.producturl.clear();
+//        arraySave.imageurls.clear();
+//        arraySave.titleallproducts.clear();
+//        arraySave.pricebefore.clear();
+//        arraySave.discountedprice.clear();
+//        arraySave.discount.clear();
+//        Intent intent = new Intent(this, MainActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        super.onBackPressed();
+//    }
+//
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                Intent intent = new Intent(this, MainActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+//                arraySave.producturl.clear();
+//                arraySave.imageurls.clear();
+//                arraySave.titleallproducts.clear();
+//                arraySave.pricebefore.clear();
+//                arraySave.discountedprice.clear();
+//                arraySave.discount.clear();
+//                break;
+//        }
+//        return true;
+//    }
 
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-    }
 
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-
-    @Override
-    public void onBackPressed(){
-        arraySave.producturl.clear();
-        arraySave.imageurls.clear();
-        arraySave.titleallproducts.clear();
-        arraySave.pricebefore.clear();
-        arraySave.discountedprice.clear();
-        arraySave.discount.clear();
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        super.onBackPressed();
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                arraySave.producturl.clear();
-                arraySave.imageurls.clear();
-                arraySave.titleallproducts.clear();
-                arraySave.pricebefore.clear();
-                arraySave.discountedprice.clear();
-                arraySave.discount.clear();
-                break;
-        }
-        return true;
-    }
-
-
-    }
+}}
