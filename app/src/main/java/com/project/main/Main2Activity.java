@@ -48,12 +48,13 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Intent intent = getIntent();
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
-        resultText= (TextView) findViewById(R.id.resultText);
-        resultText.setText("Showing Results for: "+input1);
-    //    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
-        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
-        if (arraySave.producturl.size() > 0){
+        resultText = (TextView) findViewById(R.id.resultText);
+        resultText.setText("Showing Results for: " + input1);
+        //    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
+        if (arraySave.producturl.size() > 0) {
             recyclerView.setAdapter(adaptor);
+            adaptor.notifyDataSetChanged();
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                @Override
@@ -65,139 +66,132 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
 //                }
 //            });
 //        }
-        runOnUiThread(new Runnable() {
-            public void run() {
-                adaptor.notifyDataSetChanged();
-            }
-        });
-
-
-        button2 = (Button) findViewById(R.id.btnSearch2);
-        usersearch = (EditText) findViewById(R.id.searchText2);
-
-        //OnClick Listener
-        button2.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("StaticFieldLeak")
-            @Override
-            public void onClick(View v) {
-
-                if (usersearch.getText().length() <= 0) {
-                    Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                } else {
-                    arraySave.producturl.clear();
-                    arraySave.imageurls.clear();
-                    arraySave.titleallproducts.clear();
-                    arraySave.pricebefore.clear();
-                    arraySave.discountedprice.clear();
-                    arraySave.discount.clear();
-                    final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
-                    pd.setMessage("Searching websites...");
-                    pd.show();
-                    CallingMain callingMain = new CallingMain();
-                    callingMain.callingmain(usersearch.getText().toString());
-//                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
-                    adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-                            resultText.setText("Showing Results for: "+usersearch.getText());
-                            pd.dismiss();
-                            recyclerView.setAdapter(adaptor);
-                        }
-                    }, 2500);
-
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            adaptor.notifyDataSetChanged();
-                        }
-                    });
-
-//                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                        @Override
-//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            String link = arraySave.producturl.get(position);
-//                            Intent intent = new Intent((Intent.ACTION_VIEW));
-//                            intent.setData(Uri.parse(link));
-//                            startActivity(intent);
-//                        }
-//                    });
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    adaptor.notifyDataSetChanged();
                 }
-            }
-        });
+            }, 2000);
+
+
+            button2 = (Button) findViewById(R.id.btnSearch2);
+            usersearch = (EditText) findViewById(R.id.searchText2);
+
+            //OnClick Listener
+            button2.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("StaticFieldLeak")
+                @Override
+                public void onClick(View v) {
+
+                    if (usersearch.getText().length() <= 0) {
+                        Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        arraySave.producturl.clear();
+                        arraySave.imageurls.clear();
+                        arraySave.titleallproducts.clear();
+                        arraySave.pricebefore.clear();
+                        arraySave.discountedprice.clear();
+                        arraySave.discount.clear();
+                        final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
+                        pd.setMessage("Searching websites...");
+                        pd.show();
+                        CallingMain callingMain = new CallingMain();
+                        callingMain.callingmain(usersearch.getText().toString());
+//                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+                        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                resultText.setText("Showing Results for: " + usersearch.getText());
+                                pd.dismiss();
+                                recyclerView.setAdapter(adaptor);
+                            }
+                        }, 2500);
+
+
+//                        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                            @Override
+//                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                                String link = arraySave.producturl.get(position);
+//                                Intent intent = new Intent((Intent.ACTION_VIEW));
+//                                intent.setData(Uri.parse(link));
+//                                startActivity(intent);
+//                            }
+//                        });
+                    }
+                }
+            });
+        }
+
+
+    }
+    @Override
+    protected void onStart () {
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestoreInstanceState (@NonNull Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
 
+    @Override
+    protected void onRestart () {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onSaveInstanceState (@NonNull Bundle outState){
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onPause () {
+        super.onPause();
+    }
+
+    @Override
+    protected void onPostResume () {
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onStop () {
+        super.onStop();
+    }
 
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//    }
-//
-//
-//    @Override
-//    protected void onRestart() {
-//        super.onRestart();
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//    }
-//
-//    @Override
-//    protected void onPostResume() {
-//        super.onPostResume();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//    }
-//
-//
-//    @Override
-//    public void onBackPressed(){
-//        arraySave.producturl.clear();
-//        arraySave.imageurls.clear();
-//        arraySave.titleallproducts.clear();
-//        arraySave.pricebefore.clear();
-//        arraySave.discountedprice.clear();
-//        arraySave.discount.clear();
-//        Intent intent = new Intent(this, MainActivity.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        startActivity(intent);
-//        super.onBackPressed();
-//    }
-//
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                Intent intent = new Intent(this, MainActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(intent);
-//                arraySave.producturl.clear();
-//                arraySave.imageurls.clear();
-//                arraySave.titleallproducts.clear();
-//                arraySave.pricebefore.clear();
-//                arraySave.discountedprice.clear();
-//                arraySave.discount.clear();
-//                break;
-//        }
-//        return true;
-//    }
+    @Override
+    public void onBackPressed () {
+        arraySave.producturl.clear();
+        arraySave.imageurls.clear();
+        arraySave.titleallproducts.clear();
+        arraySave.pricebefore.clear();
+        arraySave.discountedprice.clear();
+        arraySave.discount.clear();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        super.onBackPressed();
+    }
 
 
-}}
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                arraySave.producturl.clear();
+                arraySave.imageurls.clear();
+                arraySave.titleallproducts.clear();
+                arraySave.pricebefore.clear();
+                arraySave.discountedprice.clear();
+                arraySave.discount.clear();
+                break;
+        }
+        return true;
+    }
+}
