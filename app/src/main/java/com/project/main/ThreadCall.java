@@ -25,6 +25,10 @@ public class ThreadCall implements Runnable {
             Flipkart flip = new Flipkart();
             flip.execute(url);
         }
+        if(methodCallingName.equals("Grofers")){
+            Grofers grof = new Grofers();
+            grof.execute(url);
+        }
     }
 
     public void start(){

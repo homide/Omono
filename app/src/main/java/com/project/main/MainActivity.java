@@ -60,6 +60,8 @@ MainActivity extends AppCompatActivity {
 
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(searchtext);
+//                    CallingGrocery callingGrocery = new CallingGrocery();
+//                    callingGrocery.callinggrocery(searchtext);
                     //Class Initiations
 
                     new Handler().postDelayed(new Runnable() {
