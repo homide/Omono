@@ -51,7 +51,7 @@ public class Calling {
 
             Elements elpriceafter = link.getElementsByClass(discountedPriceClass); //JSoup Element to get Discounted Price Date from corresponding HTML Class
 
-            if(sNo == 2 ||sNo == 3|| sNo == 4){                                         //When ShopClues and Paytm mall is being parsed,
+            if(sNo == 2 ||sNo == 3|| sNo == 4|| sNo == 6){                                         //When ShopClues and Paytm mall is being parsed,
                 elproductimage = link.getElementsByTag(productImageClass);    //We are getting URL of Product Image by HTML Tag because there is no proper class identifying the image url
             }
             else {                                                           //When any other website is being Parsed,
@@ -93,9 +93,14 @@ public class Calling {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            if(sNo == 1 || sNo == 4){
+            if(sNo == 1 || sNo == 4 ){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
+                }
+            }
+            if(sNo == 6){
+                for(Element elimage: elproductimage){
+                    temp6 = elimage.absUrl("src");
                 }
             }
 

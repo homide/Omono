@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 public class Main2Activity extends AppCompatActivity implements arraySave {
@@ -26,6 +27,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
 
     public ListView listview;
     public Button button2;
+    public RecyclerView Adapter;
     public EditText usersearch;
 
     TextView resultText;
