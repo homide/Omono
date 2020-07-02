@@ -63,22 +63,42 @@ public class Calling {
 
             //product title loop
             for (Element titleOfProduct : eltitle) {
-                temp1 = titleOfProduct.text();
+                if(titleOfProduct == null){
+                    temp1 = "";
+                }
+                else{
+                    temp1 = titleOfProduct.text();
+                }
             }
 
             //product original price loop
             for (Element priceOfProductBefore : elpricebefore) {
-                temp2 = "Price before: " + priceOfProductBefore.text();
+                if(priceOfProductBefore == null){
+                    temp2 = "";
+                }
+                else {
+                    temp2 = "Price before: " + priceOfProductBefore.text();
+                }
             }
 
             //product discounted price loop
             for (Element priceOfProductAfter : elpriceafter) {
-                temp3 = "Discounted price: " + priceOfProductAfter.text();
+                if(priceOfProductAfter == null){
+                    temp3 = "";
+                }
+                else {
+                    temp3 = "Discounted price: " + priceOfProductAfter.text();
+                }
             }
 
             //discount in number loop
             for (Element productdiscount : discount) {
-                temp4 = "Discount: " + productdiscount.text();
+                if(productDiscount == null){
+                    temp4 = "";
+                }
+                else {
+                    temp4 = "Discount: " + productdiscount.text();
+                }
             }
 
             //image loop
