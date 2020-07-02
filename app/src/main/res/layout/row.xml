@@ -7,7 +7,7 @@
     android:padding="16dp"
     >
     <ImageView
-        android:id="@+id/productimage"
+        android:id="@+id/productImage"
         android:layout_width="117dp"
         android:layout_height="113dp"
         />
@@ -26,18 +26,34 @@
             android:textColor="#000"
             android:textSize="14.4sp"
             android:textStyle="bold"
-            android:id="@+id/textView1"
+            android:id="@+id/mainTitle"
             />
+
         <TextView
+            android:id="@+id/priceBefore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Sub title"
+            android:text="Price Before"
             android:textColor="#000"
             android:textSize="13.5sp"
-            android:textStyle="bold"
-            android:id="@+id/textView2"
-            />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/discPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Discounted Price"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Discount"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
