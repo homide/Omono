@@ -46,7 +46,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
         resultText= (TextView) findViewById(R.id.resultText);
         resultText.setText("Showing Results for: "+input1);
-        final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.allproducts,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+        final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
 
         if (arraySave.producturl.size() > 0){
             listview.setAdapter(adaptor);
@@ -82,13 +82,15 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                     arraySave.producturl.clear();
                     arraySave.imageurls.clear();
                     arraySave.titleallproducts.clear();
-                    arraySave.allproducts.clear();
+                    arraySave.pricebefore.clear();
+                    arraySave.discountedprice.clear();
+                    arraySave.discount.clear();
                     final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(usersearch.getText().toString());
-                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.allproducts,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
+                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -163,7 +165,9 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         arraySave.producturl.clear();
         arraySave.imageurls.clear();
         arraySave.titleallproducts.clear();
-        arraySave.allproducts.clear();
+        arraySave.pricebefore.clear();
+        arraySave.discountedprice.clear();
+        arraySave.discount.clear();
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -181,7 +185,9 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                 arraySave.producturl.clear();
                 arraySave.imageurls.clear();
                 arraySave.titleallproducts.clear();
-                arraySave.allproducts.clear();
+                arraySave.pricebefore.clear();
+                arraySave.discountedprice.clear();
+                arraySave.discount.clear();
                 break;
         }
         return true;

@@ -12,13 +12,18 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> implem
     ArrayList<String> temptitlestore = new ArrayList<>();
     ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
+    ArrayList<String> tempdiscount = new ArrayList<String>();
+    ArrayList<String> temppricebefore = new ArrayList<>();
+    ArrayList<String> temppriceafter = new ArrayList<>();
     String link;
 
     @Override
     protected void onPostExecute(ArrayList<String> s) {
 
         super.onPostExecute(s);
-        arraySave.allproducts.addAll(s);
+        arraySave.discountedprice.addAll(s);
+        arraySave.discount.addAll(tempdiscount);
+        arraySave.pricebefore.addAll(temppricebefore);
         arraySave.titleallproducts.addAll(temptitlestore);
         arraySave.producturl.addAll(tempurlstore);
         arraySave.imageurls.addAll(tempimageurl);
@@ -38,12 +43,14 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> implem
             //initialising and referencing Calling method variables
             temptitlestore = calling.temptitlestore;
             tempimageurl= calling.tempimageurl;
+            tempdiscount = calling.tempdiscount;
+            temppricebefore = calling.temppricebefore;
             ArrayList<String> urlstore = calling.tempurlstore;
             for(String s: urlstore){
                 String a = "https:" + s;
                 tempurlstore.add(a);
             }
-            ArrayList<String> mainlist= calling.mainlist;
+            ArrayList<String> mainlist= calling.temppriceafter;
             System.out.println("Ended shopclues on thread");
             return mainlist;
         }catch (Exception e){
