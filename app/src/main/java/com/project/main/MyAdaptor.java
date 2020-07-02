@@ -17,14 +17,16 @@ import java.util.ArrayList;
 
 public class MyAdaptor extends ArrayAdapter<String> {
     Context context;
-    ArrayList<String> aboutproduct;
+    ArrayList<String> pricebefore, discountedprice, discount;
     ArrayList<String> producturl;
     ArrayList<String> producttitle;
     ArrayList<String> imageurl;
-    MyAdaptor(Context c, ArrayList<String> aboutproduct, ArrayList<String> producturl,ArrayList<String> producttitle, ArrayList<String> imageurl){
-        super(c,R.layout.row,R.id.textView1,aboutproduct);
+    MyAdaptor(Context c, ArrayList<String> pricebefore,ArrayList<String> discountedprice, ArrayList<String> discount, ArrayList<String> producturl,ArrayList<String> producttitle, ArrayList<String> imageurl){
+        super(c,R.layout.row,R.id.textView1,discountedprice);
         this.context = c;
-        this.aboutproduct = aboutproduct;
+        this.pricebefore = pricebefore;
+        this.discountedprice = discountedprice;
+        this.discount = discount;
         this.producturl = producturl;
         this.producttitle = producttitle;
         this.imageurl = imageurl;
@@ -47,8 +49,8 @@ public class MyAdaptor extends ArrayAdapter<String> {
             }
         } catch (Exception m) {
 
-        }
-        aboutproductdisplay.setText(aboutproduct.get(position));
+    }
+        aboutproductdisplay.setText(discountedprice.get(position));
         producttitleshow.setText(producttitle.get(position));
 
         return row;

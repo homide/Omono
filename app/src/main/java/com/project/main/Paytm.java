@@ -8,15 +8,19 @@ import java.util.ArrayList;
 public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements arraySave {
 
     //ArrayList for corresponding objects
-    ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> temptitlestore = new ArrayList<>();
+    ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
+    ArrayList<String> tempdiscount = new ArrayList<String>();
+    ArrayList<String> temppricebefore = new ArrayList<>();
     String link;
 
     @Override
     protected void onPostExecute(ArrayList<String> s) {
         super.onPostExecute(s);
-        arraySave.allproducts.addAll(s);
+        arraySave.discountedprice.addAll(s);
+        arraySave.discount.addAll(tempdiscount);
+        arraySave.pricebefore.addAll(temppricebefore);
         arraySave.titleallproducts.addAll(temptitlestore);
         arraySave.producturl.addAll(tempurlstore);
         arraySave.imageurls.addAll(tempimageurl);
@@ -41,7 +45,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
                 tempurlstore.add(a);
             }
             tempimageurl = calling.tempimageurl;
-            ArrayList<String> mainlist= calling.mainlist;
+            ArrayList<String> mainlist= calling.temppriceafter;
             return mainlist;
         }catch (Exception e){
             //fail-safe :)

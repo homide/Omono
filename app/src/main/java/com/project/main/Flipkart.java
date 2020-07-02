@@ -1,8 +1,6 @@
 package com.project.main;
 
 import android.os.AsyncTask;
-import android.os.Handler;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,12 +12,16 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> impleme
     ArrayList<String> temptitlestore = new ArrayList<>();
     ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
+    ArrayList<String> tempdiscount = new ArrayList<>();
+    ArrayList<String> temppricebefore = new ArrayList<>();
     String link;
 
     @Override
     protected void onPostExecute(ArrayList<String> s) {
         super.onPostExecute(s);
-        arraySave.allproducts.addAll(s);
+        arraySave.discountedprice.addAll(s);
+        arraySave.discount.addAll(tempdiscount);
+        arraySave.pricebefore.addAll(temppricebefore);
         arraySave.titleallproducts.addAll(temptitlestore);
         arraySave.producturl.addAll(tempurlstore);
         arraySave.imageurls.addAll(tempimageurl);
@@ -46,7 +48,7 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> impleme
                     temptitlestore = calling.temptitlestore;
                     tempimageurl = calling.tempimageurl;
                     tempurlstore = calling.tempurlstore;
-                    mainlist= calling.mainlist;
+                    mainlist= calling.temppriceafter;
                 }
                 else {
                     break;
@@ -62,7 +64,7 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> impleme
                     temptitlestore = calling.temptitlestore;
                     tempimageurl = calling.tempimageurl;
                     tempurlstore = calling.tempurlstore;
-                    mainlist= calling.mainlist;
+                    mainlist= calling.temppriceafter;
                 }
                 else{
                     break;
@@ -77,7 +79,7 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> impleme
                     temptitlestore = calling.temptitlestore;
                     tempimageurl = calling.tempimageurl;
                     tempurlstore = calling.tempurlstore;
-                    mainlist= calling.mainlist;
+                    mainlist= calling.temppriceafter;
                 }
                 else {
                     break;
@@ -92,7 +94,7 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> impleme
                     temptitlestore = calling.temptitlestore;
                     tempimageurl = calling.tempimageurl;
                     tempurlstore = calling.tempurlstore;
-                    mainlist= calling.mainlist;
+                    mainlist= calling.temppriceafter;
                 }
                 else {
                     break;

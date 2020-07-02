@@ -16,7 +16,9 @@ public class Calling {
     ArrayList<String> temptitlestore = new ArrayList<>();
     ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
-    ArrayList<String> mainlist = new ArrayList<String>();
+    ArrayList<String> tempdiscount = new ArrayList<String>();
+    ArrayList<String> temppricebefore = new ArrayList<>();
+    ArrayList<String> temppriceafter = new ArrayList<>();
     String link;
 
 
@@ -35,7 +37,6 @@ public class Calling {
         int i = 0;
         for (Element link : links) {
             String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null;
-            String permanent1 = null;
             Elements eltitle, elproductimage;
 
             Elements elLink = link.getElementsByTag(tagForLink); //JSoup Element to get URL of the product
@@ -50,7 +51,7 @@ public class Calling {
 
             Elements elpriceafter = link.getElementsByClass(discountedPriceClass); //JSoup Element to get Discounted Price Date from corresponding HTML Class
 
-            if(sNo == 2 || sNo== 3 || sNo == 4){                                         //When ShopClues and Paytm mall is being parsed,
+            if(sNo == 2 ||sNo == 3|| sNo == 4){                                         //When ShopClues and Paytm mall is being parsed,
                 elproductimage = link.getElementsByTag(productImageClass);    //We are getting URL of Product Image by HTML Tag because there is no proper class identifying the image url
             }
             else {                                                           //When any other website is being Parsed,
@@ -84,6 +85,7 @@ public class Calling {
             if(sNo == 3){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("srcset");
+                    break;
                 }
             }
             if(sNo == 2){
@@ -91,7 +93,7 @@ public class Calling {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            else{
+            if(sNo == 1 || sNo == 4){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
                 }
@@ -109,22 +111,12 @@ public class Calling {
                 temp5 = linkArray.get(0);
             }
 
-            //if-else block for when there is no discount
-            if (elpricebefore.text()==null)
-            {
-                permanent1 = "\n"+ "Price :" + elpriceafter.text() + "\n" + temp4 + "\n";
-            }
-
-            else
-            {
-                permanent1 ="\n" + temp2 + "\n" + temp3 + "\n" + temp4 + "\n";
-
-            }
             temptitlestore.add(temp1);
-            mainlist.add(permanent1);
+            temppricebefore.add(temp2);
+            temppriceafter.add(temp3);
+            tempdiscount.add(temp4);
             tempurlstore.add(temp5);
             tempimageurl.add(temp6);
-            i++;
 
         }
     }
