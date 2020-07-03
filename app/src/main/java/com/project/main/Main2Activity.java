@@ -22,7 +22,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -32,8 +31,8 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
     public RecyclerView recyclerView;
     public EditText usersearch;
     public MyAdaptor adaptor;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    DrawerLayout drawerLayout2;
+    NavigationView navigationView2;
     Toolbar toolbar;
 
     TextView resultText;
@@ -44,17 +43,17 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout2 = findViewById(R.id.drawer_layout2);
         toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.navView2);
+        navigationView2 = findViewById(R.id.navView2);
 
-        navigationView.bringToFront();
+        navigationView2.bringToFront();
         setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
-        drawerLayout.addDrawerListener(toggle);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout2, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        drawerLayout2.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView2.setNavigationItemSelectedListener(this);
 //        getSupportActionBar().setTitle("Main2Activity");
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
