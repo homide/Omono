@@ -16,9 +16,10 @@ public class Calling {
     ArrayList<String> temptitlestore = new ArrayList<>();
     ArrayList<String> tempurlstore = new ArrayList<>();
     ArrayList<String> tempimageurl = new ArrayList<>();
-    ArrayList<String> tempdiscount = new ArrayList<String>();
+    ArrayList<String> tempdiscount = new ArrayList<>();
     ArrayList<String> temppricebefore = new ArrayList<>();
     ArrayList<String> temppriceafter = new ArrayList<>();
+    ArrayList<String> tag = new ArrayList<>();
     String link;
 
 
@@ -61,7 +62,25 @@ public class Calling {
                 elproductimage = link.getElementsByClass(productImageClass);  //We are getting URL of Product image by HTML Class because there is a proper class identifying the image url
             }
 
-            Elements discount = link.getElementsByClass(productDiscount);  //JSoup element to parse Discount data from corresponding classes
+            Elements discount = link.getElementsByClass(productDiscount);//JSoup element to parse Discount data from corresponding classes
+
+            switch(sNo){
+                case 1:
+                    tag.add("Flipkart");
+                    break;
+                case 2:
+                    tag.add("Shopclues");
+                    break;
+                case 3:
+                    tag.add("Snapdeal");
+                    break;
+                case 4:
+                    tag.add("Paytm");
+                    break;
+                case 5:
+                    tag.add("Amazon");
+                    break;
+            }
 
 
             //product title loop

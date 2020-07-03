@@ -63,26 +63,12 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
         resultText = (TextView) findViewById(R.id.resultText);
         resultText.setText("Showing Results for: " + input1);
-        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
+        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls,arraySave.tag);
         if (arraySave.producturl.size() > 0) {
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    String link = arraySave.producturl.get(position);
-//                    Intent intent = new Intent((Intent.ACTION_VIEW));
-//                    intent.setData(Uri.parse(link));
-//                    startActivity(intent);
-//                }
-//            });
-//        }
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    adaptor.notifyDataSetChanged();
-                }
-            }, 1000);
+        }
+
 
 
             button2 = (Button) findViewById(R.id.btnSearch2);
@@ -108,7 +94,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                         pd.show();
                         CallingMain callingMain = new CallingMain();
                         callingMain.callingmain(usersearch.getText().toString());
-                        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
+                        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls,arraySave.tag);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             public void run() {
@@ -134,9 +120,6 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 }
             });
         }
-
-
-    }
     @Override
     protected void onStart () {
         super.onStart();

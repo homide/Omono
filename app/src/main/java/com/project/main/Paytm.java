@@ -13,6 +13,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
     ArrayList<String> tempimageurl = new ArrayList<>();
     ArrayList<String> tempdiscount = new ArrayList<String>();
     ArrayList<String> temppricebefore = new ArrayList<>();
+    ArrayList<String> tag = new ArrayList<>();
     String link;
 
     @Override
@@ -24,6 +25,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
         arraySave.titleallproducts.addAll(temptitlestore);
         arraySave.producturl.addAll(tempurlstore);
         arraySave.imageurls.addAll(tempimageurl);
+        arraySave.tag.addAll(tag);
 
     }
 
@@ -45,6 +47,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
                 tempurlstore.add(a);
             }
             tempimageurl = calling.tempimageurl;
+            tag = calling.tag;
             ArrayList<String> mainlist= calling.temppriceafter;
             return mainlist;
         }catch (Exception e){
