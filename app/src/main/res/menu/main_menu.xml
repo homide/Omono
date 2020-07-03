@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Categories"
+              android:icon="@drawable/ic_cart">
+
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item android:title="Groceries" />
+                    <item android:title="Fashion" />
+                    <item android:title="Electronics" />
+                    <item android:title="Mobiles" />
+                </group>
+            </menu>
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/refresh"
+            android:icon="@drawable/ic_refresh"
+            android:title="Refresh" />
+        <item
+            android:id="@+id/exit"
+            android:icon="@drawable/ic_power"
+            android:title="Exit" />
+    </group>
+
+
+</menu>
