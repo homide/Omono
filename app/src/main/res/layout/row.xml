@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_search_bar"
     android:orientation="horizontal"
     android:padding="16dp"
-    >
-    <ImageView
-        android:id="@+id/productImage"
-        android:layout_width="117dp"
-        android:layout_height="113dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="113dp"
+    app:contentPadding="5sp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:text="Main Title"
-            android:textColor="#000"
-            android:textSize="14.4sp"
-            android:textStyle="bold"
-            android:id="@+id/mainTitle"
-            />
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="117dp"
+            android:layout_height="113dp"
+            app:layout_constraintBottom_toTopOf="@+id/priceBefore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/priceBefore"
@@ -37,15 +36,25 @@
             android:text="Price Before"
             android:textColor="#000"
             android:textSize="13.5sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/mainTitle"
+            app:layout_constraintTop_toBottomOf="@+id/productImage"
+            tools:layout_editor_absoluteX="5dp" />
 
         <TextView
-            android:id="@+id/discPrice"
+            android:id="@+id/mainTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Discounted Price"
-            android:textStyle="bold" />
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Main Title"
+            android:textColor="#000"
+            android:textSize="14.4sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/discount"
+            app:layout_constraintTop_toBottomOf="@+id/priceBefore"
+            tools:layout_editor_absoluteX="5dp" />
 
         <TextView
             android:id="@+id/discount"
@@ -53,10 +62,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Discount"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/discPrice"
+            app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+            tools:layout_editor_absoluteX="5dp" />
+
+        <TextView
+            android:id="@+id/discPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Discounted Price"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/productImage"
+            app:layout_constraintTop_toBottomOf="@+id/discount"
+            tools:layout_editor_absoluteX="5dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

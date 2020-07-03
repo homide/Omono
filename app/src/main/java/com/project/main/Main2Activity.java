@@ -10,27 +10,31 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.navigation.NavigationView;
 
-public class Main2Activity extends AppCompatActivity implements arraySave {
+
+public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     //test
-
-    public ListView listview;
     public Button button2;
     public RecyclerView recyclerView;
     public EditText usersearch;
     public MyAdaptor adaptor;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     TextView resultText;
 
@@ -40,9 +44,19 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        drawerLayout = findViewById(R.id.drawer_layout);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.navView2);
 
-        getSupportActionBar().setTitle("Main2Activity");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.bringToFront();
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+//        getSupportActionBar().setTitle("Main2Activity");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -50,7 +64,6 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
         resultText = (TextView) findViewById(R.id.resultText);
         resultText.setText("Showing Results for: " + input1);
-        //    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
         adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
         if (arraySave.producturl.size() > 0) {
             recyclerView.setAdapter(adaptor);
@@ -97,7 +110,6 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                         pd.show();
                         CallingMain callingMain = new CallingMain();
                         callingMain.callingmain(usersearch.getText().toString());
-//                    final MyAdaptor adaptor = new MyAdaptor(Main2Activity.this,arraySave.pricebefore,arraySave.discountedprice,arraySave.discount,arraySave.producturl,arraySave.titleallproducts,arraySave.imageurls);
                         adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
@@ -105,6 +117,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                                 resultText.setText("Showing Results for: " + usersearch.getText());
                                 pd.dismiss();
                                 recyclerView.setAdapter(adaptor);
+                                recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
                             }
                         }, 2500);
 
@@ -192,6 +205,11 @@ public class Main2Activity extends AppCompatActivity implements arraySave {
                 arraySave.discount.clear();
                 break;
         }
+        return true;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         return true;
     }
 }

@@ -65,7 +65,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return producturl.size();
+        return 100;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

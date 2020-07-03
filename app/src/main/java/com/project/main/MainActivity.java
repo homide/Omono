@@ -2,25 +2,31 @@ package com.project.main;  //project-custom-package
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class
-MainActivity extends AppCompatActivity {
+MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
-    public ListView listview;
     public EditText searchbar;
     public Button searchButton;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
     public static final String EXTRA_TEXT = "com.kush.naya.EXTRA_TEXT";
     String searchtext;
 
@@ -32,6 +38,17 @@ MainActivity extends AppCompatActivity {
 
         searchbar = (EditText) findViewById(R.id.searchText1);
         searchButton = (Button) findViewById(R.id.btnSearch1);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.navView);
+
+        navigationView.bringToFront();
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -77,37 +94,18 @@ MainActivity extends AppCompatActivity {
             }
 
         });
-
     }
 
-    //Main menu buttons
+    @Override
+    public void onBackPressed(){
 
-
-
-    public void flipkartButton(View view){
-        Intent intent = new Intent((Intent.ACTION_VIEW));
-        intent.setData(Uri.parse("https://www.flipkart.com"));
-        startActivity(intent);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
     }
-
-    public void shopcluesButton(View view){
-        Intent intent = new Intent((Intent.ACTION_VIEW));
-        intent.setData(Uri.parse("https://www.shopclues.com"));
-        startActivity(intent);
-    }
-
-    public void snapdealButton(View view){
-        Intent intent = new Intent((Intent.ACTION_VIEW));
-        intent.setData(Uri.parse("https://www.snapdeal.com"));
-        startActivity(intent);
-    }
-
-    public void paytmButton(View view){
-        Intent intent = new Intent((Intent.ACTION_VIEW));
-        intent.setData(Uri.parse("https://www.paytmmall.com"));
-        startActivity(intent);
-    }
-
 
 
     @Override
@@ -144,5 +142,10 @@ MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return true;
     }
 }
