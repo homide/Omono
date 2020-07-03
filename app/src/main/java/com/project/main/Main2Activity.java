@@ -122,6 +122,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
 
 
 //                        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        //testcomment
 //                            @Override
 //                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                                String link = arraySave.producturl.get(position);
