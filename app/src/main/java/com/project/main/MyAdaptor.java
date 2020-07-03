@@ -21,12 +21,12 @@ import java.util.ArrayList;
 
 public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
     Context context;
-    ArrayList<String> pricebefore, discountedprice, discount;
+    ArrayList<String> pricebefore, discountedprice, discount,tag;
     ArrayList<String> producturl;
     ArrayList<String> producttitle;
     ArrayList<String> imageurl;
 
-    public MyAdaptor(Context c, ArrayList<String> pricebefore,ArrayList<String> discountedprice, ArrayList<String> discount, ArrayList<String> producturl,ArrayList<String> producttitle, ArrayList<String> imageurl){
+    public MyAdaptor(Context c, ArrayList<String> pricebefore,ArrayList<String> discountedprice, ArrayList<String> discount, ArrayList<String> producturl,ArrayList<String> producttitle, ArrayList<String> imageurl, ArrayList<String> tag){
         //super();
         this.context = c;
         this.pricebefore = pricebefore;
@@ -35,6 +35,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
         this.producturl = producturl;
         this.producttitle = producttitle;
         this.imageurl = imageurl;
+        this.tag = tag;
     }
 
     @NonNull

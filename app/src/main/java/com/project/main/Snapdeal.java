@@ -14,6 +14,7 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<String>> impleme
     ArrayList<String> tempimageurl = new ArrayList<>();
     ArrayList<String> tempdiscount = new ArrayList<>();
     ArrayList<String> temppricebefore = new ArrayList<>();
+    ArrayList<String> tag = new ArrayList<>();
     String link;
 
     @Override
@@ -25,6 +26,7 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<String>> impleme
         arraySave.titleallproducts.addAll(temptitlestore);
         arraySave.producturl.addAll(tempurlstore);
         arraySave.imageurls.addAll(tempimageurl);
+        arraySave.tag.addAll(tag);
 
     }
 
@@ -43,6 +45,7 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<String>> impleme
             temptitlestore = calling.temptitlestore;
             tempimageurl = calling.tempimageurl;
             tempurlstore = calling.tempurlstore;
+            tag = calling.tag;
             ArrayList<String> mainlist= calling.temppriceafter;
             System.out.println("Snapdeal ended");
             return mainlist;

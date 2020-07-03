@@ -14,7 +14,7 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> implem
     ArrayList<String> tempimageurl = new ArrayList<>();
     ArrayList<String> tempdiscount = new ArrayList<String>();
     ArrayList<String> temppricebefore = new ArrayList<>();
-    ArrayList<String> temppriceafter = new ArrayList<>();
+    ArrayList<String> tag = new ArrayList<>();
     String link;
 
     @Override
@@ -27,6 +27,7 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> implem
         arraySave.titleallproducts.addAll(temptitlestore);
         arraySave.producturl.addAll(tempurlstore);
         arraySave.imageurls.addAll(tempimageurl);
+        arraySave.tag.addAll(tag);
 
     }
 
@@ -45,6 +46,7 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<String>> implem
             tempimageurl= calling.tempimageurl;
             tempdiscount = calling.tempdiscount;
             temppricebefore = calling.temppricebefore;
+            tag = calling.tag;
             ArrayList<String> urlstore = calling.tempurlstore;
             for(String s: urlstore){
                 String a = "https:" + s;
