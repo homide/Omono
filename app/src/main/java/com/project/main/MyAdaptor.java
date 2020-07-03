@@ -27,7 +27,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
     ArrayList<String> imageurl;
 
     public MyAdaptor(Context c, ArrayList<String> pricebefore,ArrayList<String> discountedprice, ArrayList<String> discount, ArrayList<String> producturl,ArrayList<String> producttitle, ArrayList<String> imageurl){
-    //    super(c,R.layout.row,R.id.mainTitle,discountedprice);
+        //super();
         this.context = c;
         this.pricebefore = pricebefore;
         this.discountedprice = discountedprice;
@@ -46,11 +46,14 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyAdaptor.ViewHolder holder, int position) {
+        try {
+            holder.mainTitle.setText(producttitle.get(position));
+            holder.priceBefore.setText(pricebefore.get(position));
+            holder.discPrice.setText(discountedprice.get(position));
+            holder.discount.setText(discount.get(position));
+        }catch (Exception m){
 
-        holder.mainTitle.setText(producttitle.get(position));
-        holder.priceBefore.setText(pricebefore.get(position));
-        holder.discPrice.setText(discountedprice.get(position));
-        holder.discount.setText(discount.get(position));
+        }
         try {
             if (imageurl.get(position).length() <= 0) {
                 Picasso.with(context).load("https://1m19tt3pztls474q6z46fnk9-wpengine.netdna-ssl.com/wp-content/themes/unbound/images/No-Image-Found-400x264.png").into(holder.productImage);
@@ -60,6 +63,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
         } catch (Exception m) {
 
         }
+
 
     }
 
@@ -84,8 +88,11 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            Log.d("Click from viewholder", "clicked");
-            Toast.makeText(context, "yes, clicked", Toast.LENGTH_SHORT).show();
+            int position = getLayoutPosition();
+            String link = arraySave.producturl.get(position);
+            Intent intent = new Intent((Intent.ACTION_VIEW));
+            intent.setData(Uri.parse(link));
+            context.startActivity(intent);
 
 //            String link = arraySave.producturl.get(position);
 //            Intent intent = new Intent((Intent.ACTION_VIEW));

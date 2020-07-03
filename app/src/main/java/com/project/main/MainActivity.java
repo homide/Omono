@@ -61,18 +61,6 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
                     final ProgressDialog pd = new ProgressDialog(MainActivity.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
-
-    ////////////////////////////////////////////////////////////////////////////////////////
-                    // Temparray1 contains - title of all products
-                    // Temparray2 contains - all product details
-                    //Temparray3 contains - all product urls
-                    //Temparray3 contains - all product image urls
-    ////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(searchtext);
 //                    CallingGrocery callingGrocery = new CallingGrocery();

@@ -28,10 +28,13 @@ public class Calling {
         Elements links = doc.getElementsByClass(productClass); //JSoup Element to get HTML Data from the corresponding Class/Section
         link = websiteUrl;
 
-        // 1- Flipkart
-        // 2- Shopclues
+        // 1- Flipkart         //6 - Grofers
+        // 2- Shopclues        //7- Bigbasket
         // 3- Snapdeal
         // 4- Paytm
+        //5- Amazon
+
+
 
         //Loop To Initialize Variables for storing required HTML Data
         int i = 0;
@@ -113,7 +116,7 @@ public class Calling {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            if(sNo == 1 || sNo == 4 ){
+            if(sNo == 1 || sNo == 4 || sNo == 7){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
                 }
