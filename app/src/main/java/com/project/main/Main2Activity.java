@@ -66,7 +66,6 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls);
         if (arraySave.producturl.size() > 0) {
             recyclerView.setAdapter(adaptor);
-            adaptor.notifyDataSetChanged();
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                @Override
@@ -83,7 +82,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 public void run() {
                     adaptor.notifyDataSetChanged();
                 }
-            }, 2000);
+            }, 1000);
 
 
             button2 = (Button) findViewById(R.id.btnSearch2);

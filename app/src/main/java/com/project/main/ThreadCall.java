@@ -29,6 +29,10 @@ public class ThreadCall implements Runnable {
             Grofers grof = new Grofers();
             grof.execute(url);
         }
+        if(methodCallingName.equals("Bigbasket")){
+            Bigbasket big = new Bigbasket();
+            big.execute(url);
+        }
     }
 
     public void start(){
