@@ -43,6 +43,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
 
         navigationView.bringToFront();
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
