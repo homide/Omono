@@ -34,7 +34,7 @@
                 android:id="@+id/mainTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="4dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="Main Title"
@@ -46,7 +46,7 @@
                 android:id="@+id/priceBefore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="4dp"
                 android:text="Price Before"
                 android:textColor="#000"
                 android:textSize="13.5sp"
@@ -56,7 +56,7 @@
                 android:id="@+id/discPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="4dp"
                 android:text="Discounted Price"
                 android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
                 android:id="@+id/discount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="4dp"
                 android:text="Discount"
                 android:textStyle="bold" />
 

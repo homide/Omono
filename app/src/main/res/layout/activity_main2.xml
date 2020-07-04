@@ -8,27 +8,17 @@
     android:background="#f8f8ff"
     android:fitsSystemWindows="true"
     tools:context=".Main2Activity"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"
-            android:background="#00000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <EditText
             android:id="@+id/searchText2"
             android:layout_width="255dp"
             android:layout_height="45dp"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="60dp"
             android:autofillHints=""
             android:background="@drawable/custom_search_bar"
             android:drawableStart="@drawable/ic_action_search"
@@ -42,11 +32,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:background="#00000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btnSearch2"
             android:layout_width="72dp"
             android:layout_height="45dp"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/custom_button"
             android:text="Search"
             android:textColor="#FFFFFF"
