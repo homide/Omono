@@ -14,24 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/searchText2"
-            android:layout_width="255dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="60dp"
-            android:autofillHints=""
-            android:background="@drawable/custom_search_bar"
-            android:drawableStart="@drawable/ic_action_search"
-            android:drawableLeft="@drawable/ic_action_search"
-            android:ems="10"
-            android:hint="Search here......"
-            android:inputType="textPersonName"
-            android:textColorLink="#FFFFFF"
-            app:layout_constraintEnd_toStartOf="@+id/btnSearch2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar"
@@ -42,28 +24,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnSearch2"
-            android:layout_width="72dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/custom_button"
-            android:text="Search"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/searchText2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/resultText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchText2" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
@@ -71,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resultText" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
