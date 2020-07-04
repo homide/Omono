@@ -61,18 +61,14 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Intent intent = getIntent();
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
-        resultText = (TextView) findViewById(R.id.resultText);
-        resultText.setText("Showing Results for: " + input1);
         adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls,arraySave.tag);
         if (arraySave.producturl.size() > 0) {
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
 
-
-
-            button2 = (Button) findViewById(R.id.btnSearch2);
-            usersearch = (EditText) findViewById(R.id.searchText2);
+            button2 = (Button) findViewById(R.id.btnSearch1);
+            usersearch = (EditText) findViewById(R.id.searchText1);
 
             //OnClick Listener
             button2.setOnClickListener(new View.OnClickListener() {
@@ -99,24 +95,11 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             public void run() {
-                                resultText.setText("Showing Results for: " + usersearch.getText());
                                 pd.dismiss();
                                 recyclerView.setAdapter(adaptor);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
                             }
                         }, 2500);
-
-
-//                        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        //testcomment
-//                            @Override
-//                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                                String link = arraySave.producturl.get(position);
-//                                Intent intent = new Intent((Intent.ACTION_VIEW));
-//                                intent.setData(Uri.parse(link));
-//                                startActivity(intent);
-//                            }
-//                        });
                     }
                 }
             });

@@ -3,16 +3,13 @@ package com.project.main;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -27,7 +24,6 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
     ArrayList<String> imageurl;
 
     public MyAdaptor(Context c, ArrayList<String> pricebefore,ArrayList<String> discountedprice, ArrayList<String> discount, ArrayList<String> producturl,ArrayList<String> producttitle, ArrayList<String> imageurl, ArrayList<String> tag){
-        //super();
         this.context = c;
         this.pricebefore = pricebefore;
         this.discountedprice = discountedprice;
@@ -70,7 +66,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 100;
+        return producttitle.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -95,10 +91,6 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
             intent.setData(Uri.parse(link));
             context.startActivity(intent);
 
-//            String link = arraySave.producturl.get(position);
-//            Intent intent = new Intent((Intent.ACTION_VIEW));
-//            intent.setData(Uri.parse(link));
-//            context.startActivity(intent);
 
         }
     }

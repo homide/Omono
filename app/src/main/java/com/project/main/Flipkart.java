@@ -1,6 +1,8 @@
 package com.project.main;
 
 import android.os.AsyncTask;
+import android.telecom.Call;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -34,80 +36,61 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<String>> impleme
     protected ArrayList<String> doInBackground(final String... strings) {
         try{
             Document doc = Jsoup.connect(strings[0]).get();
-            Elements links = doc.getElementsByClass("_3O0U0u");
-            Elements links1 = doc.getElementsByClass("_3liAhj");
-            Elements links2 = doc.getElementsByClass("IIdQZO _1SSAGr");
-            Elements link3 = doc.getElementsByClass("_3liAhj");
-            ArrayList<String> mainlist = null;
-
-            for(Element testlink1 : links){
-                Elements eltitle1 = testlink1.getElementsByClass("_3wU53n");
-                if(eltitle1.size() > 0){
-                    Calling calling = new Calling();
-                    link = strings[0];
-                    calling.call(1,strings[0],"_3O0U0u","a","_3wU53n","_1vC4OE _2rQ-NK","_3auQ3N _2GcJzG","_3BTv9X",
-                            "VGWI6T");
-                    temptitlestore = calling.temptitlestore;
-                    tempimageurl = calling.tempimageurl;
-                    tempurlstore = calling.tempurlstore;
-                    tag = calling.tag;
-                    mainlist= calling.temppriceafter;
+            Element s = doc.getElementsByClass("_1KHd47").get(1);
+            String a = s.text();
+            if(s.equals("Mobiles & Accessories") ||s.equals("Home Entertainment")){
+                Calling calling = new Calling();
+                calling.call(1,strings[0],"IIdQZO _1SSAGr","a","_2mylT6 _3Ockxk","_1vC4OE","_3auQ3N","img","VGWI6T");
+                temptitlestore = calling.temptitlestore;
+                tempimageurl= calling.tempimageurl;
+                tempdiscount = calling.tempdiscount;
+                temppricebefore = calling.temppricebefore;
+                tag = calling.tag;
+                ArrayList<String> urlstore = calling.tempurlstore;
+                for(String t: urlstore){
+                    String b = "https://www.flipkart.com" + t;
+                    tempurlstore.add(b);
                 }
-                else {
-                    break;
-                }
+                ArrayList<String> mainlist= calling.temppriceafter;
+                return mainlist;
             }
-
-            for(Element testlink2 : links1){
-                Elements Testrun = testlink2.getElementsByClass("_1rcHFq");
-                if(Testrun.size() > 0){
-                    Calling calling = new Calling();
-                    link = strings[0];
-                    calling.call(1,strings[0],"_3liAhj","a","_2cLu-l","_3auQ3N","_1vC4OE","_3BTv9X","VGWI6T");
-                    temptitlestore = calling.temptitlestore;
-                    tempimageurl = calling.tempimageurl;
-                    tempurlstore = calling.tempurlstore;
-                    mainlist= calling.temppriceafter;
+            else if(s.equals("Clothing and Accessories") || s.equals("Footwear") || s.equals("Sunglasses")){
+                Calling calling = new Calling();
+                calling.call(1,strings[0],"IIdQZO _1SSAGr","a","_2mylT6 _3Ockxk","_1vC4OE","_3auQ3N","img","VGWI6T");
+                temptitlestore = calling.temptitlestore;
+                tempimageurl= calling.tempimageurl;
+                tempdiscount = calling.tempdiscount;
+                temppricebefore = calling.temppricebefore;
+                tag = calling.tag;
+                ArrayList<String> urlstore = calling.tempurlstore;
+                for(String t: urlstore){
+                    String b = "https://www.flipkart.com" + t;
+                    tempurlstore.add(b);
                 }
-                else{
-                    break;
-                }
+                ArrayList<String> mainlist= calling.temppriceafter;
+                return mainlist;
             }
-            for (Element fashion : links2){
-                Elements fashiontitle = fashion.getElementsByClass("_2mylT6");
-                if(fashiontitle.size() >0){
-                    Calling calling = new Calling();
-                    link = strings[0];
-                    calling.call(1,strings[0],"IIdQZO _1SSAGr","a","_2mylT6","_1vC4OE","_3auQ3N","_3togXc","VGWI6T");
-                    temptitlestore = calling.temptitlestore;
-                    tempimageurl = calling.tempimageurl;
-                    tempurlstore = calling.tempurlstore;
-                    mainlist= calling.temppriceafter;
+            else {
+                Calling calling = new Calling();
+                calling.call(1,strings[0],"IIdQZO _1SSAGr","a","_2mylT6 _3Ockxk","_1vC4OE","_3auQ3N","img","VGWI6T");
+                temptitlestore = calling.temptitlestore;
+                tempimageurl= calling.tempimageurl;
+                tempdiscount = calling.tempdiscount;
+                temppricebefore = calling.temppricebefore;
+                tag = calling.tag;
+                ArrayList<String> urlstore = calling.tempurlstore;
+                for(String t: urlstore){
+                    String b = "https://www.flipkart.com" + t;
+                    tempurlstore.add(b);
                 }
-                else {
-                    break;
-                }
+                ArrayList<String> mainlist= calling.temppriceafter;
+                return mainlist;
             }
-            for(Element maska : link3){
-                Elements masktitle = maska.getElementsByClass("_2cLu-l");
-                if(masktitle.size() >0){
-                    Calling calling = new Calling();
-                    link = strings[0];
-                    calling.call(1,strings[0],"_3liAhj","a","_2cLu-l","_1vC4OE","_3auQ3N","Zhf2z-","VGWI6T");
-                    temptitlestore = calling.temptitlestore;
-                    tempimageurl = calling.tempimageurl;
-                    tempurlstore = calling.tempurlstore;
-                    mainlist= calling.temppriceafter;
-                }
-                else {
-                    break;
-                }
-            }
-            return mainlist;
 
         }catch (Exception e){
-            System.out.println("Flipkart not working" + e);
             return null;
         }
     }
+
+
 }

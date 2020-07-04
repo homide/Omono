@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,37 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <EditText
-            android:id="@+id/searchText1"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="57dp"
-            android:autofillHints=""
-            android:background="@drawable/custom_search_bar"
-            android:drawableStart="@drawable/ic_action_search"
-            android:drawableLeft="@drawable/ic_action_search"
-            android:ems="10"
-            android:hint="Search here....."
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnSearch1"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
-            android:text="Search"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchText1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
