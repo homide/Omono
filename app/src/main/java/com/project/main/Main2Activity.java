@@ -82,7 +82,8 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
 
                     if (usersearch.getText().length() <= 0) {
                         Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                    } else {
+                    }
+                    else {
                         arraySave.producturl.clear();
                         arraySave.imageurls.clear();
                         arraySave.titleallproducts.clear();
