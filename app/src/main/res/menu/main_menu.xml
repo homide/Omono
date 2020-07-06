@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item android:title="Categories"
-              android:icon="@drawable/ic_cart">
 
-            <menu>
-                <group android:checkableBehavior="single">
-                    <item android:title="Groceries" />
-                    <item android:title="Fashion" />
-                    <item android:title="Electronics" />
-                    <item android:title="Mobiles" />
-                </group>
-            </menu>
-
-        </item>
-    </group>
 
     <group android:checkableBehavior="single">
         <item
@@ -23,15 +9,56 @@
             android:icon="@drawable/ic_home"
             android:title="Home" />
         <item
-            android:id="@+id/refresh"
-            android:icon="@drawable/ic_refresh"
-            android:title="Refresh" />
+            android:id="@+id/category"
+            android:icon="@drawable/ic_category"
+            android:title="Shop by category" />
         <item
-            android:id="@+id/exit"
-            android:icon="@drawable/ic_power"
-            android:title="Exit" />
+            android:id="@+id/notifications"
+            android:icon="@drawable/ic_notifications"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/ongoing_deals"
+            android:icon="@drawable/ic_ongoing"
+            android:title="Ongoing deals" />
+        <item
+            android:id="@+id/upcoming_deals"
+            android:icon="@drawable/ic_upcoming"
+            android:title="Upcoming deals" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" /></group>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Feedback" />
+        <item
+            android:id="@+id/report"
+            android:icon="@drawable/ic_report"
+            android:title="Report" />
     </group>
 
-
-
 </menu>
+
+
+
+
+
+<!--<group android:checkableBehavior="single">-->
+<!--<item android:title="Categories"-->
+<!--    android:icon="@drawable/ic_cart">-->
+
+<!--    <menu>-->
+<!--        <group android:checkableBehavior="single">-->
+<!--            <item android:title="Groceries" />-->
+<!--            <item android:title="Fashion" />-->
+<!--            <item android:title="Electronics" />-->
+<!--            <item android:title="Mobiles" />-->
+<!--        </group>-->
+<!--    </menu>-->
+
+<!--</item>-->
+<!--</group>-->
