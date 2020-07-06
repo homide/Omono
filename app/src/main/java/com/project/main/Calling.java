@@ -13,13 +13,7 @@ import java.util.ArrayList;
 public class Calling {
 
     //ArrayLists to store Objects
-    ArrayList<String> temptitlestore = new ArrayList<>();
-    ArrayList<String> tempurlstore = new ArrayList<>();
-    ArrayList<String> tempimageurl = new ArrayList<>();
-    ArrayList<String> tempdiscount = new ArrayList<>();
-    ArrayList<String> temppricebefore = new ArrayList<>();
-    ArrayList<String> temppriceafter = new ArrayList<>();
-    ArrayList<String> tag = new ArrayList<>();
+    ArrayList<Product> products = new ArrayList<>(); //(title, price before, discounted price, discount, image link, product link,tag )
     String link;
 
 
@@ -38,9 +32,8 @@ public class Calling {
 
 
         //Loop To Initialize Variables for storing required HTML Data
-        int i = 0;
         for (Element link : links) {
-            String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null;
+            String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null,temp7 = null;
             Elements eltitle, elproductimage;
 
             Elements elLink = link.getElementsByTag(tagForLink); //JSoup Element to get URL of the product
@@ -53,7 +46,8 @@ public class Calling {
 
             Elements elpricebefore = link.getElementsByClass(originalPriceClass); //JSoup Element to get Original Price Data from corresponding HTML Class
 
-            Elements elpriceafter = link.getElementsByClass(discountedPriceClass); //JSoup Element to get Discounted Price Date from corresponding HTML Class
+            Elements elpriceafter = link.getElementsByClass(discountedPriceClass);//JSoup Element to get Discounted Price Date from corresponding HTML Class
+
             if(sNo == 1){
                 elproductimage = link.getElementsByTag(productImageClass);
             }
@@ -68,19 +62,19 @@ public class Calling {
 
             switch(sNo){
                 case 1:
-                    tag.add("Flipkart");
+                    temp7 = "Flipkart";
                     break;
                 case 2:
-                    tag.add("Shopclues");
+                    temp7 = "Shopclues";
                     break;
                 case 3:
-                    tag.add("Snapdeal");
+                    temp7 = "Snapdeal";
                     break;
                 case 4:
-                    tag.add("Paytm");
+                    temp7 = "Paytm";
                     break;
                 case 5:
-                    tag.add("Amazon");
+                    temp7 = "Amazon";
                     break;
             }
 
@@ -150,23 +144,44 @@ public class Calling {
             }
 
             //produuct URL loop
-            ArrayList<String> linkArray = new ArrayList<String>();
+            ArrayList<String> linkArray = new ArrayList<>();
             for (Element elementLink : elLink) {
                 String MainLink = elementLink.attr("href");
                 linkArray.add(MainLink);
             }
 
             //URL storing
-            for (int j = 0; j < 1; j++) {
+            if(sNo == 4) {
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://paytmmall.com" + linkArray.get(0);
+                }
+            }
+            if(sNo == 2){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https:" + linkArray.get(0);
+                }
+            }
+            if(sNo == 1){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.flipkart.com" + linkArray.get(0);
+                }
+            }
+            if(sNo == 7){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://bigbasket.com" + linkArray.get(0);
+                }
+            }
+            if(sNo == 6){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://grofers.com"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 3){
                 temp5 = linkArray.get(0);
             }
 
-            temptitlestore.add(temp1);
-            temppricebefore.add(temp2);
-            temppriceafter.add(temp3);
-            tempdiscount.add(temp4);
-            tempurlstore.add(temp5);
-            tempimageurl.add(temp6);
+            //(title, price before, discounted price, discount, image link, product link,tag )
+            products.add(new Product(temp1,temp2,temp3,temp4,temp6,temp5,temp7));
 
         }
     }

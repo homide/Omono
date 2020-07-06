@@ -5,33 +5,22 @@ package com.project.main;
 import android.os.AsyncTask;
 import java.util.ArrayList;
 
-public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements arraySave {
+public class Paytm extends AsyncTask<String, Void, ArrayList<Product>> implements arraySave {
 
     //ArrayList for corresponding objects
-    ArrayList<String> temptitlestore = new ArrayList<>();
-    ArrayList<String> tempurlstore = new ArrayList<>();
-    ArrayList<String> tempimageurl = new ArrayList<>();
-    ArrayList<String> tempdiscount = new ArrayList<String>();
-    ArrayList<String> temppricebefore = new ArrayList<>();
-    ArrayList<String> tag = new ArrayList<>();
+    ArrayList<Product> products = new ArrayList<>();
     String link;
 
     @Override
-    protected void onPostExecute(ArrayList<String> s) {
+    protected void onPostExecute(ArrayList<Product> s) {
         super.onPostExecute(s);
-        arraySave.discountedprice.addAll(s);
-        arraySave.discount.addAll(tempdiscount);
-        arraySave.pricebefore.addAll(temppricebefore);
-        arraySave.titleallproducts.addAll(temptitlestore);
-        arraySave.producturl.addAll(tempurlstore);
-        arraySave.imageurls.addAll(tempimageurl);
-        arraySave.tag.addAll(tag);
+        arraySave.products.addAll(s);
 
     }
 
 
     @Override
-    protected ArrayList<String> doInBackground(String... strings) {
+    protected ArrayList<Product> doInBackground(String... strings) {
         try{
 
             //initialising calling.java and referencing it
@@ -40,16 +29,8 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<String>> implements
             calling.call(4,strings[0],"_3WhJ","a","UGUy","_1kMS","dQm2",
                     "img","c-ax");
             //initialising and referencing Calling method variables
-            temptitlestore = calling.temptitlestore;
-            ArrayList<String> urlstore = calling.tempurlstore;
-            for(String s : urlstore){
-                String a = "https://paytmmall.com" + s;
-                tempurlstore.add(a);
-            }
-            tempimageurl = calling.tempimageurl;
-            tag = calling.tag;
-            ArrayList<String> mainlist= calling.temppriceafter;
-            return mainlist;
+            products = calling.products;
+            return products;
         }catch (Exception e){
             //fail-safe :)
             System.out.println("Paytm not working" + e);

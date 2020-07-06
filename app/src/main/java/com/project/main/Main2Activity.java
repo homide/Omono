@@ -61,8 +61,8 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Intent intent = getIntent();
         String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
-        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls,arraySave.tag);
-        if (arraySave.producturl.size() > 0) {
+        adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
+        if (arraySave.products.size() > 0) {
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
@@ -80,18 +80,13 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                         Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        arraySave.producturl.clear();
-                        arraySave.imageurls.clear();
-                        arraySave.titleallproducts.clear();
-                        arraySave.pricebefore.clear();
-                        arraySave.discountedprice.clear();
-                        arraySave.discount.clear();
+                        arraySave.products.clear();
                         final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
                         pd.setMessage("Searching websites...");
                         pd.show();
                         CallingMain callingMain = new CallingMain();
                         callingMain.callingmain(usersearch.getText().toString());
-                        adaptor = new MyAdaptor(Main2Activity.this, arraySave.pricebefore, arraySave.discountedprice, arraySave.discount, arraySave.producturl, arraySave.titleallproducts, arraySave.imageurls,arraySave.tag);
+                        adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             public void run() {
@@ -143,12 +138,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
 
     @Override
     public void onBackPressed () {
-        arraySave.producturl.clear();
-        arraySave.imageurls.clear();
-        arraySave.titleallproducts.clear();
-        arraySave.pricebefore.clear();
-        arraySave.discountedprice.clear();
-        arraySave.discount.clear();
+        arraySave.products.clear();
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -163,12 +153,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                arraySave.producturl.clear();
-                arraySave.imageurls.clear();
-                arraySave.titleallproducts.clear();
-                arraySave.pricebefore.clear();
-                arraySave.discountedprice.clear();
-                arraySave.discount.clear();
+                arraySave.products.clear();
                 break;
         }
         return true;
