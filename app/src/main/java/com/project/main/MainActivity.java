@@ -28,6 +28,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
     Toolbar toolbar;
     public static final String EXTRA_TEXT = "com.kush.naya.EXTRA_TEXT";
     String searchtext;
+    private MenuItem menuItem;
 
 
     @Override
@@ -44,7 +45,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         navigationView.bringToFront();
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -57,8 +58,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
                 searchtext = searchbar.getText().toString();
                 if (searchtext.length() <= 0) {
                     Toast.makeText(MainActivity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     final ProgressDialog pd = new ProgressDialog(MainActivity.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
@@ -85,12 +85,11 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else{
+        } else {
             super.onBackPressed();
         }
     }
@@ -132,8 +131,28 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         super.onStop();
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//        this.menuItem = menuItem;
+//        return true;
+//    }
+
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            Intent cinemaIntent = new Intent(this, MainActivity.class);
+            startActivity(cinemaIntent);
+        } else if (id == R.id.feedback){
+            Intent cinemaIntent = new Intent(this, Feedback.class);
+            startActivity(cinemaIntent);
+        }
+        else
+            Toast.makeText(this, "This doesn't have a funtion yet", Toast.LENGTH_SHORT).show();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
