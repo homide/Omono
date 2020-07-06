@@ -76,7 +76,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
                             intent.putExtra(EXTRA_TEXT, searchtext);
                             startActivity(intent);
                         }
-                    }, 2500);
+                    }, 2000);
 
                 }
             }
