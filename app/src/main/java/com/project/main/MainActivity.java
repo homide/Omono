@@ -1,14 +1,10 @@
 package com.project.main;  //project-custom-package
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
@@ -22,10 +18,10 @@ import com.google.android.material.navigation.NavigationView;
 public class
 MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public EditText searchbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar1;
+    public Button searchbar;
     private MenuItem menuItem;
 
 
@@ -34,14 +30,13 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchbar = (EditText) findViewById(R.id.searchText);
+        searchbar = (Button) findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar1 = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navView);
 
         navigationView.bringToFront();
         setSupportActionBar(toolbar1);
-        getSupportActionBar().setTitle("");
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar1, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -117,6 +112,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         if (id == R.id.nav_home) {
             Intent cinemaIntent = new Intent(this, MainActivity.class);
             startActivity(cinemaIntent);
+            arraySave.products.clear();
         } else if (id == R.id.feedback){
             Intent cinemaIntent = new Intent(this, Feedback.class);
             startActivity(cinemaIntent);
