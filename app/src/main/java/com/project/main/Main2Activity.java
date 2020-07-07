@@ -27,12 +27,11 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     //test
-    public Button button2;
+    public Button searchbar;
     public RecyclerView recyclerView;
-    public EditText usersearch;
     public MyAdaptor adaptor;
-    DrawerLayout drawerLayout2;
-    NavigationView navigationView2;
+    DrawerLayout drawerLayout3;
+    NavigationView navigationView3;
     Toolbar toolbar;
 
     TextView resultText;
@@ -43,61 +42,58 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        drawerLayout2 = findViewById(R.id.drawer_layout2);
+        drawerLayout3 = findViewById(R.id.drawer_layout3);
         toolbar = findViewById(R.id.toolbar);
-        navigationView2 = findViewById(R.id.navView2);
+        navigationView3 = findViewById(R.id.navView2);
 
-        navigationView2.bringToFront();
+        navigationView3.bringToFront();
         setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout2, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
-        drawerLayout2.addDrawerListener(toggle);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout3, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        drawerLayout3.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView2.setNavigationItemSelectedListener(this);
+        navigationView3.setNavigationItemSelectedListener(this);
 //        getSupportActionBar().setTitle("Main2Activity");
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Intent intent = getIntent();
-        String input1 = intent.getStringExtra(MainActivity.EXTRA_TEXT);
+        String input1 = intent.getStringExtra(searchActivity.EXTRA_TEXT);
         adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
         if (arraySave.products.size() > 0) {
             recyclerView.setAdapter(adaptor);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
-
-            button2 = (Button) findViewById(R.id.btnSearch1);
-            usersearch = (EditText) findViewById(R.id.searchText1);
-
-            //OnClick Listener
-            button2.setOnClickListener(new View.OnClickListener() {
-                @SuppressLint("StaticFieldLeak")
-                @Override
-                public void onClick(View v) {
-
-                    if (usersearch.getText().length() <= 0) {
-                        Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        arraySave.products.clear();
-                        final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
-                        pd.setMessage("Searching websites...");
-                        pd.show();
-                        CallingMain callingMain = new CallingMain();
-                        callingMain.callingmain(usersearch.getText().toString());
-                        adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            public void run() {
-                                pd.dismiss();
-                                recyclerView.setAdapter(adaptor);
-                                recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
-                            }
-                        }, 2500);
-                    }
+        if (input1.length() <= 0) {
+            Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            arraySave.products.clear();
+            final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
+            pd.setMessage("Searching websites...");
+            pd.show();
+            CallingMain callingMain = new CallingMain();
+            callingMain.callingmain(input1);
+            adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    pd.dismiss();
+                    recyclerView.setAdapter(adaptor);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
                 }
-            });
+            }, 2500);
+        }
+
+        searchbar = (Button) findViewById(R.id.buttonBar);
+        searchbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main2Activity.this, searchActivity.class);
+                startActivity(intent);
+            }
+        });
         }
     @Override
     protected void onStart () {

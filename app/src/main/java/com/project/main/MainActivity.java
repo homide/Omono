@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,13 +22,10 @@ import com.google.android.material.navigation.NavigationView;
 public class
 MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public EditText searchbar;
-    public Button searchButton;
+    public Button searchbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    public static final String EXTRA_TEXT = "com.kush.naya.EXTRA_TEXT";
-    String searchtext;
     private MenuItem menuItem;
 
 
@@ -36,8 +34,7 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchbar = (EditText) findViewById(R.id.searchText1);
-        searchButton = (Button) findViewById(R.id.btnSearch1);
+        searchbar = (Button) findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navView);
@@ -51,36 +48,12 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
 
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        searchbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchtext = searchbar.getText().toString();
-                if (searchtext.length() <= 0) {
-                    Toast.makeText(MainActivity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                } else {
-                    final ProgressDialog pd = new ProgressDialog(MainActivity.this);
-                    pd.setMessage("Searching websites...");
-                    pd.show();
-                    CallingMain callingMain = new CallingMain();
-                    callingMain.callingmain(searchtext);
-//                    CallingGrocery callingGrocery = new CallingGrocery();
-//                    callingGrocery.callinggrocery(searchtext);
-                    //Class Initiations
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            pd.dismiss();
-                            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                            intent.putExtra(EXTRA_TEXT, searchtext);
-                            startActivity(intent);
-                        }
-                    }, 2000);
-
-                }
+                Intent intent = new Intent(MainActivity.this, searchActivity.class);
+                startActivity(intent);
             }
-
         });
     }
 

@@ -2,11 +2,11 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout3"
+    android:id="@+id/drawer_layout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Main2Activity"
+    tools:context=".searchActivity"
     tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +14,8 @@
         android:layout_height="match_parent">
 
         <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"
+            android:id="@+id/search_toolbar"
+            layout="@layout/search_toolbar"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,24 +23,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@android:string/search_go"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/search_toolbar" />
+
+        <Spinner
+            android:id="@+id/spinnerCat"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView3"
+        android:id="@+id/navView2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
