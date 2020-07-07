@@ -3,27 +3,25 @@ package com.project.main;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.material.navigation.NavigationView;
 
-public class searchActivity extends AppCompatActivity {
+public class searchActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public Button searchButton;
     public EditText searchbar;
-    public NavigationView navigationView2;
-    public Toolbar toolbar2;
+    NavigationView navigationView2;
+    Toolbar toolbar2;
     public String searchtext;
-    public DrawerLayout drawerLayout2;
+    DrawerLayout drawerLayout2;
     public static final String EXTRA_TEXT = "com.omono.naya.EXTRA_TEXT";
 
     @Override
@@ -34,7 +32,7 @@ public class searchActivity extends AppCompatActivity {
         searchButton = (Button) findViewById(R.id.btnSearch);
         searchbar = (EditText) findViewById(R.id.searchText);
 
-        drawerLayout2 = findViewById(R.id.drawer_layout3);
+        drawerLayout2 = findViewById(R.id.drawer_layout2);
         toolbar2 = findViewById(R.id.toolbar);
         navigationView2 = findViewById(R.id.navView2);
 
@@ -44,35 +42,54 @@ public class searchActivity extends AppCompatActivity {
         drawerLayout2.addDrawerListener(toggle);
         toggle.syncState();
 
+        navigationView2.setNavigationItemSelectedListener(this);
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 searchtext = searchbar.getText().toString();
                 if (searchtext.length() <= 0) {
                     Toast.makeText(searchActivity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                } else {
-                    final ProgressDialog pd = new ProgressDialog(searchActivity.this);
-                    pd.setMessage("Searching websites...");
-                    pd.show();
+                }
+                else {
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(searchtext);
-//                    CallingGrocery callingGrocery = new CallingGrocery();
-//                    callingGrocery.callinggrocery(searchtext);
-                    //Class Initiations
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            pd.dismiss();
-                            Intent intent = new Intent(searchActivity.this, Main2Activity.class);
-                            intent.putExtra(EXTRA_TEXT, searchtext);
-                            startActivity(intent);
-                        }
-                    }, 2000);
-
+                    Intent intent = new Intent(searchActivity.this, Main2Activity.class);
+                    intent.putExtra(EXTRA_TEXT, searchtext);
+                    startActivity(intent);
                 }
             }
-
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout2.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout2.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            Intent cinemaIntent = new Intent(this, MainActivity.class);
+            startActivity(cinemaIntent);
+            arraySave.products.clear();
+        } else if (id == R.id.feedback){
+            Intent cinemaIntent = new Intent(this, Feedback.class);
+            startActivity(cinemaIntent);
+        }
+        else
+            Toast.makeText(this, "This doesn't have a funtion yet", Toast.LENGTH_SHORT).show();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout2);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
