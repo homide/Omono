@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <include
-            android:id="@+id/toolbar"
+            android:id="@+id/search_toolbar"
             layout="@layout/toolbar"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"

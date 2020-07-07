@@ -15,7 +15,7 @@
 
         <include
             android:id="@+id/search_toolbar"
-            layout="@layout/search_toolbar"
+            layout="@layout/toolbar"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
