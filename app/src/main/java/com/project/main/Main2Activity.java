@@ -27,12 +27,12 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     //test
-    public Button searchbar;
+    public EditText searchbar;
     public RecyclerView recyclerView;
     public MyAdaptor adaptor;
     DrawerLayout drawerLayout3;
     NavigationView navigationView3;
-    Toolbar toolbar;
+    Toolbar toolbar3;
 
     TextView resultText;
 
@@ -43,12 +43,12 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         setContentView(R.layout.activity_main2);
 
         drawerLayout3 = findViewById(R.id.drawer_layout3);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar3 = findViewById(R.id.toolbar);
         navigationView3 = findViewById(R.id.navView2);
 
         navigationView3.bringToFront();
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout3, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        setSupportActionBar(toolbar3);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout3, toolbar3, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawerLayout3.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -86,7 +86,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
             }, 2500);
         }
 
-        searchbar = (Button) findViewById(R.id.buttonBar);
+        searchbar = (EditText) findViewById(R.id.searchText);
         searchbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

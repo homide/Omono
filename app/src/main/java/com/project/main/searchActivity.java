@@ -21,7 +21,7 @@ public class searchActivity extends AppCompatActivity {
     public Button searchButton;
     public EditText searchbar;
     public NavigationView navigationView2;
-    public Toolbar toolbar;
+    public Toolbar toolbar2;
     public String searchtext;
     public DrawerLayout drawerLayout2;
     public static final String EXTRA_TEXT = "com.omono.naya.EXTRA_TEXT";
@@ -35,12 +35,12 @@ public class searchActivity extends AppCompatActivity {
         searchbar = (EditText) findViewById(R.id.searchText);
 
         drawerLayout2 = findViewById(R.id.drawer_layout3);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar2 = findViewById(R.id.toolbar);
         navigationView2 = findViewById(R.id.navView2);
 
         navigationView2.bringToFront();
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout2, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        setSupportActionBar(toolbar2);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout2, toolbar2, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawerLayout2.addDrawerListener(toggle);
         toggle.syncState();
 

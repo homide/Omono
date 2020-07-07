@@ -22,10 +22,10 @@ import com.google.android.material.navigation.NavigationView;
 public class
 MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public Button searchbar;
+    public EditText searchbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Toolbar toolbar;
+    Toolbar toolbar1;
     private MenuItem menuItem;
 
 
@@ -34,15 +34,15 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchbar = (Button) findViewById(R.id.buttonBar);
+        searchbar = (EditText) findViewById(R.id.searchText);
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar1 = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navView);
 
         navigationView.bringToFront();
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar1);
         getSupportActionBar().setTitle("");
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar1, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
