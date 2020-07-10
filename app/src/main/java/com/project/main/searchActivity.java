@@ -59,6 +59,7 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         generalCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(searchActivity.this, "General Category selected", Toast.LENGTH_SHORT).show();
                 categorySelector = 0;
             }
         });
@@ -66,6 +67,7 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         groceriesCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(searchActivity.this, "Grocery Category selected", Toast.LENGTH_SHORT).show();
                 categorySelector = 1;
             }
         });
@@ -73,6 +75,7 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         fashionCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(searchActivity.this, "Fashion Category selected", Toast.LENGTH_SHORT).show();
                 categorySelector = 2;
             }
         });
@@ -80,6 +83,7 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         medCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(searchActivity.this, "Medicines Category selected", Toast.LENGTH_SHORT).show();
                 categorySelector = 3;
             }
         });
@@ -87,6 +91,7 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         electroCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(searchActivity.this, "Electronics Category selected", Toast.LENGTH_SHORT).show();
                 categorySelector = 4;
             }
         });
@@ -104,7 +109,23 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
                     pd.setMessage("Searching websites...");
                     pd.show();
                     CallingMain callingMain = new CallingMain();
-                    callingMain.callingfashion(searchtext);
+                    switch(categorySelector){
+                        case 0:
+                            callingMain.callingmain(searchtext);
+                            break;
+                        case 1:
+                            callingMain.callinggrocery(searchtext);
+                            break;
+                        case 2:
+                            callingMain.callingfashion(searchtext);
+                            break;
+                        case 3:
+                            callingMain.callingmedicines(searchtext);
+                            break;
+                        case 4:
+                            callingMain.callingelectronics(searchtext);
+                            break;
+                    }
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
