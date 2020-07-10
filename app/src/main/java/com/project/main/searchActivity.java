@@ -3,6 +3,7 @@ package com.project.main;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -24,8 +25,10 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
     NavigationView navigationView2;
     Toolbar toolbar2;
     public String searchtext;
+    CardView generalCat, groceriesCat, fashionCat, medCat, electroCat;
     DrawerLayout drawerLayout2;
     public static final String EXTRA_TEXT = "com.omono.naya.EXTRA_TEXT";
+    int categorySelector = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,12 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
 
         searchButton = (Button) findViewById(R.id.btnSearch);
         searchbar = (EditText) findViewById(R.id.searchText);
+
+        generalCat = findViewById(R.id.generalCat);
+        groceriesCat = findViewById(R.id.groceriesCat);
+        fashionCat = findViewById(R.id.fashionCat);
+        medCat = findViewById(R.id.medCat);
+        electroCat = findViewById(R.id.electroCat);
 
         drawerLayout2 = findViewById(R.id.drawer_layout2);
         toolbar2 = findViewById(R.id.toolbar);
@@ -46,6 +55,41 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         toggle.syncState();
 
         navigationView2.setNavigationItemSelectedListener(this);
+
+        generalCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                categorySelector = 0;
+            }
+        });
+
+        groceriesCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                categorySelector = 1;
+            }
+        });
+
+        fashionCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                categorySelector = 2;
+            }
+        });
+
+        medCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                categorySelector = 3;
+            }
+        });
+
+        electroCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                categorySelector = 4;
+            }
+        });
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
