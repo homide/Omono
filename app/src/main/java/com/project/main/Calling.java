@@ -23,10 +23,10 @@ public class Calling {
         Elements links = doc.getElementsByClass(productClass); //JSoup Element to get HTML Data from the corresponding Class/Section
         link = websiteUrl;
 
-        // 1- Flipkart         //6 - Grofers
-        // 2- Shopclues        //7- Bigbasket
-        // 3- Snapdeal
-        // 4- Paytm
+        // 1- Flipkart         //6 - Grofers              // 10- AJIO
+        // 2- Shopclues        //7- Bigbasket               // 11-Myntra
+        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs
+        // 4- Paytm           // 9- Amazon pantry          //13 - Bewakoof
         //5- Amazon
 
 
@@ -38,7 +38,7 @@ public class Calling {
 
             Elements elLink = link.getElementsByTag(tagForLink); //JSoup Element to get URL of the product
 
-            if(sNo == 2){                                        //When ShopClues is being parsed,
+            if(sNo == 2|| sNo == 13){                                        //When ShopClues is being parsed,
                 eltitle = link.getElementsByTag(titleClass);     //We are getting Title of Product using HTML Tag because there is no proper class identifying the title
             }else{                                               //When any other website is being parsed,
                 eltitle = link.getElementsByClass(titleClass);   //We are getting Title of Product using HTML Class because there is class identifying the title
@@ -51,7 +51,7 @@ public class Calling {
             if(sNo == 1){
                 elproductimage = link.getElementsByTag(productImageClass);
             }
-            if(sNo == 2 ||sNo == 3|| sNo == 4|| sNo == 6){                                         //When ShopClues and Paytm mall is being parsed,
+            if(sNo == 2 ||sNo == 3|| sNo == 4 ||sNo == 5|| sNo == 6 || sNo == 11|| sNo == 13){                                //When ShopClues and Paytm mall is being parsed,
                 elproductimage = link.getElementsByTag(productImageClass);    //We are getting URL of Product Image by HTML Tag because there is no proper class identifying the image url
             }
             else {                                                           //When any other website is being Parsed,
@@ -75,6 +75,18 @@ public class Calling {
                     break;
                 case 5:
                     temp7 = "Amazon";
+                    break;
+                case 10:
+                    temp7 = "AJIO";
+                    break;
+                case 11:
+                    temp7 = "Myntra";
+                    break;
+                case 12:
+                    temp7 = "Koovs";
+                    break;
+                case 13:
+                    temp7 = "Bewakoof";
                     break;
             }
 
@@ -131,7 +143,7 @@ public class Calling {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            if(sNo == 1 || sNo == 4 || sNo == 7){
+            if(sNo == 1 || sNo == 4 || sNo == 5|| sNo == 7|| sNo == 10|| sNo == 12){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
                 }
@@ -139,6 +151,12 @@ public class Calling {
             if(sNo == 6){
                 for(Element elimage: elproductimage){
                     temp6 = elimage.absUrl("src");
+                    break;
+                }
+            }
+            if(sNo == 13){
+                for(Element elimage: elproductimage){
+                    temp6 = elimage.attr("src");
                     break;
                 }
             }
@@ -176,6 +194,32 @@ public class Calling {
                     temp5 = "https://grofers.com"+ linkArray.get(0);
                 }
             }
+            if(sNo == 5){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.amazon.in"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 10){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.ajio.com"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 11){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.myntra.com/"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 12){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.koovs.com"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 13){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.bewakoof.com"+ linkArray.get(0);
+                }
+            }
+
             if(sNo == 3){
                 temp5 = linkArray.get(0);
             }

@@ -4,36 +4,33 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
-public class Amazon extends AsyncTask<String, Void, ArrayList<Product>> implements arraySave {
-
-    //ArrayList for corresponding objects
+public class Jabong extends AsyncTask<String, Void, ArrayList<Product>> implements arraySave {
     ArrayList<Product> products = new ArrayList<>();
     String link;
 
     @Override
     protected void onPostExecute(ArrayList<Product> s) {
-
         super.onPostExecute(s);
-        arraySave.products.addAll(products);
-
+        arraySave.products.addAll(s);
     }
+
+
 
     @Override
     protected ArrayList<Product> doInBackground(String... strings) {
         try{
-
+            System.out.println("Running Jabong on thread");
             //initialising calling.java and referencing it
-            System.out.println("Running Amazon on thread");
             Calling calling = new Calling();
             link = strings[0];
-            calling.call(5,strings[0],"celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results","a","a-link-normal a-text-normal","a-price-whole","a-offscreen", "img","auto");
+            calling.call(10,strings[0],"rilrtl-products-list__link","a","name","price  ","orginal-price","rilrtl-lazy-img  rilrtl-lazy-img-loaded","discount");
             //initialising and referencing Calling method variables
-            products = calling.products;
-            System.out.println("Ended Amazon on thread");
+            this.products = calling.products;
+            System.out.println("Jabing ended");
             return products;
         }catch (Exception e){
             //fail-safe :)
-            System.out.println("ShopClues not working" + e);
+            System.out.println("Jabong not working" + e);
             return null;
         }
     }

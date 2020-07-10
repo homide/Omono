@@ -15,8 +15,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
-public class
-MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -33,14 +32,14 @@ MainActivity extends AppCompatActivity implements NavigationView.OnNavigationIte
         searchbar = (Button) findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar1 = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.navView);
 
+        //hamburger
+        navigationView = findViewById(R.id.navView);
         navigationView.bringToFront();
         setSupportActionBar(toolbar1);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar1, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView.setNavigationItemSelectedListener(this);
 
         searchbar.setOnClickListener(new View.OnClickListener() {
