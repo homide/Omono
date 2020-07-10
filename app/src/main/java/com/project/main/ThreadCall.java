@@ -53,6 +53,10 @@ public class ThreadCall implements Runnable {
             Bewakoof bew = new Bewakoof();
             bew.execute(url);
         }
+        if(methodCallingName.equals("Pharmeasy")){
+            Bewakoof bew = new Bewakoof();
+            bew.execute(url);
+        }
     }
 
     public void start(){

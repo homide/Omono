@@ -23,9 +23,9 @@ public class Calling {
         Elements links = doc.getElementsByClass(productClass); //JSoup Element to get HTML Data from the corresponding Class/Section
         link = websiteUrl;
 
-        // 1- Flipkart         //6 - Grofers              // 10- AJIO
-        // 2- Shopclues        //7- Bigbasket               // 11-Myntra
-        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs
+        // 1- Flipkart         //6 - Grofers              // 10- AJIO           // 14 - Pharmeasy
+        // 2- Shopclues        //7- Bigbasket               // 11-Myntra        // 15 - Medlife
+        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs        // 16 -
         // 4- Paytm           // 9- Amazon pantry          //13 - Bewakoof
         //5- Amazon
 
@@ -87,6 +87,9 @@ public class Calling {
                     break;
                 case 13:
                     temp7 = "Bewakoof";
+                    break;
+                case 14:
+                    temp7 = "Pharmeasy";
                     break;
             }
 
@@ -217,6 +220,11 @@ public class Calling {
             if(sNo == 13){
                 for (int j = 0; j < 1; j++) {
                     temp5 = "https://www.bewakoof.com"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 14){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.pharmeasy.in"+ linkArray.get(0);
                 }
             }
 

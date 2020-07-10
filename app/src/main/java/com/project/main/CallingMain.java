@@ -14,7 +14,7 @@ public class CallingMain {
         snap.start();
         shop.start();
         pay.start();
-//        flip.start();
+        flip.start();
         amz.start();
     }
 
@@ -38,18 +38,31 @@ public class CallingMain {
         amz.start();
 
         ThreadCall ajio = new ThreadCall("https://www.ajio.com/search/?text=" + searchtext, "AJIO");
+        //        ajio.start();
+
         ThreadCall myn = new ThreadCall("https://www.myntra.com/" + searchtext, "Myntra");
+        //        myn.start();
 
         ThreadCall koov = new ThreadCall("https://www.koovs.com/" + searchtext, "Koovs");
         koov.start();
 
         ThreadCall bew = new ThreadCall("https://www.bewakoof.com/search/" + searchtext + "?ga_q=" + searchtext, "Bewakoof");
         bew.start();
-//        ajio.start();
-//        myn.start();
     }
 
     public void callingmedicines(String searchtext){
+        ThreadCall phar = new ThreadCall("https://pharmeasy.in/search/all?name=" + searchtext, "Pharmeasy");
+        phar.start();
+
+        ThreadCall med = new ThreadCall("", "Medlife");
+        med.start();
+    }
+
+    public void callinggrocery(String searchtext){
+
+    }
+
+    public void callingelectronics(String seachtext){
 
     }
 }
