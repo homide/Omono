@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_category"
             android:title="Shop by category" />
         <item
+            android:id="@+id/wishlist"
+            android:icon="@drawable/ic_wishlist"
+            android:title="Wishlist" />
+        <item
             android:id="@+id/notifications"
             android:icon="@drawable/ic_notifications"
             android:title="Notifications" />

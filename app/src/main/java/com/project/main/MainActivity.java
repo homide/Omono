@@ -1,5 +1,6 @@
 package com.project.main;  //project-custom-package
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -116,11 +117,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent cinemaIntent = new Intent(this, Feedback.class);
             startActivity(cinemaIntent);
         }
+        else if (id == R.id.notifications){
+            Intent cinemaIntent = new Intent(this, Notifications.class);
+            startActivity(cinemaIntent);
+        }
+        else if (id == R.id.wishlist){
+            Intent cinemaIntent = new Intent(this, Wishlist.class);
+            startActivity(cinemaIntent);
+        }
         else
-            Toast.makeText(this, "This doesn't have a funtion yet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//        if(id == R.id.search) {
+//            Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_LONG).show();
+//            return true;
+//        } else if(id == R.id.setting) {
+//            Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_LONG).show();
+//            return true;
+//        } else if(id == R.id.about) {
+//            Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_LONG).show();
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }
