@@ -22,7 +22,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<Product>> implement
     @Override
     protected ArrayList<Product> doInBackground(String... strings) {
         try{
-
+            System.out.println("Running paytm on thread");
             //initialising calling.java and referencing it
             Calling calling = new Calling();
             link = strings[0];
@@ -30,6 +30,7 @@ public class Paytm extends AsyncTask<String, Void, ArrayList<Product>> implement
                     "img","c-ax");
             //initialising and referencing Calling method variables
             products = calling.products;
+            System.out.println("Ended paytm");
             return products;
         }catch (Exception e){
             //fail-safe :)

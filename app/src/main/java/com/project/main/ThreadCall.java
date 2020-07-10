@@ -33,6 +33,26 @@ public class ThreadCall implements Runnable {
             Bigbasket big = new Bigbasket();
             big.execute(url);
         }
+        if(methodCallingName.equals("Amazon")){
+            Amazon amz = new Amazon();
+            amz.execute(url);
+        }
+        if(methodCallingName.equals("AJIO")){
+            Ajio ajio = new Ajio();
+            ajio.execute(url);
+        }
+        if(methodCallingName.equals("Myntra")){
+            Myntra myn = new Myntra();
+            myn.execute(url);
+        }
+        if(methodCallingName.equals("Koovs")){
+            Koovs koov = new Koovs();
+            koov.execute(url);
+        }
+        if(methodCallingName.equals("Bewakoof")){
+            Bewakoof bew = new Bewakoof();
+            bew.execute(url);
+        }
     }
 
     public void start(){

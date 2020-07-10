@@ -27,8 +27,6 @@ import com.google.android.material.navigation.NavigationView;
 public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     //test
     public Button searchbar;
-    public RecyclerView recyclerView;
-    public MyAdaptor adaptor;
     DrawerLayout drawerLayout3;
     NavigationView navigationView3;
     Toolbar toolbar3;
@@ -44,43 +42,18 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         drawerLayout3 = findViewById(R.id.drawer_layout3);
         toolbar3 = findViewById(R.id.toolbar);
         navigationView3 = findViewById(R.id.navView3);
-
         navigationView3.bringToFront();
         setSupportActionBar(toolbar3);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout3, toolbar3, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawerLayout3.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView3.setNavigationItemSelectedListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        Intent intent = getIntent();
-        String input1 = intent.getStringExtra(searchActivity.EXTRA_TEXT);
-        adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
-        if (arraySave.products.size() > 0) {
-            recyclerView.setAdapter(adaptor);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        }
-        if (input1.length() <= 0) {
-            Toast.makeText(Main2Activity.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            arraySave.products.clear();
-            final ProgressDialog pd = new ProgressDialog(Main2Activity.this);
-            pd.setMessage("Searching websites...");
-            pd.show();
-            CallingMain callingMain = new CallingMain();
-            callingMain.callingmain(input1);
-            adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    pd.dismiss();
-                    recyclerView.setAdapter(adaptor);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
-                }
-            }, 2500);
-        }
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        MyAdaptor adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
+        recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
+        recyclerView.setAdapter(adaptor);
 
         searchbar = (Button) findViewById(R.id.buttonBar);
         searchbar.setOnClickListener(new View.OnClickListener() {

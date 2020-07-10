@@ -26,7 +26,7 @@
             android:layout_height="117dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="226dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -44,7 +44,7 @@
 
             <TextView
                 android:id="@+id/priceBefore"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="Price Before"
@@ -54,7 +54,7 @@
 
             <TextView
                 android:id="@+id/discPrice"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="Discounted Price"
@@ -62,13 +62,19 @@
 
             <TextView
                 android:id="@+id/discount"
-                android:layout_width="match_parent"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="Discount"
                 android:textStyle="bold" />
 
+
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/tag"
+            android:layout_width="30dp"
+            android:layout_height="30dp" ></ImageView>
 
     </LinearLayout>
 

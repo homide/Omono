@@ -4,36 +4,35 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
-public class Amazon extends AsyncTask<String, Void, ArrayList<Product>> implements arraySave {
-
+public class Bewakoof extends AsyncTask<String, Void, ArrayList<Product>> implements arraySave {
     //ArrayList for corresponding objects
     ArrayList<Product> products = new ArrayList<>();
     String link;
 
     @Override
     protected void onPostExecute(ArrayList<Product> s) {
-
         super.onPostExecute(s);
-        arraySave.products.addAll(products);
-
+        arraySave.products.addAll(s);
     }
+
+
 
     @Override
     protected ArrayList<Product> doInBackground(String... strings) {
         try{
-
+            System.out.println("Running Bewakoof on thread");
             //initialising calling.java and referencing it
-            System.out.println("Running Amazon on thread");
             Calling calling = new Calling();
             link = strings[0];
-            calling.call(5,strings[0],"celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results","a","a-link-normal a-text-normal","a-price-whole","a-offscreen", "img","auto");
+            calling.call(13,strings[0],"col-sm-4 col-xs-6", "a", "h3","discountedPriceText",
+                    "actualPriceText","img", "loyaltyPriceBox");
             //initialising and referencing Calling method variables
-            products = calling.products;
-            System.out.println("Ended Amazon on thread");
+            this.products = calling.products;
+            System.out.println("Bewakoof ended");
             return products;
         }catch (Exception e){
             //fail-safe :)
-            System.out.println("ShopClues not working" + e);
+            System.out.println("Bewakoof not working" + e);
             return null;
         }
     }
