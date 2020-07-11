@@ -14,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        wishlist/ categories/ notifications-->
+
         <ImageView
             android:id="@+id/appLogo"
             android:layout_width="120dp"
@@ -30,7 +32,7 @@
         <Button
             android:id="@+id/buttonBar"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/custom_search_bar"
@@ -41,6 +43,47 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appLogo"
             app:layout_constraintVertical_bias="0.542" />
+
+        <ImageView
+            android:id="@+id/wishlist_toolbar_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.936"
+            app:layout_constraintStart_toEndOf="@+id/appLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432"
+            app:srcCompat="@drawable/ic_wishlist_icon"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/category_toolbar_icon"
+
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonBar"
+            app:layout_constraintEnd_toStartOf="@+id/wishlist_toolbar_icon"
+            app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintStart_toEndOf="@+id/appLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432"
+            app:srcCompat="@drawable/ic_category_icon"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/notifications_toolbar_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonBar"
+            app:layout_constraintEnd_toStartOf="@+id/category_toolbar_icon"
+            app:layout_constraintHorizontal_bias="0.785"
+            app:layout_constraintStart_toEndOf="@+id/appLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432"
+            app:srcCompat="@drawable/ic_notifications_icon"
+            tools:ignore="VectorDrawableCompat" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
