@@ -81,13 +81,13 @@ public class CallingMain {
     }
 
     public void callingelectronics(String seachtext){
-//        ThreadCall croma = new ThreadCall();
+//        ThreadCall croma = new ThreadCall("https://www.croma.com/search/?text="+ seachtext, "Croma");
 //        croma.start();
 //
-//        ThreadCall rel = new ThreadCall();
-//        rel.start();
+        ThreadCall rel = new ThreadCall("https://www.reliancedigital.in/search?q="+seachtext+":relevance", "Reliance");
+        rel.start();
 //
-//        ThreadCall tatacliq = new ThreadCall();
+//        ThreadCall tatacliq = new ThreadCall("https://www.tatacliq.com/search/?searchCategory=all&text=" + seachtext, "Tatacliq");
 //        tatacliq.start();
     }
 }

@@ -16,7 +16,6 @@ public class Groceries_category extends AppCompatActivity {
     public Button searchButton;
     public EditText searchbar;
     public String searchtext;
-    int categorySelector = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

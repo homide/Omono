@@ -23,9 +23,9 @@ public class Calling {
         Elements links = doc.getElementsByClass(productClass); //JSoup Element to get HTML Data from the corresponding Class/Section
         link = websiteUrl;
 
-        // 1- Flipkart         //6 - Grofers              // 10- AJIO           // 14 - Pharmeasy     // 18 -
-        // 2- Shopclues        //7- Bigbasket               // 11-Myntra        // 15 - 1mg      // 19 -
-        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs        // 16 - Netmeds              // 20 -
+        // 1- Flipkart         //6 - Grofers              // 10- AJIO           // 14 - Pharmeasy     // 18 - Croma
+        // 2- Shopclues        //7- Bigbasket               // 11-Myntra        // 15 - 1mg          // 19 - Reliance
+        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs        // 16 - Netmeds      // 20 - Tatacliq
         // 4- Paytm           // 9- Amazon pantry          //13 - Bewakoof      // 17 -               // 21 -
         //5- Amazon
 
@@ -38,7 +38,7 @@ public class Calling {
 
             Elements elLink = link.getElementsByTag(tagForLink); //JSoup Element to get URL of the product
 
-            if(sNo == 2|| sNo == 13){                                        //When ShopClues is being parsed,
+            if(sNo == 2|| sNo == 13|| sNo == 18){                                        //When ShopClues is being parsed,
                 eltitle = link.getElementsByTag(titleClass);     //We are getting Title of Product using HTML Tag because there is no proper class identifying the title
             }else{                                               //When any other website is being parsed,
                 eltitle = link.getElementsByClass(titleClass);   //We are getting Title of Product using HTML Class because there is class identifying the title
@@ -51,7 +51,7 @@ public class Calling {
             if(sNo == 1){
                 elproductimage = link.getElementsByTag(productImageClass);
             }
-            if(sNo == 2 ||sNo == 3|| sNo == 4 ||sNo == 5|| sNo == 6 || sNo == 11|| sNo == 13){                                //When ShopClues and Paytm mall is being parsed,
+            if(sNo == 2 ||sNo == 3|| sNo == 4 ||sNo == 5|| sNo == 6 || sNo == 11|| sNo == 13|| sNo == 19){                                //When ShopClues and Paytm mall is being parsed,
                 elproductimage = link.getElementsByTag(productImageClass);    //We are getting URL of Product Image by HTML Tag because there is no proper class identifying the image url
             }
             else {                                                           //When any other website is being Parsed,
@@ -104,13 +104,19 @@ public class Calling {
                     temp7 = "Pharmeasy";
                     break;
                 case 15:
-                    temp7 = "Pharmeasy";
+                    temp7 = "1mg";
                     break;
                 case 16:
-                    temp7 = "Pharmeasy";
+                    temp7 = "Netmeds";
                     break;
-                case 17:
-                    temp7 = "Pharmeasy";
+                case 18:
+                    temp7 = "Croma";
+                    break;
+                case 19:
+                    temp7 = "Reliance";
+                    break;
+                case 20:
+                    temp7 = "Tatacliq";
                     break;
             }
 
@@ -167,7 +173,7 @@ public class Calling {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            if(sNo == 1 || sNo == 4 || sNo == 5|| sNo == 7|| sNo == 10|| sNo == 12|| sNo == 9||sNo == 8){
+            if(sNo == 1 || sNo == 4 || sNo == 5|| sNo == 7|| sNo == 10|| sNo == 12|| sNo == 9||sNo == 8|| sNo == 18){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
                 }
@@ -181,6 +187,17 @@ public class Calling {
             if(sNo == 13){
                 for(Element elimage: elproductimage){
                     temp6 = elimage.attr("src");
+                    break;
+                }
+            }
+            if(sNo == 19){
+                for(Element elimage: elproductimage){
+                    temp6 = "https://www.reliancedigital.in" + elimage.attr("src");
+                }
+            }
+            if(sNo == 20){
+                for(Element elimage: elproductimage){
+                    temp6 = "https:" + elimage.attr("src");
                     break;
                 }
             }
@@ -258,9 +275,17 @@ public class Calling {
                     temp5 = "https://www.amazon.in"+ linkArray.get(0);
                 }
             }
-
-
-            if(sNo == 3){
+            if(sNo == 18){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.croma.com"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 19){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.reliancedigital.in"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 3|| sNo == 20){
                 temp5 = linkArray.get(0);
             }
 
