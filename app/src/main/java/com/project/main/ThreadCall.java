@@ -73,6 +73,18 @@ public class ThreadCall implements Runnable {
             mg1 mg = new mg1();
             mg.execute(url);
         }
+        if(methodCallingName.equals("Croma")){
+            Croma cro = new Croma();
+            cro.execute(url);
+        }
+        if(methodCallingName.equals("Tatacliq")){
+            Tatacliq tc = new Tatacliq();
+            tc.execute(url);
+        }
+        if(methodCallingName.equals("Reliance")){
+            Reliance rel = new Reliance();
+           rel.execute(url);
+        }
     }
 
     public void start(){

@@ -16,7 +16,6 @@ public class Electronics_category extends AppCompatActivity {
     public Button searchButton;
     public EditText searchbar;
     public String searchtext;
-    int categorySelector = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class Electronics_category extends AppCompatActivity {
                             Intent intent = new Intent(Electronics_category.this, Main2Activity.class);
                             startActivity(intent);
                         }
-                    },2500 );
+                    },4000 );
                 }
             }
         });
