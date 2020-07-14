@@ -40,23 +40,7 @@ public class Electronics_category extends AppCompatActivity {
                     pd.setMessage("Searching websites...");
                     pd.show();
                     CallingMain callingMain = new CallingMain();
-                    switch(categorySelector){
-                        case 0:
-                            callingMain.callingmain(searchtext);
-                            break;
-                        case 1:
-                            callingMain.callinggrocery(searchtext);
-                            break;
-                        case 2:
-                            callingMain.callingfashion(searchtext);
-                            break;
-                        case 3:
-                            callingMain.callingmedicines(searchtext);
-                            break;
-                        case 4:
-                            callingMain.callingelectronics(searchtext);
-                            break;
-                    }
+                    callingMain.callingelectronics(searchtext);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {

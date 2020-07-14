@@ -20,61 +20,110 @@
         android:dividerPadding="4dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="117dp"
-            android:layout_height="117dp" />
-
-        <LinearLayout
-            android:layout_width="226dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/mainTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="Main Title"
-                android:textColor="#000"
-                android:textSize="14.4sp"
-                android:textStyle="bold" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/priceBefore"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                android:layout_marginEnd="124dp"
+                android:layout_marginRight="124dp"
+                android:layout_marginBottom="52dp"
                 android:text="Price Before"
                 android:textColor="#000"
                 android:textSize="13.5sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/discPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/discount"
+                android:layout_width="140dp"
+                android:layout_height="19dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="12dp"
+                android:text="Discount"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tag"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/mainTitle"
+                app:layout_constraintTop_toBottomOf="@+id/discPrice"
+                app:layout_constraintVertical_bias="0.105" />
 
             <TextView
                 android:id="@+id/discPrice"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:text="Discounted Price"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+                app:layout_constraintVertical_bias="0.207" />
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="127dp"
+                android:layout_height="152dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.113" />
 
             <TextView
-                android:id="@+id/discount"
-                android:layout_width="140dp"
+                android:id="@+id/mainTitle"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Discount"
-                android:textStyle="bold" />
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Main Title"
+                android:textColor="#000"
+                android:textSize="14.4sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/productImage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.046" />
 
+            <ImageView
+                android:id="@+id/tag"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.991" />
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:text="Wishlist"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/tag"
-            android:layout_width="30dp"
-            android:layout_height="30dp" ></ImageView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

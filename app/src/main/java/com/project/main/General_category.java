@@ -16,7 +16,6 @@ public class General_category extends AppCompatActivity {
     public Button searchButton;
     public EditText searchbar;
     public String searchtext;
-    int categorySelector = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +38,7 @@ public class General_category extends AppCompatActivity {
                     pd.setMessage("Searching websites...");
                     pd.show();
                     CallingMain callingMain = new CallingMain();
-                    switch(categorySelector){
-                        case 0:
-                            callingMain.callingmain(searchtext);
-                            break;
-                        case 1:
-                            callingMain.callinggrocery(searchtext);
-                            break;
-                        case 2:
-                            callingMain.callingfashion(searchtext);
-                            break;
-                        case 3:
-                            callingMain.callingmedicines(searchtext);
-                            break;
-                        case 4:
-                            callingMain.callingelectronics(searchtext);
-                            break;
-                    }
+                    callingMain.callingmain(searchtext);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -63,7 +46,7 @@ public class General_category extends AppCompatActivity {
                             Intent intent = new Intent(General_category.this, Main2Activity.class);
                             startActivity(intent);
                         }
-                    },2500 );
+                    },2500);
                 }
             }
         });

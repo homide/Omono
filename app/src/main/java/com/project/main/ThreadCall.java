@@ -54,12 +54,29 @@ public class ThreadCall implements Runnable {
             bew.execute(url);
         }
         if(methodCallingName.equals("Pharmeasy")){
-            Bewakoof bew = new Bewakoof();
-            bew.execute(url);
+            Pharmeasy phr = new Pharmeasy();
+            phr.execute(url);
+        }
+        if(methodCallingName.equals("AmazonPantry")){
+            AmazonPantry amz = new AmazonPantry();
+            amz.execute(url);
+        }
+        if(methodCallingName.equals("Flipmart")){
+            FlipkartMart flip = new FlipkartMart();
+            flip.execute(url);
+        }
+        if(methodCallingName.equals("Netmeds")){
+            Netmeds net = new Netmeds();
+            net.execute(url);
+        }
+        if(methodCallingName.equals("1mg")){
+            mg1 mg = new mg1();
+            mg.execute(url);
         }
     }
 
     public void start(){
+        System.out.println("Starting " + methodCallingName);
         Thread t = new Thread(this);
         t.start();
     }

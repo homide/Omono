@@ -39,23 +39,7 @@ public class Groceries_category extends AppCompatActivity {
                     pd.setMessage("Searching websites...");
                     pd.show();
                     CallingMain callingMain = new CallingMain();
-                    switch(categorySelector){
-                        case 0:
-                            callingMain.callingmain(searchtext);
-                            break;
-                        case 1:
-                            callingMain.callinggrocery(searchtext);
-                            break;
-                        case 2:
-                            callingMain.callingfashion(searchtext);
-                            break;
-                        case 3:
-                            callingMain.callingmedicines(searchtext);
-                            break;
-                        case 4:
-                            callingMain.callingelectronics(searchtext);
-                            break;
-                    }
+                    callingMain.callinggrocery(searchtext);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -63,7 +47,7 @@ public class Groceries_category extends AppCompatActivity {
                             Intent intent = new Intent(Groceries_category.this, Main2Activity.class);
                             startActivity(intent);
                         }
-                    },2500 );
+                    },2500);
                 }
             }
         });

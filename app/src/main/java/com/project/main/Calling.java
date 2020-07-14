@@ -23,10 +23,10 @@ public class Calling {
         Elements links = doc.getElementsByClass(productClass); //JSoup Element to get HTML Data from the corresponding Class/Section
         link = websiteUrl;
 
-        // 1- Flipkart         //6 - Grofers              // 10- AJIO           // 14 - Pharmeasy
-        // 2- Shopclues        //7- Bigbasket               // 11-Myntra        // 15 - Medlife
-        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs        // 16 -
-        // 4- Paytm           // 9- Amazon pantry          //13 - Bewakoof
+        // 1- Flipkart         //6 - Grofers              // 10- AJIO           // 14 - Pharmeasy     // 18 -
+        // 2- Shopclues        //7- Bigbasket               // 11-Myntra        // 15 - 1mg      // 19 -
+        // 3- Snapdeal         //8- Flipkart supermart     // 12 - Koovs        // 16 - Netmeds              // 20 -
+        // 4- Paytm           // 9- Amazon pantry          //13 - Bewakoof      // 17 -               // 21 -
         //5- Amazon
 
 
@@ -76,6 +76,18 @@ public class Calling {
                 case 5:
                     temp7 = "Amazon";
                     break;
+                case 6:
+                    temp7 = "Grofers";
+                    break;
+                case 7:
+                    temp7 = "BigBasket";
+                    break;
+                case 8:
+                    temp7 = "AmazonPantry";
+                    break;
+                case 9:
+                    temp7 = "Flipmart";
+                    break;
                 case 10:
                     temp7 = "AJIO";
                     break;
@@ -89,6 +101,15 @@ public class Calling {
                     temp7 = "Bewakoof";
                     break;
                 case 14:
+                    temp7 = "Pharmeasy";
+                    break;
+                case 15:
+                    temp7 = "Pharmeasy";
+                    break;
+                case 16:
+                    temp7 = "Pharmeasy";
+                    break;
+                case 17:
                     temp7 = "Pharmeasy";
                     break;
             }
@@ -146,7 +167,7 @@ public class Calling {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            if(sNo == 1 || sNo == 4 || sNo == 5|| sNo == 7|| sNo == 10|| sNo == 12){
+            if(sNo == 1 || sNo == 4 || sNo == 5|| sNo == 7|| sNo == 10|| sNo == 12|| sNo == 9||sNo == 8){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
                 }
@@ -227,6 +248,17 @@ public class Calling {
                     temp5 = "https://www.pharmeasy.in"+ linkArray.get(0);
                 }
             }
+            if(sNo == 8){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.flipkart.com"+ linkArray.get(0);
+                }
+            }
+            if(sNo == 9){
+                for (int j = 0; j < 1; j++) {
+                    temp5 = "https://www.amazon.in"+ linkArray.get(0);
+                }
+            }
+
 
             if(sNo == 3){
                 temp5 = linkArray.get(0);
