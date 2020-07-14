@@ -33,7 +33,7 @@ public class Amazon extends AsyncTask<String, Void, ArrayList<Product>> implemen
             return products;
         }catch (Exception e){
             //fail-safe :)
-            System.out.println("ShopClues not working" + e);
+            System.out.println("Amazon not working" + e);
             return null;
         }
     }

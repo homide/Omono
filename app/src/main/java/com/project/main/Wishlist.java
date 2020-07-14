@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+
 public class Wishlist extends AppCompatActivity {
 
     @Override
@@ -54,5 +58,11 @@ public class Wishlist extends AppCompatActivity {
                 startActivity(cinemaIntent);
             }
         });
+
+
+    }
+
+    public void addProduct(ArrayList<Product> product){
+
     }
 }
