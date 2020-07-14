@@ -17,7 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Wishlist"></activity>
+        <activity android:name=".Electronics_category"></activity>
+        <activity android:name=".Medicine_category" />
+        <activity android:name=".Fashion_category" />
+        <activity android:name=".Groceries_category" />
+        <activity android:name=".General_category" />
+        <activity android:name=".Wishlist" />
         <activity android:name=".Notifications" />
         <activity android:name=".Feedback" />
         <activity android:name=".searchActivity" />

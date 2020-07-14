@@ -104,40 +104,40 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
         generalCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(searchActivity.this, "General Category selected", Toast.LENGTH_SHORT).show();
-                categorySelector = 0;
+                Intent cinemaIntent = new Intent(searchActivity.this, General_category.class);
+                startActivity(cinemaIntent);
             }
         });
 
         groceriesCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(searchActivity.this, "Grocery Category selected", Toast.LENGTH_SHORT).show();
-                categorySelector = 1;
+                Intent cinemaIntent = new Intent(searchActivity.this, Groceries_category.class);
+                startActivity(cinemaIntent);
             }
         });
 
         fashionCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(searchActivity.this, "Fashion Category selected", Toast.LENGTH_SHORT).show();
-                categorySelector = 2;
+                Intent cinemaIntent = new Intent(searchActivity.this, Fashion_category.class);
+                startActivity(cinemaIntent);
             }
         });
 
         medCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(searchActivity.this, "Medicines Category selected", Toast.LENGTH_SHORT).show();
-                categorySelector = 3;
+                Intent cinemaIntent = new Intent(searchActivity.this, Medicine_category.class);
+                startActivity(cinemaIntent);
             }
         });
 
         electroCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(searchActivity.this, "Electronics Category selected", Toast.LENGTH_SHORT).show();
-                categorySelector = 4;
+                Intent cinemaIntent = new Intent(searchActivity.this, Electronics_category.class);
+                startActivity(cinemaIntent);
             }
         });
 
