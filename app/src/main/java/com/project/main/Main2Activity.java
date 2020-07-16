@@ -10,9 +10,11 @@ import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,6 +56,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         MyAdaptor adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
         recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
         recyclerView.setAdapter(adaptor);
+
 
         searchbar = (Button) findViewById(R.id.buttonBar);
         searchbar.setOnClickListener(new View.OnClickListener() {

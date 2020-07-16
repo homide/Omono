@@ -3,4 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#CC2B1F</color>
     <color name="colorAccent">#FB796F</color>
+    <color name="BackgroundLight">#DEDBEF</color>
+    <color name="Black">#090707</color>
+    <color name="OrangeText">#FA6B1B</color>
+    <color name="TextColor">#6D5F85</color>
 </resources>
