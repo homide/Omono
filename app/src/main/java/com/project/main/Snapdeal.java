@@ -22,8 +22,6 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<Product>> implem
         }
     }
 
-
-
     @Override
     protected ArrayList<Product> doInBackground(String... strings) {
         try{
