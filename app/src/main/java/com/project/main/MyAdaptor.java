@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.RatingBar;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +45,8 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
             holder.priceBefore.setText(product.priceBefore);
             holder.discPrice.setText(product.discountedPrice);
             holder.discount.setText(product.discount);
+            holder.ratingBar.setRating(ratingvalue);
+            holder.ratingCount.setText(product.ratingCount);
             String tag = product.tag;
             switch (tag){
                 case "Paytm":
@@ -91,8 +93,9 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView mainTitle, priceBefore, discPrice, discount;
+        public TextView mainTitle, priceBefore, discPrice, discount, ratingCount;
         public ImageView productImage,tag;
+        public RatingBar ratingBar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -103,6 +106,8 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
             discount = itemView.findViewById(R.id.discount);
             productImage = itemView.findViewById(R.id.productImage);
             tag = itemView.findViewById(R.id.tag);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
+            ratingCount = itemView.findViewById(R.id.ratingCount);
         }
 
         @Override
