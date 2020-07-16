@@ -137,7 +137,7 @@ public class Calling {
                     temp2 = "";
                 }
                 else {
-                    temp2 = "Price before: " + priceOfProductBefore.text();
+                    temp2 = priceOfProductBefore.text();
                 }
             }
 
@@ -147,7 +147,7 @@ public class Calling {
                     temp3 = "";
                 }
                 else {
-                    temp3 = "Discounted price: " + priceOfProductAfter.text();
+                    temp3 = priceOfProductAfter.text();
                 }
             }
 
@@ -157,7 +157,7 @@ public class Calling {
                     temp4 = "";
                 }
                 else {
-                    temp4 = "Discount: " + productdiscount.text();
+                    temp4 = productdiscount.text();
                 }
             }
 

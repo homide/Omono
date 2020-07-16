@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="25dp"
+    app:cardElevation="25dp"
     android:layout_margin="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/custom_search_bar"
     android:orientation="horizontal"
     android:padding="16dp"
     app:contentPadding="5sp">
@@ -20,110 +21,135 @@
         android:dividerPadding="4dp"
         android:orientation="horizontal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/productImage"
+            android:src="@drawable/iphone11promax"
+            android:layout_width="127dp"
+            android:layout_height="152dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/priceBefore"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginEnd="124dp"
-                android:layout_marginRight="124dp"
-                android:layout_marginBottom="52dp"
-                android:text="Price Before"
-                android:textColor="#000"
-                android:textSize="13.5sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/discPrice"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/productImage"
-                app:layout_constraintTop_toBottomOf="@+id/mainTitle"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/discount"
-                android:layout_width="140dp"
-                android:layout_height="19dp"
-                android:layout_margin="10dp"
-                android:layout_marginTop="12dp"
-                android:text="Discount"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tag"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/mainTitle"
-                app:layout_constraintTop_toBottomOf="@+id/discPrice"
-                app:layout_constraintVertical_bias="0.105" />
-
-            <TextView
-                android:id="@+id/discPrice"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:text="Discounted Price"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/productImage"
-                app:layout_constraintTop_toBottomOf="@+id/mainTitle"
-                app:layout_constraintVertical_bias="0.207" />
-
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="127dp"
-                android:layout_height="152dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.113" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/mainTitle"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Main Title"
-                android:textColor="#000"
-                android:textSize="14.4sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/productImage"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.046" />
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/baloo"
+                android:text="Apple iPhone 11 Pro Max (256GB) - Midnight Green"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/tag"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.991" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginRight="4dp"
-                android:text="Wishlist"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="4.5"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2567"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/discPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:text="₹1,31,900"
+                    android:textColor="@color/TextColor"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/realativelayout"
+                    android:layout_alignBottom="@id/discPrice"
+                    android:layout_toRightOf="@id/discPrice"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginTop="3dp">
+
+                    <TextView
+                        android:id="@+id/priceBefore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="₹1,50,000"
+                        android:textColor="@color/OrangeText"
+                        android:textSize="12dp" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="40dp"
+                        android:layout_height="1dp"
+                        android:background="@color/OrangeText"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/discPrice"
+                    android:layout_toRightOf="@id/realativelayout"
+                    android:text="(12% off)"
+                    android:textSize="10sp"
+                    android:layout_toEndOf="@id/realativelayout" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/add2list"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/light_orange_circle"
+                    android:padding="5dp"
+                    android:src="@drawable/heart_white" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tag"
+                    android:src="@drawable/amazon_logo_broad"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
