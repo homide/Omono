@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchbar = (Button) findViewById(R.id.buttonBar);
+        searchbar =  findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar1 = findViewById(R.id.toolbar);
         //notification icon on toolbar
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         //category icon on toolbar
-        category_toolbar_icon=(ImageView)findViewById(R.id.category_toolbar_icon);
+        category_toolbar_icon=findViewById(R.id.category_toolbar_icon);
         category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         //wishlist icon on toolbar
-        wishlist_toolbar_icon=(ImageView)findViewById(R.id.wishlist_toolbar_icon);
+        wishlist_toolbar_icon=findViewById(R.id.wishlist_toolbar_icon);
         wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         //appLogo click to home page
-        appLogo=(ImageView)findViewById(R.id.appLogo);
+        appLogo=findViewById(R.id.appLogo);
         appLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,11 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onStop();
     }
 
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//        this.menuItem = menuItem;
-//        return true;
-//    }
+
 
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

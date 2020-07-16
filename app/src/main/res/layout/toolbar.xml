@@ -16,20 +16,16 @@
 
         <EditText
             android:id="@+id/searchText"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginRight="15dp"
+            android:layout_width="260dp"
+            android:layout_height="39dp"
             android:background="@drawable/custom_search_bar"
-            android:drawableStart="@android:drawable/ic_menu_search"
-            android:drawableLeft="@android:drawable/ic_menu_search"
             android:ems="10"
-            android:hint="@string/searchbar_hint"
+            android:hint="   Search Here..."
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appLogo"
-            />
+            app:layout_constraintVertical_bias="0.609" />
 
         <ImageView
             android:id="@+id/appLogo"
@@ -82,6 +78,20 @@
             app:layout_constraintVertical_bias="0.432"
             app:srcCompat="@drawable/ic_notifications_icon"
             tools:ignore="VectorDrawableCompat" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="57dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/custom_search_bar"
+            android:text="Go"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toEndOf="@+id/searchText"
+            app:layout_constraintTop_toBottomOf="@+id/wishlist_toolbar_icon"
+            app:layout_constraintVertical_bias="0.217" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
