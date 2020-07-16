@@ -290,7 +290,7 @@ public class Calling {
             }
 
             //(title, price before, discounted price, discount, image link, product link,tag )
-            products.add(new Product(temp1,temp2,temp3,temp4,temp6,temp5,temp7));
+            //products.add(new Product(temp1,temp2,temp3,temp4,temp6,temp5,temp7));
 
         }
     }

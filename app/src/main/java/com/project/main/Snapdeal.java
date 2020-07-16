@@ -25,10 +25,10 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<Product>> implem
         try{
             System.out.println("Running snapdeal on thread");
             //initialising calling.java and referencing it
-            Calling calling = new Calling();
+            CallingGeneral calling = new CallingGeneral();
             link = strings[0];
             calling.call(3,strings[0],"col-xs-6  favDp product-tuple-listing js-tuple ","a","product-title",
-                    "lfloat product-price","lfloat product-desc-price strike ","source","product-discount");
+                    "lfloat product-price","lfloat product-desc-price strike ","source","product-discount", "","");
             //initialising and referencing Calling method variables
             this.products = calling.products;
             System.out.println("Snapdeal ended");
