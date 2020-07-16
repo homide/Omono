@@ -27,7 +27,7 @@ public class Amazon extends AsyncTask<String, Void, ArrayList<Product>> implemen
             CallingGeneral calling = new CallingGeneral();
             link = strings[0];
             calling.call(5,strings[0],"celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results","a","a-link-normal a-text-normal","a-price-whole","a-offscreen",
-                    "img","","a-size-base","a-icon-alt");
+                    "img","xyz","a-size-base","a-icon-alt");
             //initialising and referencing Calling method variables
             products = calling.products;
             System.out.println("Ended Amazon on thread");
