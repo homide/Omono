@@ -15,7 +15,11 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<Product>> implem
     @Override
     protected void onPostExecute(ArrayList<Product> s) {
         super.onPostExecute(s);
-        arraySave.products.addAll(s);
+        try {
+            arraySave.products.addAll(s);
+        }catch (Exception e){
+            System.out.println("Snapdeal not working");
+        }
     }
 
 
@@ -26,9 +30,8 @@ public class Snapdeal extends AsyncTask<String, Void, ArrayList<Product>> implem
             System.out.println("Running snapdeal on thread");
             //initialising calling.java and referencing it
             CallingGeneral calling = new CallingGeneral();
-            link = strings[0];
             calling.call(3,strings[0],"col-xs-6  favDp product-tuple-listing js-tuple ","a","product-title",
-                    "lfloat product-price","lfloat product-desc-price strike ","source","product-discount", "product-rating-count","");
+                    "lfloat product-price","lfloat product-desc-price strike ","source","product-discount", "product-rating-count","filled-stars");
             //initialising and referencing Calling method variables
             this.products = calling.products;
             System.out.println("Snapdeal ended");

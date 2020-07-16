@@ -39,13 +39,11 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
     public void onBindViewHolder(@NonNull MyAdaptor.ViewHolder holder, int position) {
         Product product = products.get(position);
         try {
-            String rating = product.rating;
-            float ratingvalue = Float.parseFloat(rating);
             holder.mainTitle.setText(product.title);
             holder.priceBefore.setText(product.priceBefore);
             holder.discPrice.setText(product.discountedPrice);
             holder.discount.setText(product.discount);
-            holder.ratingBar.setRating(ratingvalue);
+            holder.ratingBar.setRating(product.rating);
             holder.ratingCount.setText(product.ratingCount);
             String tag = product.tag;
             switch (tag){

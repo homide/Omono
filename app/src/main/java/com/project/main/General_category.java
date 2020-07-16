@@ -46,7 +46,7 @@ public class General_category extends AppCompatActivity {
                             Intent intent = new Intent(General_category.this, Main2Activity.class);
                             startActivity(intent);
                         }
-                    },2500);
+                    },1700);
                 }
             }
         });

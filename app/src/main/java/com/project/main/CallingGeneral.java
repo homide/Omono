@@ -20,9 +20,13 @@ public class CallingGeneral {
         link = websiteUrl;
 
         for (Element link : links) {
-            String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null,temp7 = null,temp8 = null, temp9 = null;
+            String temp1 = null, temp2 = null, temp3 = null, temp4 = null, temp5 = null, temp6 = null,temp7 = null, temp9 = null;
+            float temp8 = 0;
             Elements eltitle, elproductimage;
 
+            /*
+            These are the fixed values, no need to change them. From here ---->
+             */
             Elements elLink = link.getElementsByTag(tagForLink);
 
             if(sNo == 2){
@@ -42,17 +46,6 @@ public class CallingGeneral {
                 elproductimage = link.getElementsByClass(productImageClass);
             }
 
-            if(sNo == 5){
-                Elements discount = link.getElementsByAttribute("dir").attr("dir","auto");
-                for(Element el : discount){
-                    String a = el.text();
-                    if(a.endsWith("%)")){
-                        temp4 = a.substring(a.indexOf("(")+1,a.indexOf(")"));
-                        break;
-                    }
-                }
-            }
-            else{
                 Elements discount = link.getElementsByClass(productDiscount);
                 for (Element productdiscount : discount) {
                     if(productdiscount == null){
@@ -62,11 +55,6 @@ public class CallingGeneral {
                         temp4 = productdiscount.text();
                     }
                 }
-            }
-
-
-            Elements ratings = link.getElementsByClass(rating);
-
 
             switch(sNo){
                 case 1:
@@ -103,33 +91,26 @@ public class CallingGeneral {
                     temp2 = "";
                 }
                 else {
-                    temp2 = priceOfProductBefore.text();
+                    if(sNo == 3){
+                        String a = priceOfProductBefore.text();
+                        temp2 = "₹"+ a.substring(a.indexOf("."+2,a.length()));
+                    }else{
+                        temp2 = priceOfProductBefore.text();
+                    }
                 }
             }
 
             //product discounted price loop
             for (Element priceOfProductAfter : elpriceafter) {
-                if(priceOfProductAfter == null){
+                if (priceOfProductAfter == null) {
                     temp3 = "";
-                }
-                else {
-                    temp3 = "₹"+ priceOfProductAfter.text();
-                }
-            }
-
-            for(Element ratingtemp: ratings){
-                temp8 = ratingtemp.text().substring(0,3);
-            }
-            if(sNo == 5){
-                Elements ratingCounts = link.getElementsByClass(productRatingCount).attr("dir","auto");
-                for(Element ratingCount : ratingCounts ){
-                    temp9 = ratingCount.text();
-                    break;
-                }
-            }else {
-                Elements ratingCounts = link.getElementsByClass(productRatingCount);
-                for(Element ratingCount : ratingCounts ){
-                    temp9 = ratingCount.text();
+                } else {
+                    if(sNo == 3){
+                         String a = priceOfProductAfter.text();
+                         temp3 = "₹"+ a.substring(a.indexOf("."+2,a.length()));
+                    }else{
+                        temp3 = "₹" + priceOfProductAfter.text();
+                    }
                 }
             }
 
@@ -183,6 +164,56 @@ public class CallingGeneral {
                     temp5 = "https://www.amazon.in"+ linkArray.get(0);
                 }
             }
+            /*
+            Till here. Everything is good.
+             */
+
+            if(sNo == 3){
+                Elements ratings = link.getElementsByClass(rating);
+                for(Element ratingtemp : ratings){
+                    String a = ratingtemp.attr("style");
+                    String percentage = a.substring(a.indexOf(":")+1,a.indexOf(".")+2);
+                    float f = Float.parseFloat(percentage);
+                    temp8 = (f/100)*5;
+                }
+                Elements ratingCounts = link.getElementsByClass(productRatingCount);
+                for(Element ratingCount : ratingCounts ){
+                    temp9 = ratingCount.text();
+                }
+
+            }
+
+            if(sNo == 5){
+                Elements ratings = link.getElementsByClass(rating);
+
+                for(Element ratingtemp: ratings){
+                    temp8 = Float.parseFloat(ratingtemp.text().substring(0,3));
+                }
+
+                Elements ratingCounts = link.getElementsByClass(productRatingCount).attr("dir","auto");
+                for(Element ratingCount : ratingCounts ){
+                    temp9 = "("+ratingCount.text()+")";
+                    break;
+                }
+                Elements discountamz = link.getElementsByAttribute("dir").attr("dir","auto");
+                for(Element el : discountamz){
+                    String a = el.text();
+                    if(a.endsWith("%)")){
+                        temp4 = a.substring(a.indexOf("(")+1,a.indexOf(")"));
+                        break;
+                    }
+                }
+            }
+
+//            Elements ratings = link.getElementsByClass(rating);
+//            for(Element ratingtemp: ratings){
+//                temp8 = Float.parseFloat(ratingtemp.text().substring(0,3));
+//            }
+//
+//            Elements ratingCounts = link.getElementsByClass(productRatingCount);
+//            for(Element ratingCount : ratingCounts ){
+//                temp9 = ratingCount.text();
+//            }
 
             //(title, price before, discounted price, discount, image link, product link,tag )
             products.add(new Product(temp1,temp2,temp3,temp4,temp6,temp5,temp7,temp8,temp9));
