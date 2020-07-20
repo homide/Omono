@@ -7,26 +7,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    static final float END_SCALE = 0.7f;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Toolbar toolbar1;
-    public Button searchbar;
-    ImageView notifications_toolbar_icon;
-    ImageView category_toolbar_icon;
-    ImageView wishlist_toolbar_icon;
-    ImageView appLogo;
+    LinearLayout toolbar1;
+    public RelativeLayout searchbar;
+    ImageView notifications_toolbar_icon, category_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
+    ConstraintLayout contentView;
+//    ImageView appLogo;
 
 
 
@@ -37,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         searchbar =  findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar1 = findViewById(R.id.toolbar);
+        toolbar1 = findViewById(R.id.btntoolbar);
+        contentView = findViewById(R.id.content1);
         //notification icon on toolbar
         notifications_toolbar_icon=(ImageView)findViewById(R.id.notifications_toolbar_icon);
         notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
@@ -58,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        //kanishk bhadwa hai
-
         //wishlist icon on toolbar
         wishlist_toolbar_icon=findViewById(R.id.wishlist_toolbar_icon);
         wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
@@ -71,23 +73,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         //appLogo click to home page
-        appLogo=findViewById(R.id.appLogo);
-        appLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(cinemaIntent);
-            }
-        });
+//        appLogo=findViewById(R.id.appLogo);
+//        appLogo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cinemaIntent = new Intent(MainActivity.this, MainActivity.class);
+//                startActivity(cinemaIntent);
+//            }
+//        });
 
-        //hamburger
-        navigationView = findViewById(R.id.navView);
-        navigationView.bringToFront();
-        setSupportActionBar(toolbar1);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar1, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationDrawer();
 
         searchbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +91,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
+    }
+
+    private void navigationDrawer() {
+        //hamburger
+        navigationView = findViewById(R.id.navView);
+        navigation_btn = findViewById(R.id.navigation_btn);
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+
+        navigation_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        navigationDrawerAnimation();
+    }
+
+    private void navigationDrawerAnimation() {
+
+//        drawerLayout.setScrimColor(getResources().getColor(R.color.card1));
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final float offsetScale = 1 - diffScaledOffset;
+                contentView.setScaleX(offsetScale);
+                contentView.setScaleY(offsetScale);
+
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = contentView.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                contentView.setTranslationX(xTranslation);
+            }
+        });
+
     }
 
     @Override

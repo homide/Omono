@@ -1,90 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbar"
+    android:id="@+id/btntoolbar"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-
-    android:background="@drawable/sincityred"
-    android:elevation="4dp"
+    android:layout_height="194dp"
+    android:background="@color/home_background"
+    android:elevation="6dp"
     android:paddingTop="0dp">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-<!--        wishlist/ categories/ notifications-->
+        android:layout_height="wrap_content"
+        android:padding="15dp">
 
         <ImageView
-            android:id="@+id/appLogo"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/omono_logo"
-            android:minHeight="?android:attr/actionBarSize"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/buttonBar"
-            android:layout_width="0dp"
+            android:id="@+id/navigation_btn"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/custom_search_bar"
-            android:hint="@string/searchbar_hint"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appLogo"
-            app:layout_constraintVertical_bias="0.542" />
+            android:src="@drawable/menu_btn"/>
 
         <ImageView
+            android:layout_width="40dp"
             android:id="@+id/wishlist_toolbar_icon"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.936"
-            app:layout_constraintStart_toEndOf="@+id/appLogo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.432"
-            app:srcCompat="@drawable/ic_wishlist_icon"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="40dp"
+            android:src="@drawable/ic_heart_black"
+            android:padding="5dp"
+            android:background="@color/banner_background"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
             android:id="@+id/category_toolbar_icon"
-
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonBar"
-            app:layout_constraintEnd_toStartOf="@+id/wishlist_toolbar_icon"
-            app:layout_constraintHorizontal_bias="0.822"
-            app:layout_constraintStart_toEndOf="@+id/appLogo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.432"
-            app:srcCompat="@drawable/ic_category_icon"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_toLeftOf="@id/wishlist_toolbar_icon"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/ic_category_black"
+            android:background="@color/banner_background"
+            android:layout_toStartOf="@id/wishlist_toolbar_icon"
+            android:layout_marginEnd="30dp" />
 
         <ImageView
             android:id="@+id/notifications_toolbar_icon"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonBar"
-            app:layout_constraintEnd_toStartOf="@+id/category_toolbar_icon"
-            app:layout_constraintHorizontal_bias="0.785"
-            app:layout_constraintStart_toEndOf="@+id/appLogo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.432"
-            app:srcCompat="@drawable/ic_notifications_icon"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_noti_black"
+            android:padding="5dp"
+            android:background="@color/banner_background"
+            android:layout_toLeftOf="@id/category_toolbar_icon"
+            android:layout_marginRight="30dp"
+            android:layout_toStartOf="@id/category_toolbar_icon"
+            android:layout_marginEnd="30dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp">
 
+        <TextView
+            android:id="@+id/app_slogan"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/slogan"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"/>
+        
+        <RelativeLayout
+            android:id="@+id/buttonBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/app_slogan"
+            android:background="@color/white"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:elevation="8dp">
 
-</androidx.appcompat.widget.Toolbar>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/searchbar_hint"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"/>
+            
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_action_search"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
