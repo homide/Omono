@@ -5,9 +5,196 @@
     android:id="@+id/drawer_layout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/home_background"
     android:fitsSystemWindows="true"
     tools:context=".searchActivity"
-    tools:openDrawer="">
+    tools:openDrawer="start">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/back_btn"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_back" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/wishlist_toolbar_icon"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_wishlist"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/categories"
+            android:textAllCaps="true"
+            android:textSize="30sp"
+            android:layout_marginStart="20dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:id="@+id/generalCat">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/cat_general">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/baloo"
+                            android:padding="15dp"
+                            android:text="@string/general"
+                            android:textColor="@color/white"
+                            android:textSize="40sp" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="-50dp"
+                        android:layout_marginRight="-50dp"
+                        android:src="@drawable/cart2" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/fashionCat"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/cat_fashion">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/baloo"
+                        android:padding="15dp"
+                        android:text="@string/fashion"
+                        android:textSize="40sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:id="@+id/electroCat">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/cat_electronics">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/baloo"
+                            android:padding="15dp"
+                            android:text="@string/electronics"
+                            android:textColor="@color/white"
+                            android:textSize="32sp" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tv" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/medCat"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/cat_medicine">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/baloo"
+                        android:padding="15dp"
+                        android:text="@string/medicines"
+                        android:textSize="40sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/groceriesCat"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/cat_general">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo"
+                        android:padding="15dp"
+                        android:text="@string/groceries"
+                        android:textSize="40sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu" />
+
+    <!--
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -102,15 +289,10 @@
 
         </LinearLayout>
 
-        <include
+                <include
             android:id="@+id/search_toolbar"
             layout="@layout/toolbar"
-            android:background="#00000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="#00000000"/>
 
         <TextView
             android:id="@+id/textView10"
@@ -128,13 +310,7 @@
             app:layout_constraintVertical_bias="0.045" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu" />
+    
+    -->
 
 </androidx.drawerlayout.widget.DrawerLayout>

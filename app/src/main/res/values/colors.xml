@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#CC2B1F</color>
+    <color name="colorPrimaryDark">#b8d7f5</color>
     <color name="colorAccent">#FB796F</color>
-    <color name="BackgroundLight">#DEDBEF</color>
+    <color name="white">#ffffff</color>
+
+
     <color name="Black">#090707</color>
     <color name="OrangeText">#FA6B1B</color>
     <color name="TextColor">#6D5F85</color>
+
+
+    <!-- DashBoard Colours -->
+
+    <color name="home_background">#f2f5f8</color>
+    <color name="banner_background">#F1E9CE</color>
+    <color name="banner_backgroung_light">#56F1E9CE</color>
+
+
+    <!-- Card Colours -->
+
+    <color name="card1">#d4cbe5</color>
+    <color name="card2">#7adccf</color>
+    <color name="card3">#f7c59f</color>
+    <color name="card4">#b8d7f5</color>
+    <color name="card5">#F8CBD2</color>
+
+
 </resources>

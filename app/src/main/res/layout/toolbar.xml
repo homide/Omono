@@ -41,8 +41,8 @@
 
         <ImageView
             android:id="@+id/wishlist_toolbar_icon"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.936"
