@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,6 +20,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -99,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigation_btn = findViewById(R.id.navigation_btn);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
 
         navigation_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,18 +186,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle navigation view item clicks here
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            Intent cinemaIntent = new Intent(this, MainActivity.class);
-            startActivity(cinemaIntent);
-            arraySave.products.clear();
-        } else if (id == R.id.feedback){
-            Intent cinemaIntent = new Intent(this, Feedback.class);
-            startActivity(cinemaIntent);
-        }
-        else if (id == R.id.notifications){
+        if (id == R.id.notifications){
             Intent cinemaIntent = new Intent(this, Notifications.class);
             startActivity(cinemaIntent);
         }
@@ -205,8 +201,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, searchActivity.class);
             startActivity(intent);
         }
-        else
+        else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
             Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

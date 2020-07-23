@@ -128,15 +128,7 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
-        if (id == R.id.nav_home) {
-            Intent cinemaIntent = new Intent(this, MainActivity.class);
-            startActivity(cinemaIntent);
-            arraySave.products.clear();
-        } else if (id == R.id.feedback){
-            Intent cinemaIntent = new Intent(this, Feedback.class);
-            startActivity(cinemaIntent);
-        }
-        else if (id == R.id.notifications){
+        if (id == R.id.notifications){
             Intent cinemaIntent = new Intent(this, Notifications.class);
             startActivity(cinemaIntent);
         }

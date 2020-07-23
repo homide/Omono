@@ -39,7 +39,7 @@ public class CallingGeneral {
 
             Elements elpriceafter = link.getElementsByClass(discountedPriceClass);
 
-            if(sNo == 1 || sNo == 2 ||sNo == 3|| sNo == 4 ||sNo == 5){
+            if(sNo == 2 ||sNo == 3|| sNo == 4 ||sNo == 5){
                 elproductimage = link.getElementsByTag(productImageClass);
             }
             else {
@@ -91,26 +91,16 @@ public class CallingGeneral {
                     temp2 = "";
                 }
                 else {
-                    if(sNo == 3){
-                        String a = priceOfProductBefore.text();
-                        temp2 = "₹"+ a.substring(a.indexOf("."+2,a.length()));
-                    }else{
                         temp2 = priceOfProductBefore.text();
-                    }
+                     }
                 }
-            }
 
             //product discounted price loop
             for (Element priceOfProductAfter : elpriceafter) {
                 if (priceOfProductAfter == null) {
                     temp3 = "";
                 } else {
-                    if(sNo == 3){
-                         String a = priceOfProductAfter.text();
-                         temp3 = "₹"+ a.substring(a.indexOf("."+2,a.length()));
-                    }else{
                         temp3 = "₹" + priceOfProductAfter.text();
-                    }
                 }
             }
 
@@ -126,7 +116,7 @@ public class CallingGeneral {
                     temp6 = elimage.attr("data-img");
                 }
             }
-            if(sNo == 1 || sNo == 4 || sNo == 5){
+            if(sNo == 4 || sNo == 5){
                 for(Element elimage : elproductimage){
                     temp6 = elimage.attr("src");
                 }
@@ -168,6 +158,35 @@ public class CallingGeneral {
             Till here. Everything is good.
              */
 
+            if(sNo ==1){
+                Elements ratings = link.getElementsByClass(rating);
+                for(Element ratingtemp: ratings){
+                    temp8 = Float.parseFloat(ratingtemp.text());
+                    break;
+                }
+
+                Elements ratingCounts = link.getElementsByClass(productRatingCount);
+                for(Element ratingCount : ratingCounts ){
+                    temp9 = ratingCount.text();
+                }
+            }
+
+            if(sNo == 2){
+                Elements ratings = link.getElementsByAttribute(rating);
+                for(Element ratingtemp : ratings) {
+                    String a = ratingtemp.attr("style");
+                    if (a.endsWith("x")) {
+                        String percentage = a.substring(a.indexOf(":") + 1, a.indexOf("p"));
+                        float f = Float.parseFloat(percentage);
+                        temp8 = (f / 70) * 5;
+                        break;
+                    }else{
+                        temp8 = 0;
+                    }
+                }
+                temp9 = "";
+            }
+
             if(sNo == 3){
                 Elements ratings = link.getElementsByClass(rating);
                 for(Element ratingtemp : ratings){
@@ -181,6 +200,11 @@ public class CallingGeneral {
                     temp9 = ratingCount.text();
                 }
 
+            }
+
+            if(sNo == 4){
+                temp8 = 0;
+                temp9 = "";
             }
 
             if(sNo == 5){
@@ -204,16 +228,6 @@ public class CallingGeneral {
                     }
                 }
             }
-
-//            Elements ratings = link.getElementsByClass(rating);
-//            for(Element ratingtemp: ratings){
-//                temp8 = Float.parseFloat(ratingtemp.text().substring(0,3));
-//            }
-//
-//            Elements ratingCounts = link.getElementsByClass(productRatingCount);
-//            for(Element ratingCount : ratingCounts ){
-//                temp9 = ratingCount.text();
-//            }
 
             //(title, price before, discounted price, discount, image link, product link,tag )
             products.add(new Product(temp1,temp2,temp3,temp4,temp6,temp5,temp7,temp8,temp9));

@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home"
-            android:title="Home" />
+    <group android:id="@+id/group1" android:checkableBehavior="single">
         <item
             android:id="@+id/category"
             android:icon="@drawable/ic_category"
@@ -20,30 +14,29 @@
             android:id="@+id/notifications"
             android:icon="@drawable/ic_notifications"
             android:title="Notifications" />
+    </group>
+
+    <group android:id="@+id/group2" android:checkableBehavior="single">
         <item
-            android:id="@+id/ongoing_deals"
+            android:id="@+id/myAccount"
             android:icon="@drawable/ic_ongoing"
-            android:title="Ongoing deals" />
-        <item
-            android:id="@+id/upcoming_deals"
-            android:icon="@drawable/ic_upcoming"
-            android:title="Upcoming deals" />
+            android:title="My Account" />
+
         <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_settings"
-            android:title="Settings" /></group>
-
-    <group android:checkableBehavior="single">
+            android:title="Settings"/>
 
         <item
-            android:id="@+id/feedback"
+            android:id="@+id/legalAndAbout"
+            android:icon="@drawable/ic_settings"
+            android:title="Legal And About" />
+        <item
+            android:id="@+id/contactus"
             android:icon="@drawable/ic_feedback"
-            android:title="Feedback" />
-        <item
-            android:id="@+id/report"
-            android:icon="@drawable/ic_report"
-            android:title="Report" />
+            android:title="Contact Us" />
     </group>
+
 
 </menu>
 
