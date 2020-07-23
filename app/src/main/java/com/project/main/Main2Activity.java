@@ -123,16 +123,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            Intent cinemaIntent = new Intent(this, MainActivity.class);
-            startActivity(cinemaIntent);
-            arraySave.products.clear();
-        } else if (id == R.id.feedback){
-            Intent cinemaIntent = new Intent(this, Feedback.class);
-            startActivity(cinemaIntent);
-        }
-        else
-            Toast.makeText(this, "This doesn't have a funtion yet", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "This doesn't have a funtion yet", Toast.LENGTH_SHORT).show();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout3);
         drawer.closeDrawer(GravityCompat.START);

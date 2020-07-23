@@ -14,10 +14,10 @@ public class CallingMain {
         ThreadCall pay = new ThreadCall("https://www.paytmmall.com/shop/search?q=" +searchtext+ "&from=organic&child_site_id=6","Paytm");
         ThreadCall flip = new ThreadCall("https://www.flipkart.com/search?q=" + searchtext+ "&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off", "Flipkart");
         ThreadCall amz = new ThreadCall("https://www.amazon.in/s?k="+searchtext+"&ref=nb_sb_noss_2","Amazon");
-//        snap.start();
-//        shop.start();
-//        pay.start();
-//        flip.start();
+        snap.start();
+        shop.start();
+        pay.start();
+        flip.start();
         amz.start();
     }
 

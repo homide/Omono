@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class General_category extends AppCompatActivity {
+public class General_category extends AppCompatActivity implements arraySave {
 
     public Button searchButton;
     public EditText searchbar;
@@ -23,7 +23,6 @@ public class General_category extends AppCompatActivity {
         setContentView(R.layout.activity_general_category);
         searchButton = (Button) findViewById(R.id.btnSearch);
         searchbar = (EditText) findViewById(R.id.searchText);
-
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,13 +39,15 @@ public class General_category extends AppCompatActivity {
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingmain(searchtext);
                     Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-                            pd.dismiss();
-                            Intent intent = new Intent(General_category.this, Main2Activity.class);
-                            startActivity(intent);
-                        }
-                    },1700);
+                    do {
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                pd.dismiss();
+                                Intent intent = new Intent(General_category.this, Main2Activity.class);
+                                startActivity(intent);
+                            }
+                        }, 1700);
+                    }while (arraySave.products.size() > 10);
                 }
             }
         });

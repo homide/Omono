@@ -26,10 +26,10 @@ public class ShopClues extends AsyncTask<String, Void, ArrayList<Product>> imple
 
             //initialising calling.java and referencing it
             System.out.println("Running shopclues on thread");
-            Calling calling = new Calling();
+            CallingGeneral calling = new CallingGeneral();
             link = strings[0];
             calling.call(2,strings[0],"column col3 search_blocks", "a", "h2", "p_price", "old_prices",
-                    "img", "prd_discount");
+                    "img", "prd_discount","xyz","style");
             //initialising and referencing Calling method variables
             products = calling.products;
             System.out.println("Ended shopclues on thread");
