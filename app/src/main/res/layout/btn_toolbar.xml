@@ -5,43 +5,48 @@
     android:id="@+id/btntoolbar"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="194dp"
-    android:background="@color/home_background"
-    android:elevation="6dp"
+    android:layout_height="160dp"
+    android:background="@drawable/sin_city_toolbar"
+    android:elevation="12dp"
     android:paddingTop="0dp">
     
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/toplayout"
         android:padding="15dp">
 
         <ImageView
             android:id="@+id/navigation_btn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/menu_btn"/>
+            android:src="@drawable/ic_menu_icon_white"/>
+
+        <TextView
+            android:id="@+id/app_slogan"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@id/navigation_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/app_domain"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_toEndOf="@id/navigation_btn"
+            android:layout_marginStart="6dp" />
 
         <ImageView
             android:layout_width="40dp"
             android:id="@+id/wishlist_toolbar_icon"
             android:layout_height="40dp"
             android:src="@drawable/ic_heart_black"
+            android:layout_marginLeft="20dp"
             android:padding="5dp"
             android:background="@color/banner_background"
             android:layout_alignParentRight="true"
+            android:layout_marginStart="20dp"
             android:layout_alignParentEnd="true" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="5dp"
-            android:id="@+id/category_toolbar_icon"
-            android:layout_toLeftOf="@id/wishlist_toolbar_icon"
-            android:layout_marginRight="30dp"
-            android:src="@drawable/ic_category_black"
-            android:background="@color/banner_background"
-            android:layout_toStartOf="@id/wishlist_toolbar_icon"
-            android:layout_marginEnd="30dp" />
 
         <ImageView
             android:id="@+id/notifications_toolbar_icon"
@@ -50,55 +55,83 @@
             android:src="@drawable/ic_noti_black"
             android:padding="5dp"
             android:background="@color/banner_background"
-            android:layout_toLeftOf="@id/category_toolbar_icon"
-            android:layout_marginRight="30dp"
-            android:layout_toStartOf="@id/category_toolbar_icon"
-            android:layout_marginEnd="30dp" />
+            android:layout_toLeftOf="@id/wishlist_toolbar_icon"
+            android:layout_toStartOf="@id/wishlist_toolbar_icon"/>
 
     </RelativeLayout>
     
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="125dp">
-
-        <TextView
-            android:id="@+id/app_slogan"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="17dp"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
-            android:text="@string/slogan"
-            android:textSize="24sp"
-            android:layout_centerHorizontal="true"/>
+        android:layout_height="match_parent">
         
         <RelativeLayout
             android:id="@+id/buttonBar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/app_slogan"
-            android:background="@color/white"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
+            android:background="@drawable/custom_search_bar"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:elevation="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/searchbar_hint"
+                android:text="@string/searchcat"
                 android:textSize="15sp"
                 android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="15dp"/>
-            
+
+            <!--
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:id="@+id/magniGlass"
                 android:src="@drawable/ic_action_search"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"/>
 
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_toLeftOf="@id/magniGlass"
+                android:background="?android:attr/listDivider"
+                android:layout_toStartOf="@id/magniGlass" />
+
+                -->
+
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/welcomeslogan"
+            android:textColor="@color/white"
+            android:text="Welcome, Nihar ^-^"
+            android:textSize="20sp"
+            android:layout_below="@id/buttonBar"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"/>
+
+        <!--
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
+            android:layout_below="@id/welcomeslogan"
+            android:layout_marginTop="15dp"/>
+
+            -->
 
     </RelativeLayout>
 
