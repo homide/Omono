@@ -9,6 +9,8 @@
     <color name="Black">#090707</color>
     <color name="OrangeText">#FA6B1B</color>
     <color name="TextColor">#6D5F85</color>
+    <color name="transparent">#00000000</color>
+    <color name="yellow">#DCCB35</color>
 
 
     <!-- DashBoard Colours -->

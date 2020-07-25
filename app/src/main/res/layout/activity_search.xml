@@ -8,7 +8,7 @@
     android:background="@color/home_background"
     android:fitsSystemWindows="true"
     tools:context=".searchActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,11 +65,13 @@
                     android:layout_height="190dp"
                     android:id="@+id/generalCat">
 
-                    <RelativeLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
+                        app:cardCornerRadius="12dp"
                         android:layout_margin="20dp"
-                        android:background="@drawable/cat_general">
+                        android:elevation="8dp"
+                        app:cardBackgroundColor="@color/yellow">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -77,14 +79,15 @@
                             android:fontFamily="@font/baloo"
                             android:padding="15dp"
                             android:text="@string/general"
-                            android:textColor="@color/white"
+                            android:textColor="@color/Black"
                             android:textSize="40sp" />
 
-                    </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
 
                     <ImageView
                         android:layout_width="300dp"
                         android:layout_height="300dp"
+                        android:elevation="9dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_marginEnd="-50dp"
@@ -93,28 +96,39 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/fashionCat"
+                    android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:background="@drawable/cat_fashion">
+                    app:cardCornerRadius="12dp"
+                    app:cardBackgroundColor="@color/home_background"
+                    android:elevation="8dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="@font/baloo"
-                        android:padding="15dp"
-                        android:text="@string/fashion"
-                        android:textSize="40sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:id="@+id/fashionCat"
+                        android:background="@drawable/cat_fashion">
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/baloo"
+                            android:padding="15dp"
+                            android:text="@string/fashion"
+                            android:textSize="40sp" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="190dp"
+                    android:layout_marginBottom="15dp"
+                    android:elevation="12dp"
                     android:id="@+id/electroCat">
 
                     <RelativeLayout
@@ -144,41 +158,59 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/medCat"
+                    android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:background="@drawable/cat_medicine">
+                    app:cardCornerRadius="12dp"
+                    android:elevation="8dp"
+                    android:background="@color/home_background">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="@font/baloo"
-                        android:padding="15dp"
-                        android:text="@string/medicines"
-                        android:textSize="40sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:id="@+id/medCat"
+                        android:background="@drawable/cat_medicine">
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/baloo"
+                            android:padding="15dp"
+                            android:text="@string/medicines"
+                            android:textSize="40sp" />
 
-                <RelativeLayout
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/groceriesCat"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
                     android:layout_margin="20dp"
-                    android:background="@drawable/cat_general">
+                    android:elevation="8dp"
+                    android:background="@color/home_background">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/baloo"
-                        android:padding="15dp"
-                        android:text="@string/groceries"
-                        android:textSize="40sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:id="@+id/groceriesCat"
+                        android:background="@drawable/cat_general">
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/baloo"
+                            android:padding="15dp"
+                            android:text="@string/groceries"
+                            android:textSize="40sp" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
