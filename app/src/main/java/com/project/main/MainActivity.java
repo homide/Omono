@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     LinearLayout toolbar1;
     public RelativeLayout searchbar;
-    ImageView notifications_toolbar_icon, cart_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
+    ImageView notifications_toolbar_icon, category_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
     ConstraintLayout contentView;
 //    ImageView appLogo;
 
@@ -57,16 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        //category icon on toolbar
-//        category_toolbar_icon=findViewById(R.id.category_toolbar_icon);
-//        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent cinemaIntent = new Intent(MainActivity.this, searchActivity.class);
-//                startActivity(cinemaIntent);
-//            }
-//        });
-
         //wishlist icon on toolbar
         wishlist_toolbar_icon=findViewById(R.id.wishlist_toolbar_icon);
         wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
@@ -76,16 +66,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(cinemaIntent);
             }
         });
-
-        //appLogo click to home page
-//        appLogo=findViewById(R.id.appLogo);
-//        appLogo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent cinemaIntent = new Intent(MainActivity.this, MainActivity.class);
-//                startActivity(cinemaIntent);
-//            }
-//        });
 
         navigationDrawer();
 
@@ -136,6 +116,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here
+        int id = item.getItemId();
+
+        if (id == R.id.notifications){
+            Intent cinemaIntent = new Intent(this, Notifications.class);
+            startActivity(cinemaIntent);
+        }
+        else if (id == R.id.wishlist){
+            Intent cinemaIntent = new Intent(this, Wishlist.class);
+            startActivity(cinemaIntent);
+        }
+        else if (id == R.id.category){
+            Intent intent = new Intent(this, searchActivity.class);
+            startActivity(intent);
+        }
+        else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
+            Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
+        }
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
     @Override
     public void onBackPressed() {
 
@@ -183,50 +189,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onStop();
     }
 
-
-
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here
-        int id = item.getItemId();
-
-        if (id == R.id.notifications){
-            Intent cinemaIntent = new Intent(this, Notifications.class);
-            startActivity(cinemaIntent);
-        }
-        else if (id == R.id.wishlist){
-            Intent cinemaIntent = new Intent(this, Wishlist.class);
-            startActivity(cinemaIntent);
-        }
-        else if (id == R.id.category){
-            Intent intent = new Intent(this, searchActivity.class);
-            startActivity(intent);
-        }
-        else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
-            Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
-        }
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if(id == R.id.wishlist_toolbar_icon) {
-//            Intent cinemaIntent = new Intent(this, Wishlist.class);
-//            startActivity(cinemaIntent);
-//            return true;
-//        } else if(id == R.id.notifications_toolbar_icon) {
-//            Intent cinemaIntent = new Intent(this, Notifications.class);
-//            startActivity(cinemaIntent);
-//            return true;
-//        } else if(id == R.id.category_toolbar_icon) {
-//            Intent intent = new Intent(this, searchActivity.class);
-//            startActivity(intent);
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }

@@ -27,13 +27,13 @@ public class Notifications extends AppCompatActivity {
 
         //category icon on toolbar
         ImageView category_toolbar_icon = (ImageView) findViewById(R.id.category_toolbar_icon);
-        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Notifications.this, searchActivity.class);
-                startActivity(cinemaIntent);
-            }
-        });
+//        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cinemaIntent = new Intent(Notifications.this, searchActivity.class);
+//                startActivity(cinemaIntent);
+//            }
+//        });
 
         //wishlist icon on toolbar
         ImageView wishlist_toolbar_icon = (ImageView) findViewById(R.id.wishlist_toolbar_icon);
@@ -45,7 +45,7 @@ public class Notifications extends AppCompatActivity {
             }
         });
 
-//        //appLogo click to home page
+        //appLogo click to home page
 //        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
 //        appLogo.setOnClickListener(new View.OnClickListener() {
 //            @Override
