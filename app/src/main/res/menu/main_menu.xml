@@ -29,11 +29,11 @@
 
         <item
             android:id="@+id/legalAndAbout"
-            android:icon="@drawable/ic_settings"
+            android:icon="@drawable/pen_paper"
             android:title="Legal And About" />
         <item
             android:id="@+id/contactus"
-            android:icon="@drawable/pen_paper"
+            android:icon="@drawable/ic_contact"
             android:title="Contact Us" />
     </group>
 
