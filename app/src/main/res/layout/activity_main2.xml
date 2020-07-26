@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".Main2Activity"
     android:background="@color/home_background"
-    tools:openDrawer="">
+    tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
 
         <include
             android:id="@+id/search_toolbar"
-            layout="@layout/btn_toolbar"
+            layout="@layout/toolbar"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

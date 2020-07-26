@@ -50,7 +50,7 @@ public class Wishlist extends AppCompatActivity {
         });
 
         //appLogo click to home page
-        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
+//        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
 //        appLogo.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
