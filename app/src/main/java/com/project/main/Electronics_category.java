@@ -78,15 +78,15 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
             }
         });
 
-        //appLogo click to home page
-        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
-        appLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Electronics_category.this, MainActivity.class);
-                startActivity(cinemaIntent);
-            }
-        });
+//        //appLogo click to home page
+//        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
+//        appLogo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cinemaIntent = new Intent(Electronics_category.this, MainActivity.class);
+//                startActivity(cinemaIntent);
+//            }
+//        });
 
         
 

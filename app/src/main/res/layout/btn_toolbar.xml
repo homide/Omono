@@ -9,54 +9,63 @@
     android:background="@drawable/sin_city_toolbar"
     android:elevation="12dp"
     android:paddingTop="0dp">
-    
+
     <RelativeLayout
+        android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toplayout"
         android:padding="15dp">
 
         <ImageView
             android:id="@+id/navigation_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_menu_icon_white"/>
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_menu_icon_white" />
 
         <TextView
             android:id="@+id/app_slogan"
             android:layout_width="wrap_content"
-            android:layout_toRightOf="@id/navigation_btn"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="6dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
-            android:text="@string/app_domain"
-            android:textColor="@color/white"
-            android:textSize="24sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/navigation_btn"
-            android:layout_marginStart="6dp" />
+            android:layout_toRightOf="@id/navigation_btn"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/app_domain1"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/app_slogan"
+            android:layout_toEndOf="@id/app_slogan"
+            android:layout_toRightOf="@id/app_slogan"
+            android:fontFamily="@font/aclonica"
+            android:text="@string/app_domain2"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
         <ImageView
-            android:layout_width="40dp"
             android:id="@+id/wishlist_toolbar_icon"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_heart_black"
-            android:layout_marginLeft="20dp"
-            android:padding="5dp"
-            android:background="@color/banner_background"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="20dp"
+            android:padding="5dp"
+            android:src="@drawable/heart_white_stroke"
             android:layout_alignParentEnd="true" />
 
         <ImageView
             android:id="@+id/notifications_toolbar_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_noti_black"
-            android:padding="5dp"
-            android:background="@color/banner_background"
             android:layout_toLeftOf="@id/wishlist_toolbar_icon"
-            android:layout_toStartOf="@id/wishlist_toolbar_icon"/>
+            android:padding="5dp"
+            android:src="@drawable/ic_notification_white"
+            android:layout_toStartOf="@id/wishlist_toolbar_icon" />
 
     </RelativeLayout>
     

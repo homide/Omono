@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     LinearLayout toolbar1;
     public RelativeLayout searchbar;
-    ImageView notifications_toolbar_icon, category_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
+    ImageView notifications_toolbar_icon, cart_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
     ConstraintLayout contentView;
 //    ImageView appLogo;
 
@@ -58,14 +58,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         //category icon on toolbar
-        category_toolbar_icon=findViewById(R.id.category_toolbar_icon);
-        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(MainActivity.this, searchActivity.class);
-                startActivity(cinemaIntent);
-            }
-        });
+//        category_toolbar_icon=findViewById(R.id.category_toolbar_icon);
+//        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cinemaIntent = new Intent(MainActivity.this, searchActivity.class);
+//                startActivity(cinemaIntent);
+//            }
+//        });
 
         //wishlist icon on toolbar
         wishlist_toolbar_icon=findViewById(R.id.wishlist_toolbar_icon);

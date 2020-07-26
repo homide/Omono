@@ -19,7 +19,7 @@
     <group android:id="@+id/group2" android:checkableBehavior="single">
         <item
             android:id="@+id/myAccount"
-            android:icon="@drawable/ic_ongoing"
+            android:icon="@drawable/user"
             android:title="My Account" />
 
         <item
@@ -33,7 +33,7 @@
             android:title="Legal And About" />
         <item
             android:id="@+id/contactus"
-            android:icon="@drawable/ic_feedback"
+            android:icon="@drawable/pen_paper"
             android:title="Contact Us" />
     </group>
 
