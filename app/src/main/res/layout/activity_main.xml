@@ -209,33 +209,46 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom"
             android:background="@drawable/sincityred"
             android:clickable="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:focusable="true">
 
 
-            <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="88dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/twitter_icon" />
+            <ImageView
+                android:id="@+id/twitter_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/twitter_white"
+                android:layout_toLeftOf="@id/insta_btn"
+                android:layout_toStartOf="@id/insta_btn" />
 
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="88dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/card_4" />
+            <ImageView
+                android:id="@+id/fb_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/facebook"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/insta_btn"
+                android:layout_toEndOf="@id/insta_btn" />
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="97dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/category_back4" />
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/insta_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                app:srcCompat="@drawable/instagram"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="30dp" />
+        </RelativeLayout>
 
     </com.google.android.material.navigation.NavigationView>
 
