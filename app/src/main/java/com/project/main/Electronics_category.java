@@ -78,7 +78,7 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
             }
         });
 
-//        //appLogo click to home page
+        //appLogo click to home page
 //        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
 //        appLogo.setOnClickListener(new View.OnClickListener() {
 //            @Override

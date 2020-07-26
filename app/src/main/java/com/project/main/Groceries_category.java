@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Groceries_category extends AppCompatActivity {
@@ -23,6 +24,37 @@ public class Groceries_category extends AppCompatActivity {
         setContentView(R.layout.activity_groceries_category);
         searchButton = (Button) findViewById(R.id.btnSearch);
         searchbar = (EditText) findViewById(R.id.searchText);
+        ImageView notifications_toolbar_icon, category_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
+
+        notifications_toolbar_icon=(ImageView)findViewById(R.id.notifications_toolbar_icon);
+        notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cinemaIntent = new Intent(Groceries_category.this, Notifications.class);
+                startActivity(cinemaIntent);
+            }
+        });
+
+        //category icon on toolbar
+        category_toolbar_icon=findViewById(R.id.category_toolbar_icon);
+        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cinemaIntent = new Intent(Groceries_category.this, searchActivity.class);
+                startActivity(cinemaIntent);
+            }
+        });
+
+        //wishlist icon on toolbar
+        wishlist_toolbar_icon=findViewById(R.id.wishlist_toolbar_icon);
+        wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cinemaIntent = new Intent(Groceries_category.this, Wishlist.class);
+                startActivity(cinemaIntent);
+            }
+        });
+
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {

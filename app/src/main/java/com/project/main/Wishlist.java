@@ -31,13 +31,13 @@ public class Wishlist extends AppCompatActivity {
 
         //category icon on toolbar
         ImageView category_toolbar_icon = (ImageView) findViewById(R.id.category_toolbar_icon);
-        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Wishlist.this, searchActivity.class);
-                startActivity(cinemaIntent);
-            }
-        });
+//        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cinemaIntent = new Intent(Wishlist.this, searchActivity.class);
+//                startActivity(cinemaIntent);
+//            }
+//        });
 
         //wishlist icon on toolbar
         ImageView wishlist_toolbar_icon = (ImageView) findViewById(R.id.wishlist_toolbar_icon);
