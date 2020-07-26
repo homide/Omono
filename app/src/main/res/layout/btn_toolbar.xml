@@ -54,8 +54,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_alignParentRight="true"
-            android:padding="5dp"
-            android:src="@drawable/heart_white_stroke"
+            android:padding="6dp"
+            android:src="@drawable/heart_white_thick_stroke"
             android:layout_alignParentEnd="true" />
 
         <ImageView
@@ -76,10 +76,10 @@
         <RelativeLayout
             android:id="@+id/buttonBar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:background="@drawable/custom_search_bar"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:elevation="8dp">
 
             <TextView
@@ -88,10 +88,8 @@
                 android:text="@string/searchcat"
                 android:textSize="15sp"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="15dp"/>
-
-            <!--
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -100,7 +98,9 @@
                 android:src="@drawable/ic_action_search"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp" />
 
             <View
                 android:id="@+id/divider3"
@@ -111,8 +111,6 @@
                 android:layout_toLeftOf="@id/magniGlass"
                 android:background="?android:attr/listDivider"
                 android:layout_toStartOf="@id/magniGlass" />
-
-                -->
 
         </RelativeLayout>
 
