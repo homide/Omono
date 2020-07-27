@@ -292,7 +292,7 @@
             </ImageView>
 
             <ImageView
-                android:id="@+id/electronicsCat"
+                android:id="@+id/electroCat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -302,7 +302,7 @@
             </ImageView>
 
             <ImageView
-                android:id="@+id/medicinesCat"
+                android:id="@+id/medCat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
