@@ -8,21 +8,95 @@
     android:fitsSystemWindows="true"
     tools:context=".Main2Activity"
     android:background="@color/home_background"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/search_toolbar"
-            layout="@layout/toolbar"
-            android:background="#00000000"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <RelativeLayout
+            android:id="@+id/toplayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/sincityred"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/navigation_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_menu_icon_white" />
+
+            <TextView
+                android:id="@+id/app_slogan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@id/navigation_btn"
+                android:layout_toRightOf="@id/navigation_btn"
+                android:fontFamily="@font/aclonica"
+                android:text="@string/app_domain1"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/app_slogan"
+                android:layout_toEndOf="@id/app_slogan"
+                android:layout_toRightOf="@id/app_slogan"
+                android:fontFamily="@font/aclonica"
+                android:text="@string/app_domain2"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/wishlist_toolbar_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:padding="6dp"
+                android:src="@drawable/heart_white_thick_stroke" />
+
+            <ImageView
+                android:id="@+id/category_toolbar_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/wishlist_toolbar_icon"
+                android:layout_toLeftOf="@id/wishlist_toolbar_icon"
+                android:padding="5dp"
+                android:src="@drawable/ic_category_white" />
+
+            <ImageView
+                android:id="@+id/notifications_toolbar_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/category_toolbar_icon"
+                android:layout_toLeftOf="@id/category_toolbar_icon"
+                android:padding="5dp"
+                android:src="@drawable/ic_notification_white" />
+
+            <ImageView
+                android:id="@+id/searchButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/notifications_toolbar_icon"
+                android:layout_toLeftOf="@id/notifications_toolbar_icon"
+                android:padding="4dp"
+                android:src="@drawable/ic_search_mag" />
+
+        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -31,7 +105,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toplayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

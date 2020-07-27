@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     //test
-    public RelativeLayout searchbar;
+    public EditText searchbar;
     DrawerLayout drawerLayout3;
     NavigationView navigationView3;
 //    Toolbar toolbar3;
@@ -59,7 +60,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
         recyclerView.setAdapter(adaptor);
 
 
-        searchbar = (RelativeLayout) findViewById(R.id.buttonBar);
+        searchbar = (EditText) findViewById(R.id.searchText);
         searchbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
