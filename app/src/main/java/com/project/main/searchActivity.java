@@ -27,7 +27,7 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
     NavigationView navigationView2;
 //    Toolbar toolbar2;
 //    public String searchtext;
-    RelativeLayout generalCat, groceriesCat, fashionCat, medCat, electroCat;
+    ImageView generalCat, groceriesCat, fashionCat, medCat, electroCat;
     DrawerLayout drawerLayout2;
 //    public static final String EXTRA_TEXT = "com.omono.naya.EXTRA_TEXT";
     int categorySelector = 0;
