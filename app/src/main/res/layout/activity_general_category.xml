@@ -18,17 +18,20 @@
 
     <ViewFlipper
         android:id="@+id/viewFlipper"
-        android:layout_width="409dp"
-        android:layout_height="511dp"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
         android:layout_marginBottom="212dp"
         android:autoStart="true"
         android:flipInterval="2000"
+        android:layout_margin="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"></ViewFlipper>
+        app:layout_constraintTop_toBottomOf="@+id/search_toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+    </ViewFlipper>
 
     <TextView
         android:id="@+id/textView11"
