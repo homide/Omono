@@ -47,6 +47,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
 //        toolbar3 = findViewById(R.id.toolbar);
         navigationView3 = findViewById(R.id.navView3);
         navigationView3.bringToFront();
+        //test
 //        setSupportActionBar(toolbar3);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout3, toolbar3, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
 //        drawerLayout3.addDrawerListener(toggle);
