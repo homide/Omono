@@ -15,15 +15,29 @@
         android:id="@+id/content1"
         android:background="@color/home_background">
 
+        <ViewFlipper
+            android:id="@+id/viewFlipper"
+            android:layout_width="409dp"
+            android:layout_height="511dp"
+            android:autoStart="true"
+            android:flipInterval="2000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0">
+        </ViewFlipper>
+
         <include
             android:id="@+id/toolbar"
             layout="@layout/btn_toolbar"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.088" />
 
         <!--
 
@@ -221,29 +235,29 @@
 
             <ImageView
                 android:id="@+id/twitter_btn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerVertical="true"
                 app:srcCompat="@drawable/twitter_white"
-                android:layout_toLeftOf="@id/insta_btn"
-                android:layout_toStartOf="@id/insta_btn" />
-
-            <ImageView
-                android:id="@+id/fb_btn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:srcCompat="@drawable/facebook"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/insta_btn"
-                android:layout_toEndOf="@id/insta_btn" />
+                android:layout_toLeftOf="@id/fb_btn"
+                android:layout_toStartOf="@id/fb_btn" />
 
             <ImageView
                 android:id="@+id/insta_btn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:srcCompat="@drawable/instagram"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/fb_btn"
+                android:layout_toEndOf="@id/fb_btn" />
+
+            <ImageView
+                android:id="@+id/fb_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="30dp"
-                app:srcCompat="@drawable/instagram"
+                app:srcCompat="@drawable/facebook"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="40dp"

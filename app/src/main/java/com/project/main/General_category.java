@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,6 +23,7 @@ public class General_category extends AppCompatActivity implements arraySave {
     public Button searchButton;
     public EditText searchbar;
     public String searchtext;
+    ViewFlipper viewFlipper;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView notifications_toolbar_icon, category_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
@@ -32,6 +34,12 @@ public class General_category extends AppCompatActivity implements arraySave {
         setContentView(R.layout.activity_general_category);
         searchButton = (Button) findViewById(R.id.btnSearch);
         searchbar = (EditText) findViewById(R.id.searchText);
+
+        int images[] = {R.drawable.card_1,R.drawable.card_2,R.drawable.card_3,R.drawable.card_4,R.drawable.card_5};
+        viewFlipper = findViewById(R.id.viewFlipper);
+        for(int i=0;i<images.length;i++) {
+            setFlipperImage(images[i]);
+        }
 
         notifications_toolbar_icon=(ImageView)findViewById(R.id.notifications_toolbar_icon);
         notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +100,12 @@ public class General_category extends AppCompatActivity implements arraySave {
             }
         });
 
+    }
+
+    private void setFlipperImage(int res) {
+        ImageView image = new ImageView(getApplicationContext());
+        image.setBackgroundResource(res);
+        viewFlipper.addView(image);
     }
 
 //    private void navigationDrawer() {

@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,6 +28,7 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
     public EditText searchbar;
     public String searchtext;
     ImageView notifications_toolbar_icon;
+    ViewFlipper viewFlipper;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar1;
@@ -38,6 +40,12 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
 
         searchButton = (Button) findViewById(R.id.btnSearch);
         searchbar = (EditText) findViewById(R.id.searchText);
+
+        int images[] = {R.drawable.card_1,R.drawable.card_2,R.drawable.card_3,R.drawable.card_4,R.drawable.card_5};
+        viewFlipper = findViewById(R.id.viewFlipper);
+        for(int i=0;i<images.length;i++) {
+            setFlipperImage(images[i]);
+        }
 
         notifications_toolbar_icon=(ImageView)findViewById(R.id.notifications_toolbar_icon);
         notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +130,12 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
     @Override
     protected void onStart() {
         super.onStart();
+    }
+
+    private void setFlipperImage(int res) {
+        ImageView image = new ImageView(getApplicationContext());
+        image.setBackgroundResource(res);
+        viewFlipper.addView(image);
     }
 
     @Override
