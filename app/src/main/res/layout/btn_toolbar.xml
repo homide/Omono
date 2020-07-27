@@ -5,7 +5,7 @@
     android:id="@+id/btntoolbar"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="155dp"
     android:background="@drawable/sin_city_toolbar"
     android:elevation="12dp"
     android:paddingTop="0dp">
@@ -80,7 +80,7 @@
             android:background="@drawable/custom_search_bar"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:elevation="8dp">
+            android:elevation="12dp">
 
             <TextView
                 android:layout_width="wrap_content"
