@@ -1,16 +1,19 @@
 package com.project.main;  //project-custom-package
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -41,15 +44,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageView instaPage, fbPage,twitterPage;
 //    ImageView appLogo;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         int images[] = {R.drawable.card_1,R.drawable.card_2,R.drawable.card_3,R.drawable.card_4,R.drawable.card_5};
         viewFlipper = findViewById(R.id.viewFlipper);
         for(int i=0;i<images.length;i++) {
             setFlipperImage(images[i]);
         }
+
         searchbar =  findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar1 = findViewById(R.id.btntoolbar);

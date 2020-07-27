@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,10 +17,11 @@
 
         <ViewFlipper
             android:id="@+id/viewFlipper"
-            android:layout_width="409dp"
-            android:layout_height="511dp"
+            android:layout_width="400dp"
+            android:layout_height="500dp"
             android:autoStart="true"
             android:flipInterval="2000"
+            android:layout_margin="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

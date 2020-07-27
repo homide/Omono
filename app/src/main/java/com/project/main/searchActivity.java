@@ -98,14 +98,14 @@ public class searchActivity extends AppCompatActivity implements NavigationView.
 //        });
 
         //wishlist icon on toolbar
-        ImageView wishlist_toolbar_icon = (ImageView) findViewById(R.id.wishlist_toolbar_icon);
-        wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(searchActivity.this, Wishlist.class);
-                startActivity(cinemaIntent);
-            }
-        });
+//        ImageView wishlist_toolbar_icon = (ImageView) findViewById(R.id.wishlist_toolbar_icon);
+//        wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cinemaIntent = new Intent(searchActivity.this, Wishlist.class);
+//                startActivity(cinemaIntent);
+//            }
+//        });
 
 
         navigationView2.setNavigationItemSelectedListener(this);
