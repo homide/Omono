@@ -33,16 +33,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    static final float END_SCALE = 0.7f;
+//    static final float END_SCALE = 0.7f;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    LinearLayout toolbar1;
     ViewFlipper viewFlipper;
-    public RelativeLayout searchbar;
-    ImageView notifications_toolbar_icon, category_toolbar_icon, wishlist_toolbar_icon, navigation_btn;
     ConstraintLayout contentView;
-    ImageView instaPage, fbPage,twitterPage;
-//    ImageView appLogo;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -56,14 +51,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFlipperImage(images[i]);
         }
 
-        searchbar =  findViewById(R.id.buttonBar);
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar1 = findViewById(R.id.btntoolbar);
         contentView = findViewById(R.id.content1);
 
         //Hamburger buttons
-        instaPage = findViewById(R.id.insta_btn);
-        instaPage.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.insta_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String link = "https://www.instagram.com";
@@ -72,8 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
-        fbPage = findViewById(R.id.fb_btn);
-        fbPage.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fb_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String link = "https://www.facebook.com";
@@ -82,8 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
-        twitterPage = findViewById(R.id.twitter_btn);
-        twitterPage.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.twitter_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String link = "https://twitter.com";
@@ -93,36 +83,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-
-        //notification icon on toolbar
-        notifications_toolbar_icon=(ImageView)findViewById(R.id.notifications_toolbar_icon);
-        notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.notifications_toolbar_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cinemaIntent = new Intent(MainActivity.this, Notifications.class);
-                startActivity(cinemaIntent);
+                startActivity(new Intent(MainActivity.this, Notifications.class));
             }
         });
 
-        //wishlist icon on toolbar
-        wishlist_toolbar_icon=findViewById(R.id.wishlist_toolbar_icon);
-        wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.wishlist_toolbar_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cinemaIntent = new Intent(MainActivity.this, Wishlist.class);
-                startActivity(cinemaIntent);
+                startActivity(new Intent(MainActivity.this, Wishlist.class));
+            }
+        });
+
+        findViewById(R.id.buttonBar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, searchActivity.class));
             }
         });
 
         navigationDrawer();
-
-        searchbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, searchActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void setFlipperImage(int res) {
@@ -134,11 +116,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void navigationDrawer() {
         //hamburger
         navigationView = findViewById(R.id.navView);
-        navigation_btn = findViewById(R.id.navigation_btn);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigation_btn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.navigation_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
@@ -150,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 //    private void navigationDrawerAnimation() {
 //
-////        drawerLayout.setScrimColor(getResources().getColor(R.color.card1));
+//        drawerLayout.setScrimColor(getResources().getColor(R.color.card1));
 //        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
 //            @Override
 //            public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -166,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                contentView.setTranslationX(xTranslation);
 //            }
 //        });
-//
 //    }
 
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -188,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
             Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
