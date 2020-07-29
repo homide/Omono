@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/home_background"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="false"
     tools:context=".searchActivity"
     tools:openDrawer="start">
 
