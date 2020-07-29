@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="false"
     tools:context=".Main2Activity"
     android:background="@color/home_background"
     tools:openDrawer="">
