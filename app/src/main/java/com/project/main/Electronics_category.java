@@ -1,20 +1,16 @@
 package com.project.main;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,91 +18,35 @@ import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class Electronics_category extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Electronics_category extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
 
-    public Button searchButton;
     public EditText searchbar;
     public String searchtext;
-    ImageView notifications_toolbar_icon;
     ViewFlipper viewFlipper;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Toolbar toolbar1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electronics_category);
 
-        searchButton = (Button) findViewById(R.id.btnSearch);
-        searchbar = (EditText) findViewById(R.id.searchText);
-
-        int images[] = {R.drawable.card_1,R.drawable.card_2,R.drawable.card_3,R.drawable.card_4,R.drawable.card_5};
+        int images[] = {R.drawable.card_1, R.drawable.card_2, R.drawable.card_3, R.drawable.card_4, R.drawable.card_5};
         viewFlipper = findViewById(R.id.viewFlipper);
-        for(int i=0;i<images.length;i++) {
+        for (int i = 0; i < images.length; i++) {
             setFlipperImage(images[i]);
         }
 
-        notifications_toolbar_icon=(ImageView)findViewById(R.id.notifications_toolbar_icon);
-        notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Electronics_category.this, Notifications.class);
-                startActivity(cinemaIntent);
-            }
-        });
+        drawerLayout = findViewById(R.id.drawer_layout);
+        searchbar = findViewById(R.id.searchText);
 
-        //notification icon on toolbar
-        ImageView notifications_toolbar_icon = (ImageView) findViewById(R.id.notifications_toolbar_icon);
-        notifications_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Electronics_category.this, Notifications.class);
-                startActivity(cinemaIntent);
-            }
-        });
-
-        //category icon on toolbar
-        ImageView category_toolbar_icon = (ImageView) findViewById(R.id.category_toolbar_icon);
-        category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Electronics_category.this, searchActivity.class);
-                startActivity(cinemaIntent);
-            }
-        });
-
-        //wishlist icon on toolbar
-        ImageView wishlist_toolbar_icon = (ImageView) findViewById(R.id.wishlist_toolbar_icon);
-        wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Electronics_category.this, Wishlist.class);
-                startActivity(cinemaIntent);
-            }
-        });
-
-        //appLogo click to home page
-//        ImageView appLogo = (ImageView) findViewById(R.id.appLogo);
-//        appLogo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent cinemaIntent = new Intent(Electronics_category.this, MainActivity.class);
-//                startActivity(cinemaIntent);
-//            }
-//        });
-
-        
-
-
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnSearch).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 searchtext = searchbar.getText().toString();
                 if (searchtext.length() <= 0) {
                     Toast.makeText(Electronics_category.this, "Please add something to search.", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     arraySave.products.clear();
                     final ProgressDialog pd = new ProgressDialog(Electronics_category.this);
                     pd.setMessage("Searching websites...");
@@ -114,22 +54,69 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
                     CallingMain callingMain = new CallingMain();
                     callingMain.callingelectronics(searchtext);
                     Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-                            pd.dismiss();
-                            Intent intent = new Intent(Electronics_category.this, Main2Activity.class);
-                            startActivity(intent);
-                        }
-                    },4000 );
+                    do {
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                pd.dismiss();
+                                Intent intent = new Intent(Electronics_category.this, Main2Activity.class);
+                                startActivity(intent);
+                            }
+                        }, 1700);
+                    } while (arraySave.products.size() > 10);
                 }
             }
         });
 
+        findViewById(R.id.insta_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String link = "https://www.instagram.com";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(link));
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.fb_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String link = "https://www.facebook.com";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(link));
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.twitter_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String link = "https://twitter.com";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(link));
+                startActivity(intent);
+            }
+        });
 
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
+        findViewById(R.id.notifications_toolbar_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Electronics_category.this, Notifications.class));
+            }
+        });
+
+        findViewById(R.id.wishlist_toolbar_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Electronics_category.this, Wishlist.class));
+            }
+        });
+
+        findViewById(R.id.category_toolbar_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Electronics_category.this, searchActivity.class));
+            }
+        });
+
+        navigationDrawer();
     }
 
     private void setFlipperImage(int res) {
@@ -138,27 +125,52 @@ public class Electronics_category extends AppCompatActivity implements Navigatio
         viewFlipper.addView(image);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        int id = menuItem.getItemId();
+    private void navigationDrawer() {
+        //hamburger
+        navigationView = findViewById(R.id.navView);
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        findViewById(R.id.navigation_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+    }
+
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here
+        int id = item.getItemId();
 
         if (id == R.id.notifications){
-            Intent cinemaIntent = new Intent(this, Notifications.class);
+            Intent cinemaIntent = new Intent(Electronics_category.this, Notifications.class);
             startActivity(cinemaIntent);
         }
         else if (id == R.id.wishlist){
-            Intent cinemaIntent = new Intent(this, Wishlist.class);
+            Intent cinemaIntent = new Intent(Electronics_category.this, Wishlist.class);
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){
-            Intent intent = new Intent(this, searchActivity.class);
+            Intent intent = new Intent(Electronics_category.this, searchActivity.class);
             startActivity(intent);
         }
-        else
+        else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
             Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return false;
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

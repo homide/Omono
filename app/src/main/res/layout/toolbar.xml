@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="110dp"
 
     android:background="@drawable/sincityred"
     android:elevation="12dp"
@@ -14,12 +14,13 @@
         android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/navigation_btn"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_menu_icon_white" />
 
         <TextView
@@ -31,7 +32,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/navigation_btn"
             android:layout_toRightOf="@id/navigation_btn"
-            android:fontFamily="@font/aclonica"
+            android:fontFamily="@font/actor"
             android:text="@string/app_domain1"
             android:textColor="@color/white"
             android:textSize="24sp" />
@@ -42,7 +43,7 @@
             android:layout_alignBottom="@id/app_slogan"
             android:layout_toEndOf="@id/app_slogan"
             android:layout_toRightOf="@id/app_slogan"
-            android:fontFamily="@font/aclonica"
+            android:fontFamily="@font/actor"
             android:text="@string/app_domain2"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -87,26 +88,28 @@
 
         <EditText
             android:id="@+id/searchText"
-            android:layout_width="290dp"
-            android:layout_height="40dp"
+            android:layout_width="310dp"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
             android:background="@drawable/custom_search_bar"
-            android:hint="   Search Here..."
+            android:hint="@string/searchbar_hint"
             android:inputType="textPersonName"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_alignParentStart="true" />
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_alignParentStart="true"
+            android:drawableLeft="@drawable/ic_action_search"
+            android:drawableStart="@drawable/ic_action_search" />
 
         <Button
             android:id="@+id/btnSearch"
-            android:layout_width="65dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/custom_search_bar"
             android:text="Go"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp" />
+            android:layout_marginEnd="15dp" />
 
     </RelativeLayout>
 
