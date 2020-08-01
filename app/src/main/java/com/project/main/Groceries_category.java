@@ -60,7 +60,7 @@ public class Groceries_category extends AppCompatActivity implements arraySave, 
                         handler.postDelayed(new Runnable() {
                             public void run() {
                                 pd.dismiss();
-                                String cat = "2";
+                                int cat = 2;
                                 Intent intent = new Intent(Groceries_category.this, Main2Activity.class);
                                 intent.putExtra("cat", cat);
                                 startActivity(intent);

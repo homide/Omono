@@ -60,7 +60,7 @@ public class Fashion_category extends AppCompatActivity implements arraySave, Na
                         handler.postDelayed(new Runnable() {
                             public void run() {
                                 pd.dismiss();
-                                String cat = "1";
+                                int cat = 1;
                                 Intent intent = new Intent(Fashion_category.this, Main2Activity.class);
                                 intent.putExtra("cat", cat);
                                 startActivity(intent);

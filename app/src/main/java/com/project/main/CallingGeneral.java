@@ -16,7 +16,7 @@ public class CallingGeneral {
 
     public void call(int sNo,String websiteUrl,String productClass, String tagForLink, String titleClass, String discountedPriceClass, String originalPriceClass, String productImageClass,String productDiscount, String productRatingCount, String rating) throws IOException{
         Document doc = Jsoup.connect(websiteUrl).get(); //JSoup Element to get HTML Data from the corresponding website
-        Elements links = doc.getElementsByClass(productClass); //JSoup Element to get HTML Data from the corresponding Class/Section
+        Elements links = doc.getElementsByClass(productClass); // JSoup Element to get HTML Data from the corresponding Class/Section
         link = websiteUrl;
 
         for (Element link : links) {
