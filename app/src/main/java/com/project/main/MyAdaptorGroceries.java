@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,25 +17,25 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder> {
+public class MyAdaptorGroceries extends RecyclerView.Adapter<MyAdaptorGroceries.ViewHolder> {
     Context context;
     ArrayList<Product> products;
 
-    public MyAdaptor(Context c, ArrayList<Product> products){
-        this.context = c;
+    public MyAdaptorGroceries(Context cgroc, ArrayList<Product> products){
+        this.context = cgroc;
         this.products = products;
 
     }
 
     @NonNull
     @Override
-    public MyAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
+    public MyAdaptorGroceries.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_groceries, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdaptor.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdaptorGroceries.ViewHolder holder, int position) {
         Product product = products.get(position);
         try {
             holder.mainTitle.setText(product.title);
