@@ -1,9 +1,9 @@
 package com.project.main;
 
-public class ThreadCall implements Runnable {
+public class ThreadCallFashion implements Runnable {
     String url, methodCallingName;
 
-    ThreadCall(String url, String methodCallingName){
+    ThreadCallFashion(String url, String methodCallingName){
         this.url = url;
         this.methodCallingName = methodCallingName;
     }
@@ -25,14 +25,6 @@ public class ThreadCall implements Runnable {
             Flipkart flip = new Flipkart();
             flip.execute(url);
         }
-        if(methodCallingName.equals("Grofers")){
-            Grofers grof = new Grofers();
-            grof.execute(url);
-        }
-        if(methodCallingName.equals("Bigbasket")){
-            Bigbasket big = new Bigbasket();
-            big.execute(url);
-        }
         if(methodCallingName.equals("Amazon")){
             Amazon amz = new Amazon();
             amz.execute(url);
@@ -52,38 +44,6 @@ public class ThreadCall implements Runnable {
         if(methodCallingName.equals("Bewakoof")){
             Bewakoof bew = new Bewakoof();
             bew.execute(url);
-        }
-        if(methodCallingName.equals("Pharmeasy")){
-            Pharmeasy phr = new Pharmeasy();
-            phr.execute(url);
-        }
-        if(methodCallingName.equals("AmazonPantry")){
-            AmazonPantry amz = new AmazonPantry();
-            amz.execute(url);
-        }
-        if(methodCallingName.equals("Flipmart")){
-            FlipkartMart flip = new FlipkartMart();
-            flip.execute(url);
-        }
-        if(methodCallingName.equals("Netmeds")){
-            Netmeds net = new Netmeds();
-            net.execute(url);
-        }
-        if(methodCallingName.equals("1mg")){
-            mg1 mg = new mg1();
-            mg.execute(url);
-        }
-        if(methodCallingName.equals("Croma")){
-            Croma cro = new Croma();
-            cro.execute(url);
-        }
-        if(methodCallingName.equals("Tatacliq")){
-            Tatacliq tc = new Tatacliq();
-            tc.execute(url);
-        }
-        if(methodCallingName.equals("Reliance")){
-            Reliance rel = new Reliance();
-           rel.execute(url);
         }
     }
 
