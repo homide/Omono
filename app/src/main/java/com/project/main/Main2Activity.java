@@ -55,7 +55,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 break;
             case 2:
                 MyAdaptorGroceries adaptorgroceries = new MyAdaptorGroceries(Main2Activity.this, arraySave.products);
-                recyclerView.setLayoutManager(new GridLayoutManager(Main2Activity.this, 2));
+                recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
                 recyclerView.setAdapter(adaptorgroceries);
                 break;
         }
