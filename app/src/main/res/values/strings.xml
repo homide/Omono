@@ -29,4 +29,16 @@
     <string name="medicines">Medicines</string>
     <string name="electronics">Electronics</string>
     <string name="general">General</string>
+
+
+    <!-- Suggestions Array -->
+
+    <string-array name="suggestions">
+        <item>Masks</item>
+        <item>Laptop</item>
+        <item>Realme</item>
+        <item>Iphone</item>
+        <item>JBL</item>
+        <item>Earphones</item>
+    </string-array>
 </resources>

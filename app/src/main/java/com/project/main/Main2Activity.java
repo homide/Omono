@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -19,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    int catSelector;
 
     @SuppressLint("StaticFieldLeak")
     @Override
@@ -37,12 +39,26 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        MyAdaptor adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
-        recyclerView.setLayoutManager(new GridLayoutManager(Main2Activity.this, 2));
-        recyclerView.setAdapter(adaptor);
+
+        catSelector = getIntent().getIntExtra("cat", 0);
+        switch(catSelector){
+            case 0:
+                MyAdaptor adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
+                recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
+                recyclerView.setAdapter(adaptor);
+                break;
+            case 1:
+                MyAdaptorFashion adaptorfashion = new MyAdaptorFashion(Main2Activity.this, arraySave.products);
+                recyclerView.setLayoutManager(new GridLayoutManager(Main2Activity.this, 2));
+                recyclerView.setAdapter(adaptorfashion);
+                break;
+            case 2:
+                MyAdaptorGroceries adaptorgroceries = new MyAdaptorGroceries(Main2Activity.this, arraySave.products);
+                recyclerView.setLayoutManager(new GridLayoutManager(Main2Activity.this, 2));
+                recyclerView.setAdapter(adaptorgroceries);
+                break;
+        }
     }
 
     @Override

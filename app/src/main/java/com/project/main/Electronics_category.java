@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -20,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Electronics_category extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
 
-    public EditText searchbar;
+    public AutoCompleteTextView searchbar;
     public String searchtext;
     ViewFlipper viewFlipper;
     DrawerLayout drawerLayout;
@@ -66,6 +68,9 @@ public class Electronics_category extends AppCompatActivity implements arraySave
                 }
             }
         });
+
+        String[] suggestions = getResources().getStringArray(R.array.suggestions);
+        searchbar.setAdapter(new ArrayAdapter<>(Electronics_category.this, android.R.layout.simple_list_item_1, suggestions));
 
         findViewById(R.id.insta_btn).setOnClickListener(new View.OnClickListener() {
             @Override
