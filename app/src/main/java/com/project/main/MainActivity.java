@@ -1,26 +1,16 @@
 package com.project.main;  //project-custom-package
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import androidx.appcompat.widget.Toolbar;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
@@ -96,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         findViewById(R.id.buttonBar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, searchActivity.class));
+                startActivity(new Intent(MainActivity.this, SelectCategoryClass.class));
             }
         });
 
@@ -158,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){
-            Intent intent = new Intent(this, searchActivity.class);
+            Intent intent = new Intent(this, SelectCategoryClass.class);
             startActivity(intent);
         }
         else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){

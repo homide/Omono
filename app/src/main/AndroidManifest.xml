@@ -17,15 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Electronics_category"></activity>
-        <activity android:name=".Medicine_category" />
-        <activity android:name=".Fashion_category" />
-        <activity android:name=".Groceries_category" />
-        <activity android:name=".General_category" />
+        <activity android:name=".Main_Electronics_category"></activity>
+        <activity android:name=".Main_Medicine_category" />
+        <activity android:name=".Main_Fashion_category" />
+        <activity android:name=".Main_Groceries_category" />
+        <activity android:name=".Main_General_category" />
         <activity android:name=".Wishlist" />
         <activity android:name=".Notifications" />
         <activity android:name=".Feedback" />
-        <activity android:name=".searchActivity" />
+        <activity android:name=".SelectCategoryClass" />
         <activity
             android:name=".Main2Activity"
             android:windowSoftInputMode="adjustPan" />
