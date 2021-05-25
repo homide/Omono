@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/home_background"
     android:fitsSystemWindows="false"
-    tools:context=".searchActivity"
+    tools:context=".SelectCategoryClass"
     tools:openDrawer="start">
 
     <!-- <LinearLayout

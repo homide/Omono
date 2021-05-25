@@ -104,7 +104,7 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             arraySave.products.clear();
-            Intent intent = new Intent(this, searchActivity.class);
+            Intent intent = new Intent(this, SelectCategoryClass.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             super.onBackPressed();

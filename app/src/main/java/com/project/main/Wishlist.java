@@ -63,7 +63,7 @@ public class Wishlist extends AppCompatActivity implements NavigationView.OnNavi
         findViewById(R.id.category_toolbar_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Wishlist.this, searchActivity.class));
+                startActivity(new Intent(Wishlist.this, SelectCategoryClass.class));
             }
         });
 
@@ -97,7 +97,7 @@ public class Wishlist extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){
-            Intent intent = new Intent(Wishlist.this, searchActivity.class);
+            Intent intent = new Intent(Wishlist.this, SelectCategoryClass.class);
             startActivity(intent);
         }
         else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){

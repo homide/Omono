@@ -8,7 +8,7 @@
     android:fitsSystemWindows="false"
     android:background="@color/home_background"
     tools:openDrawer=""
-    tools:context=".General_category">
+    tools:context=".Main_General_category">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

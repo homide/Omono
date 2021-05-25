@@ -52,7 +52,7 @@ public class Feedback extends AppCompatActivity {
         category_toolbar_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Feedback.this, searchActivity.class);
+                Intent cinemaIntent = new Intent(Feedback.this, SelectCategoryClass.class);
                 startActivity(cinemaIntent);
             }
         });

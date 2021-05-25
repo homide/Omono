@@ -56,7 +56,7 @@ public class Notifications extends AppCompatActivity implements NavigationView.O
         findViewById(R.id.category_toolbar_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Notifications.this, searchActivity.class));
+                startActivity(new Intent(Notifications.this, SelectCategoryClass.class));
             }
         });
 
@@ -90,7 +90,7 @@ public class Notifications extends AppCompatActivity implements NavigationView.O
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){
-            Intent intent = new Intent(Notifications.this, searchActivity.class);
+            Intent intent = new Intent(Notifications.this, SelectCategoryClass.class);
             startActivity(intent);
         }
         else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
