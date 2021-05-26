@@ -161,7 +161,7 @@ public class Main_Groceries_category extends AppCompatActivity implements arrayS
             Intent intent = new Intent(Main_Groceries_category.this, SelectCategoryClass.class);
             startActivity(intent);
         }
-        else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout|| id == R.id.contactus){
+        else if(id == R.id.myAccount || id == R.id.settings || id == R.id.legalAndAbout){
             Toast.makeText(this, "This doesn't have a function yet", Toast.LENGTH_SHORT).show();
         }
 
