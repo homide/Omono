@@ -3,6 +3,7 @@ package com.project.main;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -20,7 +21,9 @@ import com.google.android.material.navigation.NavigationView;
 public class Main2Activity extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    int catSelector;
+    MyAdapterGeneral adapter;
+    boolean condition = false;
+    int initialSize;
 
     @SuppressLint("StaticFieldLeak")
     @Override
@@ -39,14 +42,16 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        catSelector = getIntent().getIntExtra("cat", 0);
+        int catSelector = getIntent().getIntExtra("cat", 0);
         switch(catSelector){
             case 0:
-                MyAdaptor adaptor = new MyAdaptor(Main2Activity.this, arraySave.products);
+                initialSize = arraySave.products.size();
+                adapter = new MyAdapterGeneral(Main2Activity.this, arraySave.products);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Main2Activity.this));
-                recyclerView.setAdapter(adaptor);
+                recyclerView.setAdapter(adapter);
                 break;
             case 1:
                 MyAdaptorFashion adaptorfashion = new MyAdaptorFashion(Main2Activity.this, arraySave.products);
@@ -59,6 +64,26 @@ public class Main2Activity extends AppCompatActivity implements arraySave, Navig
                 recyclerView.setAdapter(adaptorgroceries);
                 break;
         }
+
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(!condition) {
+                    if (initialSize < arraySave.products.size()) {
+                        adapter.notifyDataSetChanged();
+                        initialSize = arraySave.products.size();
+                        handler.postDelayed(this, 1000);
+                    }else{
+                        handler.postDelayed(this, 1000);
+                    }
+                }
+                else {
+                    condition = true;
+                }
+            }
+        }, 2000);
     }
 
     @Override

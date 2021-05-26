@@ -26,7 +26,7 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<Product>> implem
         try{
             System.out.println("Running flipkart on thread");
             Document doc = Jsoup.connect(strings[0]).get();
-            Element s = doc.getElementsByClass("_1KHd47").get(1);
+            Element s = doc.getElementsByClass("_1KHd47").get(0);
             String a = s.text();
             if(a.equals("Mobiles & Accessories") ||a.equals("Home Entertainment")){
                 CallingGeneral calling = new CallingGeneral();
@@ -51,6 +51,7 @@ public class Flipkart extends AsyncTask<String, Void, ArrayList<Product>> implem
             }
 
         }catch (Exception e){
+            System.out.println("Exception in flipkart " + e.getCause());
             return null;
         }
     }

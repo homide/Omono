@@ -17,7 +17,7 @@ public class CallingSites {
         snap.start();
         shop.start();
         pay.start();
-        flip.start();
+//        flip.start();
         amz.start();
     }
 

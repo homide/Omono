@@ -55,17 +55,15 @@ public class Main_General_category extends AppCompatActivity implements arraySav
                     CallingSites callingSites = new CallingSites();
                     callingSites.callingmain(searchtext);
                     Handler handler = new Handler();
-                    do {
-                        handler.postDelayed(new Runnable() {
-                            public void run() {
-                                pd.dismiss();
-                                int cat = 1;
-                                Intent intent = new Intent(Main_General_category.this, Main2Activity.class);
-                                intent.putExtra("cat", cat);
-                                startActivity(intent);
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            pd.dismiss();
+                            int cat = 0;
+                            Intent intent = new Intent(Main_General_category.this, Main2Activity.class);
+                            intent.putExtra("cat", cat);
+                            startActivity(intent);
                             }
-                        }, 1700);
-                    } while (arraySave.products.size() > 10);
+                        }, 4000);
                 }
             }
         });

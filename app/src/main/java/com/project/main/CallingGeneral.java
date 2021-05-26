@@ -52,7 +52,12 @@ public class CallingGeneral {
                         temp4 = "";
                     }
                     else {
-                        temp4 = productdiscount.text();
+                        if (sNo == 4){
+                            String t = productdiscount.text();
+                            temp4 = t.substring(1) + " off";
+                        }else{
+                            temp4 = productdiscount.text();
+                        }
                     }
                 }
 
@@ -85,24 +90,43 @@ public class CallingGeneral {
                 }
             }
 
+            //product discounted price loop
+            for (Element priceOfProductAfter : elpriceafter) {
+                if (priceOfProductAfter == null) {
+                    temp3 = "";
+                } else {
+                    if (sNo == 2){
+                        temp3 = priceOfProductAfter.text();
+                    }else if(sNo == 3){
+                        String t = priceOfProductAfter.text() ;
+                        temp3 = "₹ "  + t.substring(t.indexOf(".") + 2);
+                    }else{
+                        temp3 = "₹ " + priceOfProductAfter.text();
+                    }
+                }
+            }
+
             //product original price loop
             for (Element priceOfProductBefore : elpricebefore) {
                 if(priceOfProductBefore == null){
                     temp2 = "";
                 }
                 else {
+                    if (sNo == 2){
+                        String t = priceOfProductBefore.text();
+                        temp2 = t.substring(t.indexOf(" "));
+                    }else if(sNo == 3){
+                        String t = priceOfProductBefore.text() ;
+                        temp2 ="₹ " +  t.substring(t.indexOf(".") + 2);
+                    }else if (sNo == 4){
+                        String p = priceOfProductBefore.text();
+                        temp2 = "₹ " + p.substring(0,p.indexOf('-'));
+                    }else{
                         temp2 = priceOfProductBefore.text();
+                    }
                      }
                 }
 
-            //product discounted price loop
-            for (Element priceOfProductAfter : elpriceafter) {
-                if (priceOfProductAfter == null) {
-                    temp3 = "";
-                } else {
-                        temp3 = "₹" + priceOfProductAfter.text();
-                }
-            }
 
             //image loop
             if(sNo == 3){
