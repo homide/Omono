@@ -4,7 +4,7 @@ import android.content.res.Resources;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CallingMain {
+public class CallingSites {
 
     public void callingmain(String searchtext){
         ThreadCallGeneral snap = new ThreadCallGeneral("https://www.snapdeal.com/search?keyword=" + searchtext + "&santizedKeyword=&catId=" +

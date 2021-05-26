@@ -52,8 +52,8 @@ public class Main_Fashion_category extends AppCompatActivity implements arraySav
                     final ProgressDialog pd = new ProgressDialog(Main_Fashion_category.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
-                    CallingMain callingMain = new CallingMain();
-                    callingMain.callingfashion(searchtext);
+                    CallingSites callingSites = new CallingSites();
+                    callingSites.callingfashion(searchtext);
                     Handler handler = new Handler();
                     do {
                         handler.postDelayed(new Runnable() {

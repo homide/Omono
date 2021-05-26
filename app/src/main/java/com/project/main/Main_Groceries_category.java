@@ -52,8 +52,8 @@ public class Main_Groceries_category extends AppCompatActivity implements arrayS
                     final ProgressDialog pd = new ProgressDialog(Main_Groceries_category.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
-                    CallingMain callingMain = new CallingMain();
-                    callingMain.callinggrocery(searchtext);
+                    CallingSites callingSites = new CallingSites();
+                    callingSites.callinggrocery(searchtext);
                     Handler handler = new Handler();
                     do {
                         handler.postDelayed(new Runnable() {

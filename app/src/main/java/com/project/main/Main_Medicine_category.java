@@ -52,8 +52,8 @@ public class Main_Medicine_category extends AppCompatActivity implements arraySa
                     final ProgressDialog pd = new ProgressDialog(Main_Medicine_category.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
-                    CallingMain callingMain = new CallingMain();
-                    callingMain.callingmedicines(searchtext);
+                    CallingSites callingSites = new CallingSites();
+                    callingSites.callingmedicines(searchtext);
                     Handler handler = new Handler();
                     do {
                         handler.postDelayed(new Runnable() {

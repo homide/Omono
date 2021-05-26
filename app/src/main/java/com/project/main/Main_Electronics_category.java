@@ -52,8 +52,8 @@ public class Main_Electronics_category extends AppCompatActivity implements arra
                     final ProgressDialog pd = new ProgressDialog(Main_Electronics_category.this);
                     pd.setMessage("Searching websites...");
                     pd.show();
-                    CallingMain callingMain = new CallingMain();
-                    callingMain.callingelectronics(searchtext);
+                    CallingSites callingSites = new CallingSites();
+                    callingSites.callingelectronics(searchtext);
                     Handler handler = new Handler();
                     do {
                         handler.postDelayed(new Runnable() {
