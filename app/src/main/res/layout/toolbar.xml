@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="110dp"
-
     android:background="@drawable/sincityred"
     android:elevation="12dp"
     android:paddingTop="0dp">
@@ -14,14 +11,14 @@
         android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="15dp">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/navigation_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
             android:src="@drawable/ic_menu_icon_white" />
 
         <TextView
@@ -53,12 +50,12 @@
             android:id="@+id/wishlist_toolbar_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_alignParentRight="true"
-            android:padding="6dp"
-            android:src="@drawable/heart_white_thick_stroke"
-            android:layout_alignParentEnd="true" />
+            android:padding="8dp"
+            android:src="@drawable/heart_white_thick_stroke" />
 
         <ImageView
             android:id="@+id/category_toolbar_icon"
@@ -66,19 +63,19 @@
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_toStartOf="@id/wishlist_toolbar_icon"
             android:layout_toLeftOf="@id/wishlist_toolbar_icon"
             android:padding="5dp"
-            android:src="@drawable/ic_category_white"
-            android:layout_toStartOf="@id/wishlist_toolbar_icon" />
+            android:src="@drawable/ic_category_white" />
 
         <ImageView
             android:id="@+id/notifications_toolbar_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_toLeftOf="@id/category_toolbar_icon"
+            android:layout_toStartOf="@id/category_toolbar_icon"
+            android:layout_toLeftOf="@id/wishlist_toolbar_icon"
             android:padding="5dp"
-            android:src="@drawable/ic_notification_white"
-            android:layout_toStartOf="@id/category_toolbar_icon" />
+            android:src="@drawable/ic_notification_white" />
 
     </RelativeLayout>
 
@@ -91,27 +88,27 @@
             android:id="@+id/searchText"
             android:layout_width="310dp"
             android:layout_height="35dp"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/custom_search_bar"
-            android:hint="@string/searchbar_hint"
-            android:inputType="textPersonName"
-            android:completionThreshold="1"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/custom_search_bar"
+            android:completionThreshold="1"
+            android:drawableStart="@drawable/ic_action_search"
             android:drawableLeft="@drawable/ic_action_search"
-            android:drawableStart="@drawable/ic_action_search" />
+            android:hint="@string/searchbar_hint"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/btnSearch"
             android:layout_width="60dp"
             android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/custom_search_bar"
-            android:text="Go"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp" />
+            android:text="Go" />
 
     </RelativeLayout>
 

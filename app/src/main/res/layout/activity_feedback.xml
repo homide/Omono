@@ -7,149 +7,119 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
     tools:context=".MainActivity"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="126dp"
-            android:layout_height="30dp"
-            android:text="Email Address:"
-            android:textColor="#575252"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textInputEditText3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText2"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="198dp"
-            android:layout_height="29dp"
-            android:text="Title of feedback:"
-            android:textColor="#575454"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textInputEditText4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.267"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText3"
-            app:layout_constraintVertical_bias="1.0" />
+        android:background="@drawable/bg"
+        android:orientation="vertical">
 
         <include
             android:id="@+id/toolbar"
             layout="@layout/narrow_toolbar"
-            android:background="#00000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="#00000000" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:background="#DA6161"
-            android:text="Submit"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="60dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:fontFamily="sans-serif"
-            android:text="Enter your feedback here:"
-            android:textColor="#605B5B"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.28"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText4"
-            app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username:"
+                    android:textColor="#574E4D"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
-            android:layout_width="297dp"
-            android:layout_height="128dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/custom_search_bar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.648" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_search_bar"
+                    android:hint="User Name"
+                    android:paddingHorizontal="10dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText2"
-            android:layout_width="292dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/custom_search_bar"
-            android:hint="   Kanishk Chauhan"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.478"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="Email Address:"
+                    android:textColor="#575252"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText3"
-            android:layout_width="292dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="72dp"
-            android:background="@drawable/custom_search_bar"
-            android:hint="   kanishk@omono.com"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.478"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText3"
+                    android:layout_width="292dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_search_bar"
+                    android:hint="username@omono.com"
+                    android:paddingHorizontal="10dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText4"
-            android:layout_width="292dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/custom_search_bar"
-            android:hint="   Amazing app"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.478"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText3" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:text="Title of feedback:"
+                    android:textColor="#575454"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="103dp"
-            android:layout_height="31dp"
-            android:text="Username:"
-            android:textColor="#574E4D"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textInputEditText2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.185"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="1.0" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText4"
+                    android:layout_width="292dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_search_bar"
+                    android:hint="Amazing app"
+                    android:paddingHorizontal="10dp" />
 
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Enter your feedback here:"
+                    android:textColor="#605B5B"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_search_bar"
+                    android:paddingHorizontal="10dp" />
+
+                <Button
+                    android:id="@+id/sendButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:background="#DA6161"
+                    android:text="Submit"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

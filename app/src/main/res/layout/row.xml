@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="25dp"
-    app:cardElevation="25dp"
     android:layout_margin="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
@@ -13,6 +11,8 @@
     android:layout_marginBottom="10dp"
     android:orientation="horizontal"
     android:padding="16dp"
+    app:cardCornerRadius="25dp"
+    app:cardElevation="25dp"
     app:contentPadding="5sp">
 
     <LinearLayout
@@ -23,11 +23,11 @@
 
         <ImageView
             android:id="@+id/productImage"
-            android:src="@drawable/iphone11promax"
             android:layout_width="127dp"
             android:layout_height="152dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:src="@drawable/iphone11promax" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,17 +39,17 @@
                 android:id="@+id/mainTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/baloo"
+                android:maxLines="2"
                 android:text="Apple iPhone 11 Pro Max (256GB) - Midnight Green"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="4dp">
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
 
                 <RatingBar
                     android:id="@+id/ratingBar"
@@ -77,23 +77,23 @@
                     android:id="@+id/discPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="6dp"
                     android:layout_marginRight="6dp"
                     android:text="₹1,31,900"
                     android:textColor="@color/TextColor"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <RelativeLayout
+                    android:id="@+id/realativelayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/realativelayout"
                     android:layout_alignBottom="@id/discPrice"
-                    android:layout_toRightOf="@id/discPrice"
+                    android:layout_marginTop="3dp"
                     android:layout_marginEnd="6dp"
                     android:layout_marginRight="6dp"
-                    android:layout_marginTop="3dp">
+                    android:layout_toRightOf="@id/discPrice">
 
                     <TextView
                         android:id="@+id/priceBefore"
@@ -109,9 +109,9 @@
                         android:id="@+id/divider"
                         android:layout_width="40dp"
                         android:layout_height="1dp"
-                        android:background="@color/OrangeText"
+                        android:layout_centerInParent="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerInParent="true"/>
+                        android:background="@color/OrangeText" />
 
                 </RelativeLayout>
 
@@ -120,10 +120,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/discPrice"
+                    android:layout_toEndOf="@id/realativelayout"
                     android:layout_toRightOf="@id/realativelayout"
                     android:text="(12% off)"
-                    android:textSize="10sp"
-                    android:layout_toEndOf="@id/realativelayout" />
+                    android:textSize="10sp" />
 
             </RelativeLayout>
 
@@ -141,12 +141,12 @@
                     android:src="@drawable/heart_white" />
 
                 <ImageView
+                    android:id="@+id/tag"
                     android:layout_width="27dp"
                     android:layout_height="27dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:id="@+id/tag"
-                    android:src="@drawable/amazon_logo_broad"/>
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/amazon_logo_broad" />
 
             </RelativeLayout>
 
