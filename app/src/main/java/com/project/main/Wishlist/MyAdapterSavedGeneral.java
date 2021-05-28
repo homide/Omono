@@ -1,54 +1,61 @@
-package com.project.main;
+package com.project.main.Wishlist;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.RatingBar;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.project.main.DatabaseHelper;
+import com.project.main.MyAdapterGeneral;
+import com.project.main.Product;
+import com.project.main.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MyAdapterGeneral extends RecyclerView.Adapter<MyAdapterGeneral.ViewHolder> {
+public class MyAdapterSavedGeneral extends RecyclerView.Adapter<MyAdapterSavedGeneral.ViewHolder> {
     Context context;
     ArrayList<Product> products;
-    DatabaseHelper databaseHelper;
 
-    public MyAdapterGeneral(Context context, ArrayList<Product> products){
-        this.context = context;
+    public MyAdapterSavedGeneral(Context c, ArrayList<Product> products){
+        this.context = c;
         this.products = products;
-        databaseHelper = new DatabaseHelper(context);
     }
 
     @NonNull
     @Override
-    public MyAdapterGeneral.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyAdapterSavedGeneral.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
-        return new ViewHolder(view);
+        return new MyAdapterSavedGeneral.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapterGeneral.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapterSavedGeneral.ViewHolder holder, int position) {
         Product product = products.get(position);
         try {
-            holder.deleteButton.setVisibility(View.INVISIBLE);
-            holder.mainTitle.setText(product.title);
-            holder.priceBefore.setText(product.priceBefore);
-            holder.discPrice.setText(product.discountedPrice);
-            holder.discount.setText(product.discount);
-            holder.ratingBar.setRating(product.rating);
-            holder.ratingCount.setText(product.ratingCount);
-            String tag = product.tag;
+            holder.saveButton.setVisibility(View.INVISIBLE);
+            holder.mainTitle.setText(product.getTitle());
+            holder.priceBefore.setText(product.getPriceBefore());
+            holder.discPrice.setText(product.getDiscountedPrice());
+            holder.discount.setText(product.getDiscount());
+            holder.ratingBar.setRating(product.getRating());
+            holder.ratingCount.setText(product.getRatingCount());
+            String tag = product.getTag();
             switch (tag){
                 case "Paytm":
                     Picasso.with(context).load("https://store-images.s-microsoft.com/image/apps.30876.14627692376548906.9a3f6f3d-f2dd-491a-82aa-74db97c80cdd.2c236b26-6975-47ba-8423-4ad4fef81746").into(holder.tag);
@@ -76,23 +83,44 @@ public class MyAdapterGeneral extends RecyclerView.Adapter<MyAdapterGeneral.View
             System.out.println(m);
         }
         try {
-            if (product.imageLink.length() <= 0) {
+            if (product.getImageLink().length() <= 0) {
                 Picasso.with(context).load("https://1m19tt3pztls474q6z46fnk9-wpengine.netdna-ssl.com/wp-content/themes/unbound/images/No-Image-Found-400x264.png").into(holder.productImage);
             } else {
-                Picasso.with(context).load(product.imageLink).into(holder.productImage);
+                Picasso.with(context).load(product.getImageLink()).into(holder.productImage);
             }
         } catch (Exception m) {
             System.out.println(m);
         }
 
-        holder.saveButton.setOnClickListener(v->{
-            if (databaseHelper.checkGeneral(products.get(position).getProductLink())){
-                Toast.makeText(context,"Already in your wishlist",Toast.LENGTH_LONG).show();
-            }else{
-                databaseHelper.insertGeneralItems(products.get(position));
-            }
-        });
+        holder.deleteButton.setOnClickListener(v->{
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            assert inflater != null;
+            @SuppressLint("InflateParams") View popupView = inflater.inflate(R.layout.delete_layout,null);
+            final int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+            int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+            final PopupWindow popupWindow = new PopupWindow(popupView, width, height, true);
+            popupWindow.setOutsideTouchable(false);
+            popupWindow.update();
+            popupWindow.showAtLocation(v, Gravity.CENTER,0,0);
 
+            Button cancelButton = popupView.findViewById(R.id.cancelButtonDelete);
+            Button confirmButton = popupView.findViewById(R.id.confirmButtonDelete);
+
+            cancelButton.setOnClickListener(v1 -> {
+                popupWindow.dismiss();
+            });
+
+            confirmButton.setOnClickListener(v1->{
+                DatabaseHelper databaseHelper = new DatabaseHelper(context);
+                if (databaseHelper.deleteGeneralItems(product.getProductLink())) {
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Deleted data!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(context, "Error in deleting!", Toast.LENGTH_LONG).show();
+                }
+                popupWindow.dismiss();
+            });
+        });
 
     }
 
@@ -126,7 +154,7 @@ public class MyAdapterGeneral extends RecyclerView.Adapter<MyAdapterGeneral.View
         public void onClick(View v) {
             int position = getLayoutPosition();
             Product url = products.get(position);
-            String link = url.productLink;
+            String link = url.getProductLink();
             Intent intent = new Intent((Intent.ACTION_VIEW));
             intent.setData(Uri.parse(link));
             context.startActivity(intent);

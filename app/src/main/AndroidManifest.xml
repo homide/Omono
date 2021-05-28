@@ -22,9 +22,9 @@
         <activity android:name=".Main_Fashion_category" />
         <activity android:name=".Main_Groceries_category" />
         <activity android:name=".Main_General_category" />
-        <activity android:name=".Wishlist" />
         <activity android:name=".Notifications" />
         <activity android:name=".Feedback" />
+        <activity android:name=".Wishlist.WishlistActivity"/>
         <activity android:name=".SelectCategoryClass" />
         <activity
             android:name=".Main2Activity"

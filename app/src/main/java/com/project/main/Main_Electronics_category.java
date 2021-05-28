@@ -18,6 +18,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
+import com.project.main.Wishlist.WishlistActivity;
 
 public class Main_Electronics_category extends AppCompatActivity implements arraySave, NavigationView.OnNavigationItemSelectedListener {
 
@@ -109,7 +110,7 @@ public class Main_Electronics_category extends AppCompatActivity implements arra
         findViewById(R.id.wishlist_toolbar_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main_Electronics_category.this, Wishlist.class));
+                startActivity(new Intent(Main_Electronics_category.this, WishlistActivity.class));
             }
         });
 
@@ -152,7 +153,7 @@ public class Main_Electronics_category extends AppCompatActivity implements arra
             startActivity(cinemaIntent);
         }
         else if (id == R.id.wishlist){
-            Intent cinemaIntent = new Intent(Main_Electronics_category.this, Wishlist.class);
+            Intent cinemaIntent = new Intent(Main_Electronics_category.this, WishlistActivity.class);
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){

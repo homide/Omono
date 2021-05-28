@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.project.main.Wishlist.WishlistActivity;
 
 public class Notifications extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -86,7 +87,7 @@ public class Notifications extends AppCompatActivity implements NavigationView.O
             startActivity(cinemaIntent);
         }
         else if (id == R.id.wishlist){
-            Intent cinemaIntent = new Intent(Notifications.this, Wishlist.class);
+            Intent cinemaIntent = new Intent(Notifications.this, WishlistActivity.class);
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){

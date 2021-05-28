@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.project.main.Wishlist.WishlistActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        contentView = findViewById(R.id.content1);
 
         //Hamburger buttons
         findViewById(R.id.insta_btn).setOnClickListener(new View.OnClickListener() {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         findViewById(R.id.wishlist_toolbar_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Wishlist.class));
+                startActivity(new Intent(MainActivity.this, WishlistActivity.class));
             }
         });
 
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(cinemaIntent);
         }
         else if (id == R.id.wishlist){
-            Intent cinemaIntent = new Intent(this, Wishlist.class);
+            Intent cinemaIntent = new Intent(this, WishlistActivity.class);
             startActivity(cinemaIntent);
         }
         else if (id == R.id.category){

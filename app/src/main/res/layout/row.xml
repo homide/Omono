@@ -132,13 +132,21 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/add2list"
+                    android:id="@+id/saveButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/light_orange_circle"
                     android:src="@drawable/heart_white" />
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/deleteItem"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@android:drawable/ic_menu_delete"/>
 
                 <ImageView
                     android:id="@+id/tag"

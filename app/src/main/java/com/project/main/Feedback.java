@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.project.main.Wishlist.WishlistActivity;
+
 public class Feedback extends AppCompatActivity {
 
     @Override
@@ -62,7 +64,7 @@ public class Feedback extends AppCompatActivity {
         wishlist_toolbar_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cinemaIntent = new Intent(Feedback.this, Wishlist.class);
+                Intent cinemaIntent = new Intent(Feedback.this, WishlistActivity.class);
                 startActivity(cinemaIntent);
             }
         });
